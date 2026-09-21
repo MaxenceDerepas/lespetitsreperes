@@ -582,6 +582,12 @@ Et parfois, l’activité la plus utile de la fin de journée, c’est simplemen
     motif: 'chef',
     accent: 'peach',
     relatedProducts: ['pack-recettes', 'pack-experiences-scientifiques'],
+    image: {
+      src: '/blog/cuisiner-en-famille.jpg',
+      alt: 'Deux garçons versent de la farine dans un saladier, aidés par leur maman, devant une fiche recette illustrée posée sur le plan de travail',
+      width: 1400,
+      height: 933,
+    },
     body: `Cuisiner avec un enfant, c’est souvent présenté comme un joli moment de complicité.
 
 Dans la vraie vie, c’est aussi parfois trois fois plus long, deux fois plus salissant… et ça finit rarement bien quand on commence à 19 h 15 un jeudi soir.
