@@ -53,7 +53,9 @@ export function Footer() {
           <div className="grid gap-10 lg:grid-cols-[1.25fr_repeat(3,0.8fr)_0.9fr] lg:gap-8">
             {/* Marque */}
             <div>
-              <Logo variant="large" asStatic />
+              {/* Cliquable : le logo du pied de page ramène à l'accueil, comme
+                  celui de l'en-tête — c'est ce que les visiteurs essaient. */}
+              <Logo variant="large" />
               <p className="mt-6 max-w-[16rem] text-[0.86rem] leading-relaxed text-ink-soft">
                 Des fiches PDF à imprimer pour accompagner le quotidien des familles avec
                 bienveillance et simplicité.
