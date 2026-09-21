@@ -133,19 +133,19 @@ export function HeroBanner() {
       </div>
 
       {/* ---- Colonne centrale ---- */}
-      <div className="relative mx-auto w-full max-w-shell px-5 pt-9 sm:px-7 lg:px-[18rem] lg:pt-11 xl:px-[22rem]">
+      <div className="relative mx-auto w-full max-w-shell px-5 pt-5 sm:px-7 lg:px-[18rem] lg:pt-6 xl:px-[22rem]">
         <div className="mx-auto max-w-[46rem] text-center">
           {/* Signature de la marque. Le nom est déjà dans le logo de l'en-tête :
               il est ici décoratif, et masqué aux lecteurs d'écran. */}
           <div className="relative flex items-center justify-center" aria-hidden="true">
             <BrindilleFine className="mr-1 h-11 w-6 shrink-0 sm:h-14 sm:w-8" />
-            <span className="font-script text-[clamp(1.95rem,6.4vw,3.5rem)] leading-[1.15] text-sage-dark sm:whitespace-nowrap">
+            <span className="font-script text-[clamp(1.9rem,6vw,3.1rem)] leading-[1.15] text-sage-dark sm:whitespace-nowrap">
               Les <span className="text-terracotta-deep">Petits</span> Repères
             </span>
             <SoleilLevant className="-mt-8 ml-1 h-8 w-12 shrink-0 sm:h-11 sm:w-16" />
           </div>
 
-          <h1 id="titre-accueil" className="mt-3">
+          <h1 id="titre-accueil" className="mt-2">
             <span className="block text-balance font-serif text-[clamp(1.15rem,2.2vw,1.6rem)] uppercase tracking-[0.11em] text-ink">
               Des outils doux et créatifs
             </span>
@@ -155,18 +155,18 @@ export function HeroBanner() {
             </span>
           </h1>
 
-          <FiletCoeur className="mx-auto mt-4 h-4 w-44" />
+          <FiletCoeur className="mx-auto mt-3 h-4 w-44" />
 
           {/* ---- Les familles de fiches ---- */}
           {/* La ligne déborde un peu de la colonne pour tenir sur un seul rang :
               marges négatives ÉGALES des deux côtés, sinon elle se décale. */}
-          <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-1 gap-y-2 lg:-mx-8 xl:-mx-24">
+          <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-0.5 gap-y-1.5 lg:-mx-12 xl:-mx-28">
             <li aria-hidden="true">
               <LeafIcon size={17} className="mr-1 text-sage-light" />
             </li>
             {CATEGORIES.map(({ label, href, ink }, index) => (
               <li key={label} className="flex items-center">
-                {index > 0 && <span className="mx-1.5 text-terracotta-light" aria-hidden="true">·</span>}
+                {index > 0 && <span className="mx-1 text-terracotta-light" aria-hidden="true">·</span>}
                 <Link
                   href={href}
                   className={`rounded-soft px-1 text-[0.72rem] font-semibold uppercase tracking-[0.1em] transition-opacity hover:opacity-70 lg:text-[0.74rem] xl:tracking-[0.13em] ${ink}`}
@@ -183,7 +183,7 @@ export function HeroBanner() {
           {/* ---- Appel à l'action ----
               Absent du visuel fourni, mais un accueil sans porte d'entrée vers
               la boutique fait perdre des ventes : on le garde, discret. */}
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
             <ButtonLink href="/boutique" size="lg">
               Découvrir la boutique
               <ArrowRightIcon size={18} />
@@ -193,7 +193,7 @@ export function HeroBanner() {
             </Link>
           </div>
 
-          <p className="mt-5 flex items-center justify-center gap-2.5 text-[0.8rem] text-muted">
+          <p className="mt-3.5 flex items-center justify-center gap-2.5 text-[0.8rem] text-muted">
             <span className="flex -space-x-1.5" aria-hidden="true">
               {['#E8B44A', '#E8837C', '#A5AE8A'].map((couleur) => (
                 <span
@@ -209,13 +209,13 @@ export function HeroBanner() {
       </div>
 
       {/* ---- Le bandeau sauge des bénéfices ---- */}
-      <div className="relative mt-7 bg-sage-pale/55 lg:mt-9">
+      <div className="relative mt-4 bg-sage-pale/55 lg:mt-5">
         {/* Le liseré arrondi qui donne l'effet « papier posé » du visuel */}
         <span
           aria-hidden="true"
           className="absolute -top-5 left-0 right-0 h-6 rounded-t-[50%] bg-sage-pale/55"
         />
-        <ul className="relative mx-auto flex w-full max-w-shell flex-wrap justify-center gap-x-8 gap-y-4 px-5 py-4 sm:px-7 lg:gap-x-14 lg:py-5">
+        <ul className="relative mx-auto flex w-full max-w-shell flex-wrap justify-center gap-x-8 gap-y-3 px-5 py-3 sm:px-7 lg:gap-x-14 lg:py-3.5">
           {BENEFICES.map(({ Icon, titre, suite }, index) => (
             <li
               key={titre}

@@ -74,7 +74,7 @@ export default function HomePage() {
       <HeroBanner />
 
       {/* ═══════════════ 2. LA PROMESSE ═══════════════ */}
-      <section className="relative overflow-hidden py-20 lg:py-28" aria-labelledby="promesse">
+      <section className="relative overflow-hidden py-10 lg:py-12" aria-labelledby="promesse">
         <TwigDecor className="pointer-events-none absolute -left-2 top-16 hidden h-28 w-20 text-sage-light/45 lg:block" />
         <TwigDecor
           flip
@@ -86,7 +86,7 @@ export default function HomePage() {
 
           <p
             id="promesse"
-            className="mt-6 text-balance text-[1.45rem] leading-[1.55] text-ink sm:text-[1.78rem]"
+            className="mt-4 text-balance text-[1.45rem] leading-[1.55] text-ink sm:text-[1.78rem]"
           >
             Nous ne vendons pas une méthode de plus. Nous dessinons des supports simples,
             affichés à hauteur d’enfant, qui remplacent la consigne répétée dix fois — et
@@ -94,7 +94,7 @@ export default function HomePage() {
             <span className="font-semibold text-terracotta-deep">un peu plus doux</span>.
           </p>
 
-          <ul className="mx-auto mt-12 grid max-w-2xl gap-x-8 gap-y-5 text-left sm:grid-cols-2">
+          <ul className="mx-auto mt-10 grid max-w-2xl gap-x-8 gap-y-5 text-left sm:grid-cols-2">
             {commitments.map((item) => (
               <li key={item.label} className="flex items-center gap-3">
                 <CategoryIllustration motif={item.motif} size={30} className="shrink-0" />
