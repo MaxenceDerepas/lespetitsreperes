@@ -167,6 +167,12 @@ export interface BlogPost {
   author: string;
   motif: Motif;
   accent: AccentKey;
+  /**
+   * Photo d'illustration, optionnelle. Quand elle existe, elle remplace le
+   * motif coloré sur les cartes et coiffe l'article. Sans elle, l'article
+   * garde son motif dessiné : les deux styles cohabitent sans trou.
+   */
+  image?: { src: string; alt: string; width: number; height: number };
   /** Contenu en markdown léger (titres, paragraphes, listes). */
   body: string;
   /** Produits mis en avant en fin d'article. */

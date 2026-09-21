@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
@@ -59,7 +60,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt,
-    image: [`${site.url}/blog/${post.slug}/opengraph-image`],
+    // La photo de l'article si elle existe, sinon la carte générée.
+    image: post.image
+      ? [`${site.url}${post.image.src}`, `${site.url}/blog/${post.slug}/opengraph-image`]
+      : [`${site.url}/blog/${post.slug}/opengraph-image`],
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
     author: { '@type': 'Person', name: post.author },
@@ -82,14 +86,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <article>
         {/* En-tête */}
         <header className="shell max-w-prose py-8 text-center lg:py-11">
-          <span
-            className="mx-auto flex h-16 w-16 items-center justify-center rounded-full"
-            style={{ backgroundColor: palette.bg, color: palette.ink }}
-          >
-            <MotifIcon motif={post.motif} size={30} strokeWidth={1.3} />
-          </span>
+          {/* Photo ou motif dessiné : un article illustré n'a pas besoin des
+              deux, sinon l'en-tête s'empile sur trois éléments décoratifs. */}
+          {!post.image && (
+            <span
+              className="mx-auto flex h-16 w-16 items-center justify-center rounded-full"
+              style={{ backgroundColor: palette.bg, color: palette.ink }}
+            >
+              <MotifIcon motif={post.motif} size={30} strokeWidth={1.3} />
+            </span>
+          )}
 
-          <p className="mt-5 flex flex-wrap items-center justify-center gap-2.5 text-[0.76rem]">
+          <p className={`${post.image ? '' : 'mt-5'} flex flex-wrap items-center justify-center gap-2.5 text-[0.76rem]`}>
             <Link
               href={`/blog?categorie=${encodeURIComponent(post.category)}`}
               className="rounded-full bg-sage-pale/60 px-3 py-1 font-semibold uppercase tracking-[0.14em] text-sage-dark transition-colors hover:bg-sage-pale"
@@ -113,6 +121,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </p>
           <LeafPair className="mx-auto mt-6 h-7 w-11 text-sage-light" />
         </header>
+
+        {/* La photo, un peu plus large que le texte : elle respire sans
+            couper la lecture. */}
+        {post.image && (
+          <div className="shell max-w-4xl pb-10">
+            <Image
+              src={post.image.src}
+              alt={post.image.alt}
+              width={post.image.width}
+              height={post.image.height}
+              sizes="(min-width: 1024px) 56rem, 100vw"
+              priority
+              className="h-auto w-full rounded-xl2 object-cover shadow-soft"
+            />
+          </div>
+        )}
 
         {/* Corps de l'article */}
         <div className="shell max-w-prose pb-12">

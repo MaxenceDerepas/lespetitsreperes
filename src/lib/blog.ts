@@ -31,6 +31,12 @@ export const blogPosts: BlogPost[] = [
     accent: 'sand',
     featured: true,
     relatedProducts: ['semainier-famille', 'tableau-des-petites-missions'],
+    image: {
+      src: '/blog/bien-grandir-a-son-rythme.jpg',
+      alt: 'Une affiche « Bien grandir, à son rythme » accrochée dans une chambre d’enfant, au-dessus d’un tabouret avec un sac à dos et des vêtements pliés',
+      width: 1400,
+      height: 933,
+    },
     body: `Et si le dimanche soir devenait un petit rendez-vous pour regarder ensemble la semaine qui arrive ?
 
 Quelques minutes pour remplir le semainier ou le tableau des missions, expliquer ce qui est prévu, répondre aux questions et permettre à l’enfant de savoir ce qui l’attend.
@@ -171,6 +177,12 @@ Parce que l’autonomie ne consiste pas seulement à « faire seul ». Elle comm
     accent: 'sage',
     featured: true,
     relatedProducts: ['pack-routines', 'routine-du-matin'],
+    image: {
+      src: '/blog/routine-du-matin.jpg',
+      alt: 'Un petit garçon décroche sa veste devant l’affiche « Ma routine du matin » accrochée au mur de sa chambre',
+      width: 1400,
+      height: 933,
+    },
     body: `Il y a des matins où tout s’enchaîne facilement… et d’autres où l’on répète onze fois « mets tes chaussures » avant 8 h 10.
 
 Pour l’enfant, le matin demande pourtant de gérer beaucoup de choses en peu de temps : se réveiller, quitter une activité, s’habiller, déjeuner, se préparer, penser à ses affaires et finalement partir.
@@ -339,6 +351,12 @@ L’important est que l’enfant puisse progressivement savoir ce qui est attend
     accent: 'terracotta',
     featured: true,
     relatedProducts: ['pack-emotions-connexion-confiance', 'tableau-des-emotions'],
+    image: {
+      src: '/blog/accueillir-la-colere.jpg',
+      alt: 'Un petit garçon assis en tailleur, les mains sur la poitrine et le ventre, respire calmement devant une affiche des émotions',
+      width: 1400,
+      height: 933,
+    },
     body: `La colère d’un enfant peut nous mettre en difficulté.
 
 Elle arrive parfois pour une raison qui nous semble minuscule, au moment où nous sommes déjà pressés, fatigués ou à bout nous-mêmes.
@@ -450,47 +468,6 @@ Et parfois, accompagner une émotion, c’est simplement rester là, poser une l
 Pas pour empêcher la colère d’exister. Pour apprendre, petit à petit, à la traverser.`,
   },
   {
-    slug: 'organiser-la-semaine-en-vingt-minutes-le-dimanche',
-    title: 'Organiser la semaine en vingt minutes le dimanche',
-    excerpt:
-      'Un rituel court, une seule page affichée dans la cuisine, et la charge mentale cesse d’être portée par une seule personne.',
-    category: 'Organisation familiale',
-    readingMinutes: 5,
-    publishedAt: '2026-08-07',
-    author: 'Sandrine',
-    motif: 'tools',
-    accent: 'sand',
-    relatedProducts: ['semainier-famille', 'tableau-des-petites-missions'],
-    body: `La charge mentale familiale n’est pas un problème de quantité de travail. C’est un problème de visibilité : tant que le planning existe uniquement dans la tête d’une seule personne, elle est la seule à pouvoir y répondre, et la seule à s’en inquiéter à 23 h.
-
-Le remède est ennuyeux et efficace : sortir le planning de la tête et le mettre au mur.
-
-## Le rituel du dimanche soir
-
-Vingt minutes, toujours au même moment, idéalement avec les enfants autour de la table.
-
-- On remplit les cases repas de la semaine — cinq dîners suffisent, personne ne tient sept.
-- On note les rendez-vous, les activités, les sorties.
-- On répartit ce qui doit l’être : qui emmène, qui récupère, qui fait les courses.
-- Chaque enfant choisit deux missions dans la colonne qui lui revient.
-
-Cela paraît scolaire la première fois. Au bout de trois semaines, c’est le moment le plus reposant du week-end.
-
-## Pourquoi l’afficher plutôt que le mettre dans une application
-
-Une application est parfaite pour deux adultes organisés. Elle est invisible pour un enfant de six ans, et elle demande un geste volontaire pour être consultée. Une feuille A4 dans la cuisine est vue quarante fois par jour, par tout le monde, sans effort.
-
-## Ce qui change concrètement
-
-- Les questions « on mange quoi ? » et « c’est qui qui m’emmène ? » disparaissent.
-- Les enfants anticipent leur semaine, ce qui réduit les refus de dernière minute.
-- La répartition devient discutable, donc négociable, donc partagée.
-
-## Une règle pour que ça tienne
-
-Ne remplissez jamais toutes les cases. Laissez au moins deux soirs vides. Un planning complet est un planning qu’on abandonne à la première imprévu — et les imprévus arrivent le mardi.`,
-  },
-  {
     slug: 'dix-activites-calmes-pour-les-fins-de-journee',
     title: 'Dix activités calmes pour les fins de journée',
     excerpt:
@@ -502,6 +479,12 @@ Ne remplissez jamais toutes les cases. Laissez au moins deux soirs vides. Un pla
     motif: 'palette',
     accent: 'sageLight',
     relatedProducts: ['cartes-activites-calmes', 'pack-activites'],
+    image: {
+      src: '/blog/cette-semaine-en-famille.jpg',
+      alt: 'Une maman et ses deux garçons attablés dans le salon, devant le semainier « Cette semaine » affiché au mur',
+      width: 1400,
+      height: 933,
+    },
     body: `Il y a ce fameux moment entre le retour de l’école et le dîner où la fatigue commence à se faire sentir.
 
 L’enfant a passé sa journée à écouter, apprendre, attendre son tour, respecter des consignes, jouer avec les autres… Et une fois rentré à la maison, il peut avoir besoin de décompresser avant de repartir dans une nouvelle activité.
@@ -668,6 +651,12 @@ Parce qu’en cuisine comme ailleurs, l’autonomie ne consiste pas à laisser l
     motif: 'star',
     accent: 'gold',
     relatedProducts: ['tableau-des-petites-missions', 'pack-routines'],
+    image: {
+      src: '/blog/autonomie.jpg',
+      alt: 'Une petite fille allongée sur le tapis du salon colorie tranquillement, entourée de ses crayons et de ses livres',
+      width: 1400,
+      height: 933,
+    },
     body: `« Il devrait déjà savoir faire ça. »
 
 Cette petite phrase, on peut facilement se la dire.

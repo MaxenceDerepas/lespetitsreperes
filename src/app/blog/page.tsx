@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { blogCategories, getAllPosts } from '@/lib/blog';
@@ -71,17 +72,29 @@ export default async function BlogPage({
               href={`/blog/${lead.slug}`}
               className="group grid overflow-hidden rounded-xl2 border border-ink/[0.07] bg-white shadow-soft transition-all duration-300 ease-calm hover:-translate-y-1 hover:shadow-lift sm:grid-cols-[0.85fr_1.15fr]"
             >
-              <span
-                className="flex min-h-[13rem] items-center justify-center p-8"
-                style={{ backgroundColor: accentPalette(lead.accent).bg }}
-              >
-                <span
-                  className="transition-transform duration-500 ease-calm group-hover:scale-105"
-                  style={{ color: accentPalette(lead.accent).ink }}
-                >
-                  <MotifIcon motif={lead.motif} size={96} strokeWidth={1} />
+              {lead.image ? (
+                <span className="relative min-h-[13rem] overflow-hidden">
+                  <Image
+                    src={lead.image.src}
+                    alt={lead.image.alt}
+                    fill
+                    sizes="(min-width: 640px) 45vw, 100vw"
+                    className="object-cover transition-transform duration-500 ease-calm group-hover:scale-105"
+                  />
                 </span>
-              </span>
+              ) : (
+                <span
+                  className="flex min-h-[13rem] items-center justify-center p-8"
+                  style={{ backgroundColor: accentPalette(lead.accent).bg }}
+                >
+                  <span
+                    className="transition-transform duration-500 ease-calm group-hover:scale-105"
+                    style={{ color: accentPalette(lead.accent).ink }}
+                  >
+                    <MotifIcon motif={lead.motif} size={96} strokeWidth={1} />
+                  </span>
+                </span>
+              )}
 
               <span className="flex flex-col p-6 sm:p-9">
                 <span className="flex flex-wrap items-center gap-2.5 text-[0.74rem] font-semibold uppercase tracking-[0.14em] text-sage-dark">
@@ -113,17 +126,29 @@ export default async function BlogPage({
                   href={`/blog/${post.slug}`}
                   className="group flex h-full flex-col overflow-hidden rounded-card border border-ink/[0.07] bg-white shadow-soft transition-all duration-300 ease-calm hover:-translate-y-1 hover:shadow-lift"
                 >
-                  <span
-                    className="flex h-32 items-center justify-center"
-                    style={{ backgroundColor: accentPalette(post.accent).bg }}
-                  >
-                    <span
-                      className="transition-transform duration-500 ease-calm group-hover:scale-110"
-                      style={{ color: accentPalette(post.accent).ink }}
-                    >
-                      <MotifIcon motif={post.motif} size={52} strokeWidth={1.1} />
+                  {post.image ? (
+                    <span className="relative block h-32 overflow-hidden">
+                      <Image
+                        src={post.image.src}
+                        alt={post.image.alt}
+                        fill
+                        sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 100vw"
+                        className="object-cover transition-transform duration-500 ease-calm group-hover:scale-110"
+                      />
                     </span>
-                  </span>
+                  ) : (
+                    <span
+                      className="flex h-32 items-center justify-center"
+                      style={{ backgroundColor: accentPalette(post.accent).bg }}
+                    >
+                      <span
+                        className="transition-transform duration-500 ease-calm group-hover:scale-110"
+                        style={{ color: accentPalette(post.accent).ink }}
+                      >
+                        <MotifIcon motif={post.motif} size={52} strokeWidth={1.1} />
+                      </span>
+                    </span>
+                  )}
 
                   <span className="flex flex-1 flex-col p-5">
                     <span className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-sage-dark">
