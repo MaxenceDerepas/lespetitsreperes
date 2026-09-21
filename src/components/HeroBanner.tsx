@@ -184,16 +184,17 @@ export function HeroBanner() {
               Absent du visuel fourni, mais un accueil sans porte d'entrée vers
               la boutique fait perdre des ventes : on le garde, discret. */}
           <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
-            {/* Un cran plus petit que le bouton standard, et légèrement
-                transparent pour se poser sur le bandeau sans l'écraser.
-                Le fond passe au terracotta foncé : à 90 %, la teinte
-                habituelle tomberait à 4,1:1 sous le blanc, sous le seuil de
-                lisibilité ; celle-ci tient 4,9:1. Au survol, le bouton
-                redevient plein. */}
+            {/* Un cran plus petit que le bouton standard, et transparent à
+                25 % pour se poser sur le bandeau sans l'écraser. Le fond part
+                d'un terracotta plus profond que celui de la charte : une fois
+                éclairci par le crème qui transparaît, il retombe pile sur la
+                teinte voulue tout en gardant le texte blanc lisible (4,6:1,
+                juste au-dessus du seuil). Au survol, le bouton redevient
+                plein. */}
             <ButtonLink
               href="/boutique"
               size="md"
-              className="bg-terracotta-deeper/90 hover:bg-terracotta-deeper"
+              className="bg-[#7A3A22]/75 hover:bg-terracotta-deeper"
             >
               Découvrir la boutique
               <ArrowRightIcon size={17} />
