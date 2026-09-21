@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Nunito Sans', system-ui, sans-serif;
+    --font-script: 'Dancing Script', cursive;
+
+    --ivory: #fefbf6;
+    --sage: #788568;
+    --terracotta: #d98262;
+    --ink: #66584b;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: theme('colors.ivory');
+    color: theme('colors.ink.DEFAULT');
+    font-family: theme('fontFamily.sans');
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: theme('fontFamily.serif');
+    color: theme('colors.sage.dark');
+    font-weight: 500;
+  }
+
+  /* Focus visible cohérent et accessible sur tout le site */
+  :focus-visible {
+    outline: 2px solid theme('colors.terracotta.DEFAULT');
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: theme('colors.peach');
+    color: theme('colors.ink.DEFAULT');
+  }
+
+  /* Respect des préférences de mouvement réduit */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-5 sm:px-7 lg:px-10;
+  }
+
+  /* --------------------------------------------------------------------
+     Titres du site.
+
+     Tous les titres passent par cette seule classe : la typographie
+     manuscrite du bandeau d'accueil (« Les Petits Repères »), en vert sauge.
+     Un seul endroit à modifier pour changer l'allure de tout le site.
+
+     `letter-spacing: 0` annule le resserrement prévu pour le serif : une
+     écriture liée ne se resserre pas, ses lettres se toucheraient.
+     -------------------------------------------------------------------- */
+  .title {
+    @apply font-script text-sage-dark;
+    letter-spacing: 0;
+  }
+
+  /* --------------------------------------------------------------------
+     Titres éditoriaux — Cormorant Garamond.
+
+     La cursive fonctionne pour deux ou trois mots ; au-delà, un titre
+     d'article sur trois lignes devient fatigant à lire. Ces titres-là
+     passent donc en serif, graisse 500, interligne serré (1.1) — même
+     vert sauge, même douceur, mais lisibles d'un coup d'œil.
+
+     Utilisée pour : les titres d'articles du blog (page article, cartes,
+     « À lire aussi », encart du journal en page d'accueil) et les trois
+     étapes du bandeau « Du clic à l'affichage ».
+     -------------------------------------------------------------------- */
+  .title-editorial {
+    @apply font-serif text-sage-dark;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  .eyebrow {
+    @apply text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-sage-dark;
+  }
+
+  .link-underline {
+    @apply relative inline-block after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-200 hover:after:w-full;
+  }
+
+  .card-soft {
+    @apply rounded-card border border-ink/[0.07] bg-white shadow-soft;
+  }
+
+  .prose-lpr {
+    @apply text-[0.975rem] leading-[1.75] text-ink-soft;
+  }
+
+  .prose-lpr p {
+    @apply mb-4;
+  }
+
+  .prose-lpr h2 {
+    @apply mb-3 mt-9 font-script text-display-sm text-sage-dark;
+  }
+
+  .prose-lpr h3 {
+    @apply mb-2 mt-7 font-script text-2xl text-sage-dark;
+  }
+
+  .prose-lpr ul {
+    @apply mb-4 list-none space-y-2 pl-0;
+  }
+
+  .prose-lpr ul li {
+    @apply relative pl-5 before:absolute before:left-0 before:top-[0.6em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-sage-light;
+  }
+
+  .prose-lpr ol {
+    @apply mb-4 list-decimal space-y-2 pl-5;
+  }
+
+  .prose-lpr strong {
+    @apply font-semibold text-ink;
+  }
+
+  .prose-lpr a {
+    @apply text-terracotta-deep underline decoration-terracotta/40 underline-offset-2 hover:decoration-terracotta;
+  }
+
+  .field {
+    @apply w-full rounded-soft border border-ink/15 bg-white px-4 py-3 text-[0.95rem] text-ink placeholder:text-muted transition-colors duration-200 focus:border-sage focus:outline-none focus:ring-2 focus:ring-sage/25;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-[0.8rem] font-semibold text-ink;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-sage/25 bg-white px-3 py-1.5 text-[0.78rem] font-medium text-sage-dark transition-colors duration-200 hover:border-sage/50 hover:bg-sage-pale/40;
+  }
+
+  .chip-active {
+    @apply border-transparent bg-sage-dark text-white hover:bg-sage-deep;
+  }
+}
+
+@layer utilities {
+  .paper-texture {
+    background-image:
+      radial-gradient(circle at 18% 12%, rgba(243, 213, 196, 0.35) 0%, transparent 42%),
+      radial-gradient(circle at 84% 78%, rgba(220, 225, 210, 0.4) 0%, transparent 46%);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
