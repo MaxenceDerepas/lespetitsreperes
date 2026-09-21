@@ -106,7 +106,7 @@ export function Footer() {
                 className="mt-2.5 flex flex-wrap gap-2"
                 aria-label="Moyens de paiement acceptés"
               >
-                {['Visa', 'Mastercard', 'PayPal'].map((brand) => (
+                {['Visa', 'Mastercard', 'Apple Pay', 'Google Pay'].map((brand) => (
                   <li
                     key={brand}
                     className="rounded-md border border-ink/[0.12] bg-white px-2.5 py-1.5 text-[0.7rem] font-semibold tracking-wide text-ink-soft"
