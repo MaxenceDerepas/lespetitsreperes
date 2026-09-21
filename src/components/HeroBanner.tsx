@@ -3,12 +3,9 @@ import Link from 'next/link';
 import { ButtonLink } from './Button';
 import {
   ArrowRightIcon,
-  DownloadIcon,
-  FamilyIcon,
   HeartFilledIcon,
   HeartIcon,
   LeafIcon,
-  PrinterIcon,
   RainbowIcon,
   StarIcon,
 } from './icons';
@@ -18,7 +15,7 @@ import {
  *
  * Reprise du visuel fourni par la cliente. Les deux photos (à gauche le coin
  * bureau, à droite l'ourson et les fiches) sont des images ; tout le reste —
- * titre, promesses, catégories, bénéfices — est du vrai texte HTML.
+ * titre, catégories, bénéfices — est du vrai texte HTML.
  *
  * Pourquoi ne pas poser simplement l'image complète ? Parce qu'un titre en
  * pixels n'est lu ni par Google, ni par un lecteur d'écran, ni par le lecteur
@@ -30,13 +27,6 @@ import {
  * droite est volontairement vide, la phrase qu'elle portait est réécrite en
  * HTML par-dessus (voir `RESSOURCES`).
  */
-
-const PROMESSES = [
-  { Icon: DownloadIcon, ligne1: 'Téléchargement', ligne2: 'immédiat', bg: 'bg-peach/55', ink: 'text-terracotta-deep' },
-  { Icon: PrinterIcon, ligne1: 'Imprimez', ligne2: 'à volonté', bg: 'bg-sage-pale/60', ink: 'text-sage-deep' },
-  { Icon: HeartIcon, ligne1: 'Créés avec amour', ligne2: 'et bienveillance', bg: 'bg-lilac-soft', ink: 'text-lilac-ink' },
-  { Icon: FamilyIcon, ligne1: 'Pour petits', ligne2: 'et grands', bg: 'bg-mustard-soft/70', ink: 'text-mustard-ink' },
-];
 
 const CATEGORIES = [
   { label: 'Activités', href: '/categories/activites', ink: 'text-sage-deep' },
@@ -166,27 +156,6 @@ export function HeroBanner() {
           </h1>
 
           <FiletCoeur className="mx-auto mt-4 h-4 w-44" />
-
-          {/* ---- Les quatre promesses ---- */}
-          <ul className="mt-5 grid grid-cols-2 gap-x-2 gap-y-6 rounded-[2rem] bg-blush/70 px-4 py-6 sm:grid-cols-4 sm:gap-x-0 sm:px-3">
-            {PROMESSES.map(({ Icon, ligne1, ligne2, bg, ink }, index) => (
-              <li
-                key={ligne1}
-                className={`flex flex-col items-center gap-2.5 px-1 sm:px-2 ${
-                  index > 0 ? 'sm:border-l sm:border-dashed sm:border-ink/15' : ''
-                }`}
-              >
-                <span className={`flex h-12 w-12 items-center justify-center rounded-full ${bg} ${ink}`}>
-                  <Icon size={23} />
-                </span>
-                <span className="whitespace-nowrap text-[0.6rem] font-semibold uppercase leading-[1.6] tracking-[0.07em] text-ink sm:text-[0.62rem] xl:text-[0.66rem] xl:tracking-[0.1em]">
-                  {ligne1}
-                  <br />
-                  {ligne2}
-                </span>
-              </li>
-            ))}
-          </ul>
 
           {/* ---- Les familles de fiches ---- */}
           {/* La ligne déborde un peu de la colonne pour tenir sur un seul rang :

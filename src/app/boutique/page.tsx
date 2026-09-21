@@ -5,7 +5,7 @@ import { ProductGrid } from '@/components/ProductGrid';
 import { SectionHeading } from '@/components/SectionHeading';
 import { Testimonials } from '@/components/Testimonials';
 import { Reveal } from '@/components/Reveal';
-import { TrustRow } from '@/components/TrustRow';
+import { PromessesBand } from '@/components/Promesses';
 import { ProductListSchema } from '@/components/ProductListSchema';
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default function ShopPage() {
           priority: true,
         }}
       >
-        <TrustRow className="mt-6 justify-center" />
+        <PromessesBand className="mt-7" />
       </PageBanner>
 
       <div className="shell py-10 lg:py-14">
