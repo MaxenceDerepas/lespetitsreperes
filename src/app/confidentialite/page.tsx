@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { site } from '@/lib/site';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { RichText } from '@/components/RichText';
 import { LegalNotice } from '@/components/LegalNotice';
 
@@ -88,11 +89,12 @@ Cette politique peut être mise à jour. Toute modification substantielle vous s
 export default function PrivacyPage() {
   return (
     <>
-      <PageHeader
-        title="Politique de confidentialité"
-        intro="Ce que nous collectons, pourquoi, et comment exercer vos droits."
+      <PageBanner
+        compact
+        title="Confidentialité"
+        subtitle="Ce que nous collectons, pourquoi, et comment exercer vos droits."
         crumbs={[{ label: 'Confidentialité' }]}
-        center={false}
+        scene={<BannerScene variant="legal" />}
       />
 
       <div className="shell max-w-prose py-10 lg:py-14">

@@ -1,8 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { site } from '@/lib/site';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
 import { ButtonLink } from '@/components/Button';
 import { SectionHeading } from '@/components/SectionHeading';
 import { Reveal } from '@/components/Reveal';
@@ -20,36 +19,23 @@ export default function AboutPage() {
 
   return (
     <>
-      <PageHeader
-        eyebrow="Notre histoire"
-        title="Une marque pensée pour les familles"
-        intro="Les Petits Repères est née de mon envie d’accompagner les familles avec des outils simples, doux et efficaces pour faciliter le quotidien et grandir ensemble en confiance."
+      <PageBanner
+        title="À propos"
+        subtitle="Des outils pensés pour les vrais moments du quotidien."
         crumbs={[{ label: 'À propos' }]}
+        illustration={{
+          src: '/images/a-propos.png',
+          alt: 'Une maman et sa fille en train de peindre ensemble à la table du salon',
+          width: 753,
+          height: 493,
+          fit: 'contain',
+          priority: true,
+        }}
       />
 
       {/* Portrait et récit */}
-      <section className="shell grid items-start gap-10 py-12 lg:grid-cols-[0.8fr_1fr] lg:gap-16 lg:py-16">
-        <Reveal className="relative mx-auto w-full max-w-sm lg:sticky lg:top-28">
-          <div className="absolute -left-4 -top-4 h-20 w-20 rounded-full bg-peach/50" />
-          <div className="absolute -bottom-5 -right-3 h-14 w-14 rounded-full bg-sage-pale" />
-          <Image
-            src="/images/a-propos.png"
-            alt="Une maman et sa fille en train de peindre ensemble à la table du salon"
-            width={753}
-            height={493}
-            sizes="(min-width: 1024px) 24rem, 100vw"
-            className="relative h-auto w-full"
-            priority
-          />
-          <p className="relative mt-5 text-center">
-            <span className="block font-script text-[1.5rem] text-terracotta-deep">
-              {site.founder.name}
-            </span>
-            <span className="mt-0.5 block text-[0.82rem] text-muted">{site.founder.role}</span>
-          </p>
-        </Reveal>
-
-        <Reveal delay={80} className="prose-lpr max-w-prose">
+      <section className="shell py-12 lg:py-16">
+        <Reveal className="prose-lpr mx-auto max-w-prose">
           <p className="text-[1.05rem] leading-[1.75] text-ink">
             Je m’appelle {site.founder.name}. Je suis éducatrice de jeunes enfants depuis douze
             ans, et maman de deux garçons — ce qui, je vous le confirme, ne dispense d’aucun matin
@@ -95,6 +81,13 @@ export default function AboutPage() {
             Si vous avez une question, une idée de fiche ou un retour sur un fichier existant,
             écrivez-moi : je lis tout, et c’est comme ça que la boutique avance.{' '}
             <Link href="/contact">Ma boîte est ici</Link>.
+          </p>
+
+          <p className="mt-10 text-center">
+            <span className="block font-script text-[1.5rem] text-terracotta-deep">
+              {site.founder.name}
+            </span>
+            <span className="mt-0.5 block text-[0.82rem] text-muted">{site.founder.role}</span>
           </p>
         </Reveal>
       </section>

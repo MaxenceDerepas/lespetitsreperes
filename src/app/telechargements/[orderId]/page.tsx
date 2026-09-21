@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getOrder } from '@/lib/orders';
 import { formatDate, formatPrice } from '@/lib/format';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { DownloadList } from '@/components/DownloadList';
 import { ButtonLink } from '@/components/Button';
 import { PrinterIcon } from '@/components/icons';
@@ -34,10 +35,12 @@ export default async function OrderDownloadsPage({
   if (order.status !== 'paid') {
     return (
       <>
-        <PageHeader
+        <PageBanner
+          compact
           title="Paiement en cours de validation"
-          intro="Vos fichiers apparaîtront ici dès que votre paiement sera confirmé — c’est en général une question de secondes."
+          subtitle="Vos fichiers apparaîtront ici dès que votre paiement sera confirmé — c’est en général une question de secondes."
           crumbs={[{ label: 'Téléchargements' }]}
+          scene={<BannerScene variant="telechargements" />}
         />
         <div className="shell py-12 text-center">
           <p className="text-[0.9rem] text-muted">
@@ -53,11 +56,12 @@ export default async function OrderDownloadsPage({
 
   return (
     <>
-      <PageHeader
-        eyebrow={`Commande ${order.reference} — ${formatDate(order.createdAt)}`}
+      <PageBanner
+        compact
         title="Vos fichiers sont prêts"
-        intro="Téléchargez-les, imprimez-les autant de fois que nécessaire, et retrouvez-les à tout moment depuis votre espace client."
+        subtitle={`Commande ${order.reference} — ${formatDate(order.createdAt)}. Téléchargez-les, imprimez-les autant de fois que nécessaire, et retrouvez-les à tout moment depuis votre espace client.`}
         crumbs={[{ label: 'Téléchargements' }]}
+        scene={<BannerScene variant="telechargements" />}
       />
 
       <div className="shell max-w-3xl py-10 lg:py-14">

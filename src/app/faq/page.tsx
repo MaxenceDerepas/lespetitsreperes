@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { faqGroups, faqItems } from '@/lib/faq';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { Accordion } from '@/components/Accordion';
 import { ButtonLink } from '@/components/Button';
 import { TrustRow } from '@/components/TrustRow';
@@ -26,14 +27,14 @@ export default function FaqPage() {
 
   return (
     <>
-      <PageHeader
-        eyebrow="Aide"
+      <PageBanner
         title="Questions fréquentes"
-        intro="Tout ce qu’il faut savoir sur les commandes, les téléchargements, l’impression et les licences."
+        subtitle="Tout ce qu’il faut savoir sur les commandes, les téléchargements, l’impression et les licences."
         crumbs={[{ label: 'FAQ' }]}
+        scene={<BannerScene variant="faq" />}
       >
-        <TrustRow className="mt-6" />
-      </PageHeader>
+        <TrustRow className="mt-6 justify-center" />
+      </PageBanner>
 
       <div className="shell max-w-3xl py-12 lg:py-14">
         {/* Sommaire */}

@@ -1,4 +1,5 @@
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { ButtonLink } from '@/components/Button';
 
 export const metadata = {
@@ -10,9 +11,11 @@ export const metadata = {
 export default function DownloadNotFound() {
   return (
     <>
-      <PageHeader
+      <PageBanner
+        compact
         title="Lien introuvable"
-        intro="Ce lien ne correspond à aucune commande. Il est peut-être incomplet — certains logiciels de messagerie coupent les liens longs."
+        subtitle="Ce lien ne correspond à aucune commande. Il est peut-être incomplet — certains logiciels de messagerie coupent les liens longs."
+        scene={<BannerScene variant="telechargements" />}
       />
 
       <div className="shell max-w-lg py-12 text-center">

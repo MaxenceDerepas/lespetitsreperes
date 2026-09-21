@@ -4,7 +4,8 @@ import type { Metadata } from 'next';
 import { getSessionEmail } from '@/lib/auth';
 import { getOrdersByEmail } from '@/lib/orders';
 import { formatDateTime, formatPrice, pluralize } from '@/lib/format';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { AccountNav } from '@/components/AccountNav';
 import { ButtonLink } from '@/components/Button';
 import { DownloadIcon, FileIcon } from '@/components/icons';
@@ -29,11 +30,12 @@ export default async function OrdersPage() {
 
   return (
     <>
-      <PageHeader
-        eyebrow="Espace client"
+      <PageBanner
+        compact
         title="Mes commandes"
-        intro="L’historique de vos achats, avec la facture et les fichiers de chaque commande."
+        subtitle="L’historique de vos achats, avec la facture et les fichiers de chaque commande."
         crumbs={[{ label: 'Mon compte', href: '/compte' }, { label: 'Mes commandes' }]}
+        scene={<BannerScene variant="compte" />}
       />
 
       <div className="shell grid gap-8 py-10 lg:grid-cols-[16rem_1fr] lg:gap-12 lg:py-14">

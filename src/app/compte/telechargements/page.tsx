@@ -4,7 +4,8 @@ import type { Metadata } from 'next';
 import { getSessionEmail } from '@/lib/auth';
 import { getOrdersByEmail } from '@/lib/orders';
 import { formatDate } from '@/lib/format';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { AccountNav } from '@/components/AccountNav';
 import { DownloadList } from '@/components/DownloadList';
 import { ButtonLink } from '@/components/Button';
@@ -22,11 +23,12 @@ export default async function DownloadsPage() {
 
   return (
     <>
-      <PageHeader
-        eyebrow="Espace client"
+      <PageBanner
+        compact
         title="Mes téléchargements"
-        intro="Tous vos fichiers, disponibles à tout moment. Un lien neuf est généré à chaque affichage de cette page."
+        subtitle="Tous vos fichiers, disponibles à tout moment. Un lien neuf est généré à chaque affichage de cette page."
         crumbs={[{ label: 'Mon compte', href: '/compte' }, { label: 'Mes téléchargements' }]}
+        scene={<BannerScene variant="telechargements" />}
       />
 
       <div className="shell grid gap-8 py-10 lg:grid-cols-[16rem_1fr] lg:gap-12 lg:py-14">

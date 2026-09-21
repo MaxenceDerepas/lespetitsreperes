@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { CheckoutForm } from '@/components/CheckoutForm';
 import { isStripeConfigured } from '@/lib/stripe';
 
@@ -12,11 +13,12 @@ export const metadata: Metadata = {
 export default function CheckoutPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Dernière étape"
+      <PageBanner
+        compact
         title="Paiement"
-        intro="Une adresse email, un paiement, et vos fichiers sont à vous. Rien d’autre à remplir."
+        subtitle="Une adresse email, un paiement, et vos fichiers sont à vous. Rien d’autre à remplir."
         crumbs={[{ label: 'Panier', href: '/panier' }, { label: 'Paiement' }]}
+        scene={<BannerScene variant="panier" />}
       />
 
       <div className="shell py-10 lg:py-14">

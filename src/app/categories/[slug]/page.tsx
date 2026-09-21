@@ -2,7 +2,8 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { categories, categoryBySlug, getProductsByCategory } from '@/lib/catalog';
 import type { CategorySlug } from '@/lib/types';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { ProductGrid } from '@/components/ProductGrid';
 import { pageTitle } from '@/lib/seo';
 import { TrustRow } from '@/components/TrustRow';
@@ -47,14 +48,20 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
     <>
       <ProductListSchema products={products} name={`${category.name} — fiches à imprimer`} />
 
-      <PageHeader
-        eyebrow={category.tagline}
+      <PageBanner
         title={category.name}
-        intro={category.description}
+        subtitle={category.description}
         crumbs={[{ label: 'Catégories', href: '/categories' }, { label: category.name }]}
+        scene={
+          <BannerScene
+            variant="categories"
+            motif={category.motif}
+            label={`Une fiche imprimée illustrant la catégorie ${category.name}, posée près d’une plante`}
+          />
+        }
       >
-        <TrustRow className="mt-6" />
-      </PageHeader>
+        <TrustRow className="mt-6 justify-center" />
+      </PageBanner>
 
       <div className="shell py-10 lg:py-14">
         <ProductGrid products={products} />

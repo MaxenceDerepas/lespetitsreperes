@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { getAllProducts } from '@/lib/catalog';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
 import { ProductGrid } from '@/components/ProductGrid';
 import { SectionHeading } from '@/components/SectionHeading';
 import { Testimonials } from '@/components/Testimonials';
@@ -20,13 +20,20 @@ export default function ShopPage() {
 
   return (
     <>
-      <PageHeader
+      <PageBanner
         title="La boutique"
-        intro="Des supports prêts à imprimer, pensés pour être utilisés dès ce soir. Chaque fichier est disponible immédiatement après l’achat et réimprimable autant de fois que nécessaire."
+        subtitle="Des outils concrets à imprimer pour accompagner le quotidien des enfants et des familles."
         crumbs={[{ label: 'Boutique' }]}
+        illustration={{
+          src: '/bandeaux/boutique.jpg',
+          alt: 'Une petite fille attablée devant ses fiches de routine imprimées, ses cartes à découper et sa pochette « Mes routines »',
+          width: 1039,
+          height: 415,
+          priority: true,
+        }}
       >
-        <TrustRow className="mt-6" />
-      </PageHeader>
+        <TrustRow className="mt-6 justify-center" />
+      </PageBanner>
 
       <div className="shell py-10 lg:py-14">
         <ProductGrid products={products} />

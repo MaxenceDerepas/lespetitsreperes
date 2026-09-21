@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { site } from '@/lib/site';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { RichText } from '@/components/RichText';
 import { LegalNotice } from '@/components/LegalNotice';
 
@@ -48,10 +49,12 @@ Pour signaler un contenu illicite ou un dysfonctionnement : ${site.email}`;
 export default function LegalPage() {
   return (
     <>
-      <PageHeader
+      <PageBanner
+        compact
         title="Mentions légales"
+        subtitle="Éditeur du site, hébergement, propriété intellectuelle et médiation."
         crumbs={[{ label: 'Mentions légales' }]}
-        center={false}
+        scene={<BannerScene variant="legal" />}
       />
 
       <div className="shell max-w-prose py-10 lg:py-14">

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { blogCategories, getAllPosts } from '@/lib/blog';
 import { formatDate } from '@/lib/format';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
 import { Reveal } from '@/components/Reveal';
 import { accentPalette } from '@/components/ProductVisual';
 import { MotifIcon } from '@/components/icons';
@@ -28,11 +28,17 @@ export default async function BlogPage({
 
   return (
     <>
-      <PageHeader
-        decor={false}
+      <PageBanner
         title="Le journal des Petits Repères"
-        intro="Des réflexions, des idées et des outils concrets pour accompagner les enfants avec douceur, au quotidien."
+        subtitle="Des réflexions, des idées et des outils concrets pour accompagner les enfants avec douceur, au quotidien."
         crumbs={[{ label: 'Blog' }]}
+        illustration={{
+          src: '/bandeaux/blog.jpg',
+          alt: 'Une maman et ses deux enfants penchés sur un cahier d’activités, à la table du salon',
+          width: 1042,
+          height: 412,
+          priority: true,
+        }}
       />
 
       <div className="shell py-10 lg:py-14">

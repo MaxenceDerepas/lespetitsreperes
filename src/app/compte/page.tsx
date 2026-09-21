@@ -4,7 +4,8 @@ import type { Metadata } from 'next';
 import { getSessionEmail } from '@/lib/auth';
 import { getOrdersByEmail } from '@/lib/orders';
 import { formatDate, formatPrice, pluralize } from '@/lib/format';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { AccountNav } from '@/components/AccountNav';
 import { ButtonLink } from '@/components/Button';
 import { ArrowRightIcon, DownloadIcon, FileIcon } from '@/components/icons';
@@ -25,11 +26,12 @@ export default async function AccountPage() {
 
   return (
     <>
-      <PageHeader
-        eyebrow="Espace client"
+      <PageBanner
+        compact
         title="Mon compte"
-        intro="Vos commandes, vos factures et vos fichiers, réunis au même endroit."
+        subtitle="Vos commandes, vos factures et vos fichiers, réunis au même endroit."
         crumbs={[{ label: 'Mon compte' }]}
+        scene={<BannerScene variant="compte" />}
       />
 
       <div className="shell grid gap-8 py-10 lg:grid-cols-[16rem_1fr] lg:gap-12 lg:py-14">

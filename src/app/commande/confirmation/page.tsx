@@ -2,7 +2,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getOrder, getOrderByStripeSession } from '@/lib/orders';
 import { formatPrice } from '@/lib/format';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { DownloadList } from '@/components/DownloadList';
 import { ClearCart } from '@/components/ClearCart';
 import { ButtonLink } from '@/components/Button';
@@ -30,9 +31,11 @@ export default async function ConfirmationPage({
   if (!order) {
     return (
       <>
-        <PageHeader
+        <PageBanner
+          compact
           title="Commande introuvable"
-          intro="Nous ne retrouvons pas cette commande. Si vous venez de payer, vos fichiers sont accessibles depuis votre espace client."
+          subtitle="Nous ne retrouvons pas cette commande. Si vous venez de payer, vos fichiers sont accessibles depuis votre espace client."
+          scene={<BannerScene variant="telechargements" />}
         />
         <div className="shell py-12 text-center">
           <div className="flex flex-wrap justify-center gap-3">

@@ -3,7 +3,8 @@ import { redirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getSessionEmail } from '@/lib/auth';
 import { isEmailConfigured } from '@/lib/email';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { LoginForm } from '@/components/LoginForm';
 import { DownloadIcon, FileIcon, LockIcon } from '@/components/icons';
 
@@ -20,11 +21,12 @@ export default async function LoginPage() {
 
   return (
     <>
-      <PageHeader
-        eyebrow="Espace client"
+      <PageBanner
+        compact
         title="Retrouver mes fichiers"
-        intro="Vos achats restent accessibles à vie : connectez-vous pour retrouver vos commandes, vos factures et vos liens de téléchargement."
+        subtitle="Vos achats restent accessibles à vie : connectez-vous pour retrouver vos commandes, vos factures et vos liens de téléchargement."
         crumbs={[{ label: 'Connexion' }]}
+        scene={<BannerScene variant="compte" />}
       />
 
       <div className="shell grid gap-10 py-12 lg:grid-cols-[1fr_0.85fr] lg:gap-16 lg:py-16">

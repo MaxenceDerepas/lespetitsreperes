@@ -2,7 +2,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { site } from '@/lib/site';
 import { keyFaq } from '@/lib/faq';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { ContactForm } from '@/components/ContactForm';
 import { Accordion } from '@/components/Accordion';
 import { InstagramIcon, MailIcon, SparkleIcon } from '@/components/icons';
@@ -17,11 +18,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Nous écrire"
-        title="Une question ? Écrivez-nous"
-        intro="Les Petits Repères est une petite maison : chaque message est lu et traité par une vraie personne, sous 24 à 48 h ouvrées."
+      <PageBanner
+        title="Écrivez-nous"
+        subtitle="Les Petits Repères est une petite maison : chaque message est lu et traité par une vraie personne, sous 24 à 48 h ouvrées."
         crumbs={[{ label: 'Contact' }]}
+        scene={<BannerScene variant="contact" />}
       />
 
       <div className="shell grid gap-10 py-12 lg:grid-cols-[1fr_0.8fr] lg:gap-16 lg:py-14">

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { CartView } from '@/components/CartView';
 
 export const metadata: Metadata = {
@@ -11,10 +12,12 @@ export const metadata: Metadata = {
 export default function CartPage() {
   return (
     <>
-      <PageHeader
+      <PageBanner
+        compact
         title="Votre panier"
-        intro="Aucune adresse de livraison à renseigner : vos fichiers arrivent immédiatement après le paiement."
+        subtitle="Aucune adresse de livraison à renseigner : vos fichiers arrivent immédiatement après le paiement."
         crumbs={[{ label: 'Panier' }]}
+        scene={<BannerScene variant="panier" />}
       />
 
       <div className="shell py-10 lg:py-14">

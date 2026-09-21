@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { site } from '@/lib/site';
-import { PageHeader } from '@/components/PageHeader';
+import { PageBanner } from '@/components/PageBanner';
+import { BannerScene } from '@/components/BannerScenes';
 import { RichText } from '@/components/RichText';
 import { LegalNotice } from '@/components/LegalNotice';
 
@@ -128,11 +129,12 @@ Le Vendeur peut modifier les présentes conditions à tout moment. Les condition
 export default function CgvPage() {
   return (
     <>
-      <PageHeader
-        title="Conditions générales de vente"
-        intro="Version en vigueur — produits numériques, livraison immédiate, licence d’usage familial."
+      <PageBanner
+        compact
+        title="Conditions de vente"
+        subtitle="Version en vigueur — produits numériques, livraison immédiate, licence d’usage familial."
         crumbs={[{ label: 'CGV' }]}
-        center={false}
+        scene={<BannerScene variant="legal" />}
       />
 
       <div className="shell max-w-prose py-10 lg:py-14">

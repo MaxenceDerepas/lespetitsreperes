@@ -1,5 +1,24 @@
 node_modules/
 .next/
-.data/
-.env.local
+out/
+build/
 .DS_Store
+*.pem
+
+# Variables d'environnement — ne jamais committer de clés
+.env
+.env.local
+.env*.local
+
+# Données locales de démonstration (commandes, compteurs de téléchargement)
+.data/
+
+# Fichiers PDF privés des produits (à héberger sur un stockage privé en production)
+private/files/*.pdf
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.vercel
+*.tsbuildinfo
+next-env.d.ts

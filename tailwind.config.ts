@@ -7,6 +7,10 @@ const config: Config = {
       colors: {
         ivory: '#FEFBF6',
         cream: '#FDF7EF',
+        // Crème des illustrations de bandeau : c'est la teinte du papier sur
+        // les dessins fournis. Le bandeau prend exactement la même, pour que
+        // l'illustration ne se détache pas du fond.
+        paper: '#FDF9F2',
         sage: {
           DEFAULT: '#788568',
           dark: '#5F6B51',
