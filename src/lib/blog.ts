@@ -32,8 +32,8 @@ export const blogPosts: BlogPost[] = [
     featured: true,
     relatedProducts: ['semainier-famille', 'tableau-des-petites-missions'],
     image: {
-      src: '/blog/bien-grandir-a-son-rythme.jpg',
-      alt: 'Une affiche « Bien grandir, à son rythme » accrochée dans une chambre d’enfant, au-dessus d’un tabouret avec un sac à dos et des vêtements pliés',
+      src: '/blog/coloriage-au-salon.jpg',
+      alt: 'Une petite fille allongée sur le tapis du salon colorie tranquillement, entourée de ses crayons et de ses livres',
       width: 1400,
       height: 933,
     },
@@ -652,8 +652,8 @@ Parce qu’en cuisine comme ailleurs, l’autonomie ne consiste pas à laisser l
     accent: 'gold',
     relatedProducts: ['tableau-des-petites-missions', 'pack-routines'],
     image: {
-      src: '/blog/autonomie.jpg',
-      alt: 'Une petite fille allongée sur le tapis du salon colorie tranquillement, entourée de ses crayons et de ses livres',
+      src: '/blog/bien-grandir-a-son-rythme.jpg',
+      alt: 'Une affiche « Bien grandir, à son rythme » accrochée dans une chambre d’enfant, au-dessus d’un tabouret avec un sac à dos et des vêtements pliés',
       width: 1400,
       height: 933,
     },
