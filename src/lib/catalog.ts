@@ -374,6 +374,32 @@ export const products: Product[] = [
       'Un tableau des ustensiles à découper',
       'Deux pages de recettes vierges pour ajouter les vôtres',
     ],
+    images: [
+      {
+        src: '/produits/pack-recettes/couverture.jpg',
+        alt: 'Couverture du pack : 30 fiches de recettes de cuisine simples, gourmandes et ludiques',
+        width: 1200,
+        height: 1200,
+      },
+      {
+        src: '/produits/pack-recettes/les-fiches.jpg',
+        alt: 'Les fiches recettes imprimées étalées sur le plan de travail : mini quiches, tartines rigolotes, pâte à pizza, moelleux au chocolat, cookie géant',
+        width: 1200,
+        height: 1097,
+      },
+      {
+        src: '/produits/pack-recettes/cuisiner-en-famille.jpg',
+        alt: 'Une maman et ses deux enfants versent la farine dans un saladier, la fiche recette posée sur la table',
+        width: 1200,
+        height: 1097,
+      },
+      {
+        src: '/produits/pack-recettes/comment-ca-fonctionne.jpg',
+        alt: 'Comment ça fonctionne : je télécharge, j’imprime, je découpe, je plastifie',
+        width: 1200,
+        height: 1199,
+      },
+    ],
     motif: 'chef',
     accent: 'peach',
     popularity: 76,
