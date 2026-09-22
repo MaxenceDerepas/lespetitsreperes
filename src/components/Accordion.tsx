@@ -38,7 +38,7 @@ export function Accordion({
                 onClick={() => setOpen(isOpen ? null : index)}
                 className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left transition-colors duration-200 hover:bg-cream/70 sm:px-6"
               >
-                <span className="font-script text-[1.28rem] leading-snug text-sage-dark">
+                <span className="title-editorial text-[1.24rem] leading-snug">
                   {item.question}
                 </span>
                 <ChevronDownIcon

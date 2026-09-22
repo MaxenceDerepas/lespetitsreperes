@@ -29,9 +29,10 @@ export function ProductCard({ product, compact = false }: { product: Product; co
     <article className="group relative flex h-full flex-col overflow-hidden rounded-card border border-ink/[0.07] bg-white shadow-soft transition-all duration-300 ease-calm hover:-translate-y-1 hover:shadow-lift">
       <span className="relative block aspect-[4/5] overflow-hidden bg-cream">
         {/* Photo si le produit en a une, sinon le visuel dessiné.
-            `object-contain` : une photo carrée ou paysage ne doit pas être
-            rognée dans un cadre portrait — on préfère un peu de crème autour
-            qu'un titre coupé. */}
+            `object-cover` : la première photo est une scène de vie, elle
+            remplit la carte. Les couvertures et les infographies, elles,
+            restent entières dans la galerie de la fiche produit, qui les
+            affiche en `object-contain`. */}
         {product.images?.[0] ? (
           <Image
             src={product.images[0].src}
@@ -39,7 +40,7 @@ export function ProductCard({ product, compact = false }: { product: Product; co
             width={product.images[0].width}
             height={product.images[0].height}
             sizes="(min-width: 1024px) 18rem, (min-width: 640px) 45vw, 50vw"
-            className="h-full w-full object-contain transition-transform duration-500 ease-calm group-hover:scale-[1.035]"
+            className="h-full w-full object-cover transition-transform duration-500 ease-calm group-hover:scale-[1.035]"
           />
         ) : (
           <ProductVisual

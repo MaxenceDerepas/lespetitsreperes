@@ -143,18 +143,6 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: '/produits/pack-routines/couverture.jpg',
-        alt: 'Couverture du pack routines, semainiers, pictos et rituels',
-        width: 1200,
-        height: 1197,
-      },
-      {
-        src: '/produits/pack-routines/les-fiches.jpg',
-        alt: 'Les fiches imprimées étalées sur une table : ma routine, mon tableau du jour, mes missions de la semaine, mon semainier, je prépare mon cartable',
-        width: 1200,
-        height: 800,
-      },
-      {
         src: '/produits/pack-routines/tableau-du-jour.jpg',
         alt: 'Une maman et ses deux enfants devant le tableau du jour affiché au mur de la cuisine',
         width: 1200,
@@ -165,6 +153,18 @@ export const products: Product[] = [
         alt: 'Un garçon déplace une étiquette sur sa routine du matin affichée à hauteur d’enfant',
         width: 1200,
         height: 1097,
+      },
+      {
+        src: '/produits/pack-routines/couverture.jpg',
+        alt: 'Couverture du pack routines, semainiers, pictos et rituels',
+        width: 1200,
+        height: 1197,
+      },
+      {
+        src: '/produits/pack-routines/les-fiches.jpg',
+        alt: 'Les fiches imprimées étalées sur une table : ma routine, mon tableau du jour, mes missions de la semaine, mon semainier, je prépare mon cartable',
+        width: 1200,
+        height: 800,
       },
       {
         src: '/produits/pack-routines/comment-ca-fonctionne.jpg',
@@ -211,18 +211,6 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: '/produits/pack-emotions/couverture.jpg',
-        alt: 'Couverture du pack : 30 fiches de connexion et partage en famille',
-        width: 1200,
-        height: 1201,
-      },
-      {
-        src: '/produits/pack-emotions/les-fiches.jpg',
-        alt: 'Les fiches imprimées étalées sur une table : thermomètre des émotions, cartes de discussion, cartes respiration, boîte à souvenirs',
-        width: 1200,
-        height: 1014,
-      },
-      {
         src: '/produits/pack-emotions/thermometre-en-famille.jpg',
         alt: 'Une famille attablée utilise le thermomètre des émotions et les cartes « quand je me sens débordé »',
         width: 1200,
@@ -233,6 +221,18 @@ export const products: Product[] = [
         alt: 'Des enfants et leur maman jouent aux cartes défis en famille dans le salon',
         width: 1200,
         height: 1097,
+      },
+      {
+        src: '/produits/pack-emotions/couverture.jpg',
+        alt: 'Couverture du pack : 30 fiches de connexion et partage en famille',
+        width: 1200,
+        height: 1201,
+      },
+      {
+        src: '/produits/pack-emotions/les-fiches.jpg',
+        alt: 'Les fiches imprimées étalées sur une table : thermomètre des émotions, cartes de discussion, cartes respiration, boîte à souvenirs',
+        width: 1200,
+        height: 1014,
       },
       {
         src: '/produits/pack-emotions/comment-ca-fonctionne.jpg',
@@ -273,10 +273,10 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: '/produits/pack-experiences/couverture.jpg',
-        alt: 'Couverture du pack : 30 fiches d’expériences scientifiques simples et fascinantes',
+        src: '/produits/pack-experiences/experience-en-famille.jpg',
+        alt: 'Une maman et ses deux enfants réalisent une expérience avec de l’huile et des colorants, la fiche posée sur la table',
         width: 1200,
-        height: 1187,
+        height: 1019,
       },
       {
         src: '/produits/pack-experiences/les-fiches.jpg',
@@ -285,10 +285,10 @@ export const products: Product[] = [
         height: 1024,
       },
       {
-        src: '/produits/pack-experiences/experience-en-famille.jpg',
-        alt: 'Une maman et ses deux enfants réalisent une expérience avec de l’huile et des colorants, la fiche posée sur la table',
+        src: '/produits/pack-experiences/couverture.jpg',
+        alt: 'Couverture du pack : 30 fiches d’expériences scientifiques simples et fascinantes',
         width: 1200,
-        height: 1019,
+        height: 1187,
       },
       {
         src: '/produits/pack-experiences/comment-ca-fonctionne.jpg',
@@ -328,10 +328,10 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: '/produits/pack-recettes/couverture.jpg',
-        alt: 'Couverture du pack : 30 fiches de recettes de cuisine simples, gourmandes et ludiques',
+        src: '/produits/pack-recettes/cuisiner-en-famille.jpg',
+        alt: 'Une maman et ses deux enfants versent la farine dans un saladier, la fiche recette posée sur la table',
         width: 1200,
-        height: 1200,
+        height: 1097,
       },
       {
         src: '/produits/pack-recettes/les-fiches.jpg',
@@ -340,10 +340,10 @@ export const products: Product[] = [
         height: 1097,
       },
       {
-        src: '/produits/pack-recettes/cuisiner-en-famille.jpg',
-        alt: 'Une maman et ses deux enfants versent la farine dans un saladier, la fiche recette posée sur la table',
+        src: '/produits/pack-recettes/couverture.jpg',
+        alt: 'Couverture du pack : 30 fiches de recettes de cuisine simples, gourmandes et ludiques',
         width: 1200,
-        height: 1097,
+        height: 1200,
       },
       {
         src: '/produits/pack-recettes/comment-ca-fonctionne.jpg',
@@ -382,18 +382,6 @@ export const products: Product[] = [
     ],
     images: [
       {
-        src: '/produits/pack-activites/couverture.jpg',
-        alt: 'Couverture du pack : 30 fiches activités créatives et ludiques',
-        width: 1200,
-        height: 1200,
-      },
-      {
-        src: '/produits/pack-activites/les-fiches.jpg',
-        alt: 'Les fiches imprimées étalées sur une table : l’éléphant, le théâtre d’ombres, l’origami facile, l’escargot, le tri de textures',
-        width: 1200,
-        height: 1200,
-      },
-      {
         src: '/produits/pack-activites/peinture-en-famille.jpg',
         alt: 'Deux enfants peignent à l’aquarelle à côté de leur maman, les fiches d’activités posées sur la table',
         width: 1200,
@@ -402,6 +390,18 @@ export const products: Product[] = [
       {
         src: '/produits/pack-activites/decoupage-en-famille.jpg',
         alt: 'Un petit garçon montre fièrement le poisson qu’il vient de découper, pendant que son frère colorie',
+        width: 1200,
+        height: 1200,
+      },
+      {
+        src: '/produits/pack-activites/couverture.jpg',
+        alt: 'Couverture du pack : 30 fiches activités créatives et ludiques',
+        width: 1200,
+        height: 1200,
+      },
+      {
+        src: '/produits/pack-activites/les-fiches.jpg',
+        alt: 'Les fiches imprimées étalées sur une table : l’éléphant, le théâtre d’ombres, l’origami facile, l’escargot, le tri de textures',
         width: 1200,
         height: 1200,
       },

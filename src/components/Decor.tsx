@@ -157,7 +157,9 @@ export function TwigDecor({ className = '', flip = false }: { className?: string
 export function NewStamp({ className = '' }: { className?: string }) {
   return (
     <span
-      className={`inline-flex items-center gap-1 rounded-full bg-gold/15 px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[#8A6320] ${className}`}
+      // Fond opaque : la pastille se pose désormais sur une photo, un fond
+      // translucide la rendait illisible.
+      className={`inline-flex items-center gap-1 rounded-full border border-[#8A6320]/15 bg-[#FBF1DC] px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[#8A6320] shadow-soft ${className}`}
     >
       <svg viewBox="0 0 12 12" className="h-2.5 w-2.5" fill="currentColor" aria-hidden="true">
         <path d="M6 0c.4 1.9.9 2.4 2.8 2.8C6.9 3.2 6.4 3.7 6 5.6 5.6 3.7 5.1 3.2 3.2 2.8 5.1 2.4 5.6 1.9 6 0Z" />
