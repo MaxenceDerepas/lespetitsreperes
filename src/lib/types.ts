@@ -56,6 +56,13 @@ export interface ProductImage {
   alt: string;
   width: number;
   height: number;
+  /**
+   * Photo à utiliser comme vignette dans la boutique : celle où l'on voit
+   * les fiches du pack posées sur la table. Elle est affichée en entier
+   * (`object-contain`) pour qu'aucune fiche ne soit coupée. Sans ce
+   * marquage, la vignette est simplement la première photo.
+   */
+  thumb?: boolean;
 }
 
 export interface Product {

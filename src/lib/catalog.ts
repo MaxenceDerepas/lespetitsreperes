@@ -165,6 +165,7 @@ export const products: Product[] = [
         alt: 'Les fiches imprimées étalées sur une table : ma routine, mon tableau du jour, mes missions de la semaine, mon semainier, je prépare mon cartable',
         width: 1200,
         height: 800,
+        thumb: true,
       },
       {
         src: '/produits/pack-routines/comment-ca-fonctionne.jpg',
@@ -233,6 +234,7 @@ export const products: Product[] = [
         alt: 'Les fiches imprimées étalées sur une table : thermomètre des émotions, cartes de discussion, cartes respiration, boîte à souvenirs',
         width: 1200,
         height: 1014,
+        thumb: true,
       },
       {
         src: '/produits/pack-emotions/comment-ca-fonctionne.jpg',
@@ -283,6 +285,7 @@ export const products: Product[] = [
         alt: 'Des enfants penchés sur les fiches imprimées : les cristaux de sel, les glaçons surprise, les couleurs qui marchent, le dessin secret',
         width: 1200,
         height: 1024,
+        thumb: true,
       },
       {
         src: '/produits/pack-experiences/couverture.jpg',
@@ -338,6 +341,7 @@ export const products: Product[] = [
         alt: 'Les fiches recettes imprimées étalées sur le plan de travail : mini quiches, tartines rigolotes, pâte à pizza, moelleux au chocolat, cookie géant',
         width: 1200,
         height: 1097,
+        thumb: true,
       },
       {
         src: '/produits/pack-recettes/couverture.jpg',
@@ -404,6 +408,7 @@ export const products: Product[] = [
         alt: 'Les fiches imprimées étalées sur une table : l’éléphant, le théâtre d’ombres, l’origami facile, l’escargot, le tri de textures',
         width: 1200,
         height: 1200,
+        thumb: true,
       },
     ],
     motif: 'palette',
