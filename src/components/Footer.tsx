@@ -33,6 +33,7 @@ const columns = [
       { label: 'Mes commandes', href: '/compte/commandes' },
       { label: 'Mes téléchargements', href: '/compte/telechargements' },
       { label: 'Se connecter', href: '/connexion' },
+      { label: 'Créer un compte', href: '/creer-un-compte' },
     ],
   },
 ];

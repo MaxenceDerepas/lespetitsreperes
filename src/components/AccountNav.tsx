@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { logout } from '@/app/compte/actions';
-import { CartIcon, DownloadIcon, UserIcon } from './icons';
+import { CartIcon, DownloadIcon, LockIcon, UserIcon } from './icons';
 
 const links = [
   { href: '/compte', label: 'Vue d’ensemble', Icon: UserIcon },
   { href: '/compte/commandes', label: 'Mes commandes', Icon: CartIcon },
   { href: '/compte/telechargements', label: 'Mes téléchargements', Icon: DownloadIcon },
+  { href: '/compte/securite', label: 'Mon mot de passe', Icon: LockIcon },
 ];
 
 /** Navigation de l'espace client, avec le bouton de déconnexion. */

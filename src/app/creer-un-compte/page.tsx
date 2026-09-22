@@ -2,19 +2,20 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getSessionEmail } from '@/lib/auth';
+import { passwordMinLength } from '@/lib/accounts';
 import { PageBanner } from '@/components/PageBanner';
 import { BannerScene } from '@/components/BannerScenes';
-import { LoginForm } from '@/components/LoginForm';
+import { RegisterForm } from '@/components/RegisterForm';
 import { DownloadIcon, FileIcon, LockIcon } from '@/components/icons';
 
 export const metadata: Metadata = {
-  title: 'Connexion à votre espace client',
+  title: 'Créer mon compte',
   description:
-    'Accédez à vos commandes, vos factures et vos téléchargements Les Petits Repères.',
+    'Créez votre compte Les Petits Repères pour retrouver vos commandes, vos factures et vos téléchargements.',
   robots: { index: false, follow: true },
 };
 
-export default async function LoginPage() {
+export default async function RegisterPage() {
   const email = await getSessionEmail();
   if (email) redirect('/compte');
 
@@ -22,35 +23,35 @@ export default async function LoginPage() {
     <>
       <PageBanner
         compact
-        title="Retrouver mes fichiers"
-        subtitle="Vos achats restent accessibles à vie : connectez-vous pour retrouver vos commandes, vos factures et vos liens de téléchargement."
-        crumbs={[{ label: 'Connexion' }]}
+        title="Créer mon compte"
+        subtitle="Un compte pour retrouver vos fichiers quand vous en avez besoin, sur n’importe quel appareil."
+        crumbs={[{ label: 'Connexion', href: '/connexion' }, { label: 'Créer mon compte' }]}
         scene={<BannerScene variant="compte" />}
       />
 
       <div className="shell grid gap-10 py-12 lg:grid-cols-[1fr_0.85fr] lg:gap-16 lg:py-16">
         <div className="mx-auto w-full max-w-md lg:mx-0">
-          <LoginForm />
+          <RegisterForm passwordMinLength={passwordMinLength} />
         </div>
 
         <aside className="mx-auto w-full max-w-md lg:mx-0">
-          <h2 className="title-editorial text-editorial-lg">Ce que vous y trouverez</h2>
+          <h2 className="title-editorial text-editorial-lg">À quoi sert le compte</h2>
           <ul className="mt-5 space-y-4">
             {[
               {
                 Icon: DownloadIcon,
-                title: 'Mes téléchargements',
-                text: 'Tous vos PDF, avec un lien neuf généré à chaque visite — un lien expiré ne bloque jamais l’accès.',
+                title: 'Vos fichiers, à vie',
+                text: 'Un lien de téléchargement neuf est généré à chaque visite : un lien expiré ne vous bloque jamais.',
               },
               {
                 Icon: FileIcon,
-                title: 'Mes commandes et factures',
-                text: 'L’historique complet de vos achats, avec la facture de chaque commande.',
+                title: 'Vos commandes et factures',
+                text: 'L’historique de vos achats, avec la facture de chacun.',
               },
               {
                 Icon: LockIcon,
-                title: 'Un compte protégé',
-                text: 'Votre mot de passe n’est jamais conservé en clair : seule une empreinte irréversible est enregistrée.',
+                title: 'Vos données, au minimum',
+                text: 'Votre email, votre mot de passe sous forme d’empreinte, et vos commandes. Aucune donnée bancaire n’est conservée : le paiement passe par Stripe.',
               },
             ].map(({ Icon, title, text }) => (
               <li key={title} className="flex gap-3.5">
@@ -68,9 +69,13 @@ export default async function LoginPage() {
           </ul>
 
           <p className="mt-7 text-[0.86rem] leading-relaxed text-muted">
-            Pas encore de commande ?{' '}
-            <Link href="/boutique" className="text-terracotta-deep underline underline-offset-2">
-              Découvrez la boutique
+            En créant un compte, vous acceptez nos{' '}
+            <Link href="/cgv" className="text-terracotta-deep underline underline-offset-2">
+              conditions de vente
+            </Link>{' '}
+            et notre{' '}
+            <Link href="/confidentialite" className="text-terracotta-deep underline underline-offset-2">
+              politique de confidentialité
             </Link>
             .
           </p>

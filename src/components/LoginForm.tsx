@@ -1,38 +1,22 @@
 'use client';
 
+import Link from 'next/link';
 import { useActionState } from 'react';
-import { requestLogin, type LoginState } from '@/app/compte/actions';
+import { login, type FormState } from '@/app/compte/actions';
 import { Button } from './Button';
-import { CheckIcon, MailIcon } from './icons';
+import { LockIcon } from './icons';
 
-const initialState: LoginState = { status: 'idle' };
+const initialState: FormState = { status: 'idle' };
 
-/** Connexion à l'espace client, sans mot de passe. */
-export function LoginForm({ emailConfigured }: { emailConfigured: boolean }) {
-  const [state, formAction, pending] = useActionState(requestLogin, initialState);
-
-  if (state.status === 'sent') {
-    return (
-      <div className="rounded-card border border-sage/20 bg-white p-6 text-center shadow-soft">
-        <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-sage-pale/70 text-sage-dark">
-          <CheckIcon size={24} />
-        </span>
-        <h2 className="mt-4 title text-display-sm">Regardez votre boîte</h2>
-        <p className="mx-auto mt-2.5 max-w-sm text-[0.92rem] leading-relaxed text-ink-soft">
-          {state.message}
-        </p>
-        <p className="mt-4 text-[0.8rem] text-muted">
-          Rien reçu au bout de deux minutes ? Vérifiez vos spams.
-        </p>
-      </div>
-    );
-  }
+/** Connexion à l'espace client : adresse email et mot de passe. */
+export function LoginForm() {
+  const [state, formAction, pending] = useActionState(login, initialState);
 
   return (
     <form action={formAction} className="rounded-card border border-sage/20 bg-white p-6 shadow-soft sm:p-7">
-      <h2 className="title text-display-sm">Accéder à mon espace</h2>
+      <h2 className="title-editorial text-editorial-lg">Me connecter</h2>
       <p className="mt-2 text-[0.9rem] leading-relaxed text-ink-soft">
-        Indiquez l’adresse email utilisée lors de votre commande. Aucun mot de passe à retenir.
+        Indiquez l’adresse email et le mot de passe de votre compte.
       </p>
 
       <div className="mt-5">
@@ -46,6 +30,20 @@ export function LoginForm({ emailConfigured }: { emailConfigured: boolean }) {
           required
           autoComplete="email"
           placeholder="votre@email.fr"
+          className="field"
+        />
+      </div>
+
+      <div className="mt-4">
+        <label htmlFor="login-password" className="field-label">
+          Mot de passe
+        </label>
+        <input
+          id="login-password"
+          name="password"
+          type="password"
+          required
+          autoComplete="current-password"
           className="field"
           aria-invalid={state.status === 'error'}
           aria-describedby={state.status === 'error' ? 'login-error' : undefined}
@@ -63,17 +61,22 @@ export function LoginForm({ emailConfigured }: { emailConfigured: boolean }) {
       )}
 
       <Button type="submit" size="lg" className="mt-5 w-full" disabled={pending}>
-        <MailIcon size={17} />
-        {pending ? 'Un instant…' : emailConfigured ? 'Recevoir mon lien de connexion' : 'Accéder à mon espace'}
+        <LockIcon size={17} />
+        {pending ? 'Un instant…' : 'Me connecter'}
       </Button>
 
-      {!emailConfigured && (
-        <p className="mt-3.5 rounded-soft bg-sage-pale/45 px-3 py-2.5 text-[0.78rem] leading-relaxed text-sage-dark">
-          <strong className="font-semibold">Mode démonstration.</strong> Aucune clé email n’étant
-          configurée, la connexion est immédiate. En production, un lien signé valable
-          20&nbsp;minutes est envoyé par email.
-        </p>
-      )}
+      <p className="mt-4 text-center text-[0.84rem] text-muted">
+        <Link href="/mot-de-passe-oublie" className="link-underline text-sage-dark">
+          Mot de passe oublié ?
+        </Link>
+      </p>
+
+      <p className="mt-5 border-t border-ink/[0.08] pt-5 text-center text-[0.9rem] text-ink-soft">
+        Vous n’avez pas encore de compte ?{' '}
+        <Link href="/creer-un-compte" className="font-semibold text-terracotta-deep link-underline">
+          Créer mon compte
+        </Link>
+      </p>
     </form>
   );
 }

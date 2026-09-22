@@ -22,3 +22,6 @@ yarn-error.log*
 .vercel
 *.tsbuildinfo
 next-env.d.ts
+
+# Les PDF vendus : lourds, et deja presents sur le disque.
+private/files/*.pdf

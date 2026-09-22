@@ -124,6 +124,9 @@ export default async function AccountPage() {
                   <ButtonLink href="/compte/commandes" size="sm" variant="secondary">
                     Mes factures
                   </ButtonLink>
+                  <ButtonLink href="/compte/securite" size="sm" variant="secondary">
+                    Mon mot de passe
+                  </ButtonLink>
                   <ButtonLink href="/contact" size="sm" variant="ghost">
                     Besoin d’aide ?
                   </ButtonLink>

@@ -18,6 +18,8 @@ export default function robots(): MetadataRoute.Robots {
           '/commande',
           '/compte',
           '/connexion',
+          '/creer-un-compte',
+          '/mot-de-passe-oublie',
           '/telechargements/',
           '/admin',
         ],
