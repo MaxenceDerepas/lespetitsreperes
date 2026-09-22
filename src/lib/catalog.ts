@@ -107,10 +107,10 @@ export const products: Product[] = [
     subcategory: 'Matin et soir',
     type: 'Pack PDF',
     ages: ['3-5 ans', '5-7 ans', '7-10 ans'],
-    pages: 24,
+    pages: 30,
     format: 'A4 — portrait et paysage',
     description:
-      'Le pack le plus demandé de la boutique. Vingt-quatre pages pour installer, une fois pour toutes, une routine du matin et un rituel du soir que votre enfant peut suivre seul. Les étapes sont illustrées, dans un ordre logique, avec de la place pour cocher, déplacer ou colorier — parce qu’un enfant qui voit ce qui l’attend n’a plus besoin qu’on le lui répète six fois.',
+      'Le pack le plus demandé de la boutique. Trente pages pour installer, une fois pour toutes, une routine du matin et un rituel du soir que votre enfant peut suivre seul. Les étapes sont illustrées, dans un ordre logique, avec de la place pour cocher, déplacer ou colorier — parce qu’un enfant qui voit ce qui l’attend n’a plus besoin qu’on le lui répète six fois.',
     contents: [
       'Deux tableaux de routine du matin (version illustrée et version à compléter)',
       'Deux tableaux de rituel du soir, dont une version « temps calme »',
@@ -191,10 +191,10 @@ export const products: Product[] = [
     subcategory: 'Émotions et confiance',
     type: 'Pack PDF',
     ages: ['3-5 ans', '5-7 ans', '7-10 ans'],
-    pages: 18,
+    pages: 24,
     format: 'A4 — portrait',
     description:
-      'Dix-huit pages pour traverser les émotions sans les subir. Une roue des émotions, un tableau à afficher, des cartes « de quoi j’ai besoin » et des supports de connexion à utiliser le soir. L’idée n’est pas de faire disparaître la colère, mais de donner à votre enfant — et à vous — un vocabulaire commun pour la nommer.',
+      'Vingt-quatre pages pour traverser les émotions sans les subir. Une roue des émotions, un tableau à afficher, des cartes « de quoi j’ai besoin » et des supports de connexion à utiliser le soir. L’idée n’est pas de faire disparaître la colère, mais de donner à votre enfant — et à vous — un vocabulaire commun pour la nommer.',
     contents: [
       'La roue des émotions à assembler (deux tailles)',
       'Un tableau des émotions à afficher, version fille et garçon neutres',
@@ -260,7 +260,7 @@ export const products: Product[] = [
     subcategory: 'Expériences',
     type: 'Pack PDF',
     ages: ['5-7 ans', '7-10 ans'],
-    pages: 16,
+    pages: 19,
     format: 'A4 — portrait',
     description:
       'Douze expériences testées à la maison, à faire avec du bicarbonate, un verre d’eau, du papier et un peu de patience. Chaque fiche tient sur une page : le matériel, les étapes illustrées, et une explication écrite pour que vous puissiez répondre à la question qui arrive toujours — « mais pourquoi ? ».',
@@ -315,7 +315,7 @@ export const products: Product[] = [
     subcategory: 'Cuisine en famille',
     type: 'Pack PDF',
     ages: ['3-5 ans', '5-7 ans', '7-10 ans', 'Toute la famille'],
-    pages: 14,
+    pages: 18,
     format: 'A4 — portrait',
     description:
       'Dix recettes illustrées étape par étape, avec des pictogrammes plutôt que des paragraphes : un enfant de quatre ans peut suivre la fiche des sablés, un enfant de huit ans peut préparer le goûter tout seul. Les quantités sont indiquées en cuillères et en verres, pas seulement en grammes.',
@@ -363,16 +363,16 @@ export const products: Product[] = [
     id: 'prd_activites',
     slug: 'pack-activites',
     name: 'Pack activités créatives',
-    tagline: 'Vingt pages pour les après-midi de pluie',
+    tagline: 'Dix-huit pages pour les après-midi de pluie',
     priceCents: 790,
     category: 'activites',
     subcategory: 'Créatif',
     type: 'Pack PDF',
     ages: ['2-3 ans', '3-5 ans', '5-7 ans'],
-    pages: 20,
+    pages: 18,
     format: 'A4 — portrait et paysage',
     description:
-      'Coloriages doux, découpages, graphisme, labyrinthes, dessins à compléter et petits bricolages à monter avec trois feuilles et une paire de ciseaux. Vingt pages qui ne demandent ni matériel spécifique, ni préparation, et qui tiennent dans une pochette pour le train ou le restaurant.',
+      'Coloriages doux, découpages, graphisme, labyrinthes, dessins à compléter et petits bricolages à monter avec trois feuilles et une paire de ciseaux. Dix-huit pages qui ne demandent ni matériel spécifique, ni préparation, et qui tiennent dans une pochette pour le train ou le restaurant.',
     contents: [
       'Six coloriages aux motifs végétaux',
       'Quatre pages de graphisme et de tracés préparatoires à l’écriture',
