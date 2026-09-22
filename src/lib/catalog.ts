@@ -411,6 +411,32 @@ export const products: Product[] = [
       'Deux labyrinthes et deux jeux d’observation',
       'Trois modèles de petits bricolages en papier',
     ],
+    images: [
+      {
+        src: '/produits/pack-activites/couverture.jpg',
+        alt: 'Couverture du pack : 30 fiches activités créatives et ludiques',
+        width: 1200,
+        height: 1200,
+      },
+      {
+        src: '/produits/pack-activites/les-fiches.jpg',
+        alt: 'Les fiches imprimées étalées sur une table : l’éléphant, le théâtre d’ombres, l’origami facile, l’escargot, le tri de textures',
+        width: 1200,
+        height: 1200,
+      },
+      {
+        src: '/produits/pack-activites/peinture-en-famille.jpg',
+        alt: 'Deux enfants peignent à l’aquarelle à côté de leur maman, les fiches d’activités posées sur la table',
+        width: 1200,
+        height: 800,
+      },
+      {
+        src: '/produits/pack-activites/decoupage-en-famille.jpg',
+        alt: 'Un petit garçon montre fièrement le poisson qu’il vient de découper, pendant que son frère colorie',
+        width: 1200,
+        height: 1200,
+      },
+    ],
     motif: 'palette',
     accent: 'sageLight',
     popularity: 84,
