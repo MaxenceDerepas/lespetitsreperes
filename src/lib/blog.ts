@@ -584,7 +584,7 @@ Et parfois, l’activité la plus utile de la fin de journée, c’est simplemen
     relatedProducts: ['pack-recettes', 'pack-experiences-scientifiques'],
     image: {
       src: '/blog/cuisiner-en-famille.jpg',
-      alt: 'Deux garçons versent de la farine dans un saladier, aidés par leur maman, devant une fiche recette illustrée posée sur le plan de travail',
+      alt: 'Un papa et ses deux enfants préparent une pâte à gâteau, la fiche recette illustrée posée sur le plan de travail',
       width: 1400,
       height: 933,
     },

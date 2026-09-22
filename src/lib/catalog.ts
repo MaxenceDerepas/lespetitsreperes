@@ -180,29 +180,6 @@ export const products: Product[] = [
     createdAt: '2026-02-11',
     file: 'pack-routines.pdf',
     related: ['pack-emotions-connexion-confiance', 'semainier-famille', 'rituel-du-soir'],
-    reviews: [
-      {
-        author: 'Julie',
-        context: 'maman de deux enfants',
-        rating: 5,
-        date: '2026-08-24',
-        body: 'Ces fiches ont changé nos matins ! Plus de stress, les enfants sont plus autonomes et fiers de leur routine.',
-      },
-      {
-        author: 'Camille',
-        context: 'maman d’un garçon de 4 ans',
-        rating: 5,
-        date: '2026-07-30',
-        body: 'Téléchargé et imprimé en dix minutes. Mon fils va chercher le tableau tout seul le matin, je n’en reviens pas.',
-      },
-      {
-        author: 'Marion',
-        context: 'assistante maternelle',
-        rating: 4,
-        date: '2026-06-18',
-        body: 'Très joli et vraiment utilisable au quotidien. J’aurais aimé une version avec des cases un peu plus grandes, mais je l’utilise tous les jours.',
-      },
-    ],
   },
   {
     id: 'prd_emotions',
@@ -272,22 +249,6 @@ export const products: Product[] = [
     createdAt: '2026-08-02',
     file: 'pack-emotions.pdf',
     related: ['tableau-des-emotions', 'pack-routines', 'rituel-du-soir'],
-    reviews: [
-      {
-        author: 'Sophie',
-        context: 'maman de trois enfants',
-        rating: 5,
-        date: '2026-09-02',
-        body: 'La roue des émotions est devenue un passage obligé après l’école. Ma fille de 5 ans s’en sert spontanément.',
-      },
-      {
-        author: 'Élodie',
-        context: 'maman solo',
-        rating: 5,
-        date: '2026-08-19',
-        body: 'Le guide parent est court et vraiment concret. C’est exactement ce dont j’avais besoin, sans discours culpabilisant.',
-      },
-    ],
   },
   {
     id: 'prd_sciences',
@@ -343,15 +304,6 @@ export const products: Product[] = [
     createdAt: '2026-07-14',
     file: 'pack-experiences-scientifiques.pdf',
     related: ['pack-activites', 'cartes-activites-calmes', 'pack-recettes'],
-    reviews: [
-      {
-        author: 'Thomas',
-        context: 'papa de deux garçons',
-        rating: 5,
-        date: '2026-08-11',
-        body: 'On en a fait quatre le même après-midi. Les explications m’ont servi autant qu’à eux, je l’avoue.',
-      },
-    ],
   },
   {
     id: 'prd_recettes',
@@ -406,15 +358,6 @@ export const products: Product[] = [
     createdAt: '2026-05-06',
     file: 'pack-recettes.pdf',
     related: ['pack-activites', 'semainier-famille', 'pack-experiences-scientifiques'],
-    reviews: [
-      {
-        author: 'Nadia',
-        context: 'maman d’une fille de 6 ans',
-        rating: 5,
-        date: '2026-07-21',
-        body: 'Les pictogrammes changent tout. Ma fille prépare le goûter du mercredi sans moi maintenant.',
-      },
-    ],
   },
   {
     id: 'prd_activites',
@@ -469,15 +412,6 @@ export const products: Product[] = [
     createdAt: '2026-04-02',
     file: 'pack-activites.pdf',
     related: ['cartes-activites-calmes', 'pack-experiences-scientifiques', 'pack-recettes'],
-    reviews: [
-      {
-        author: 'Laure',
-        context: 'maman de jumelles de 3 ans',
-        rating: 4,
-        date: '2026-06-09',
-        body: 'Très beau et très reposant à regarder, ce qui n’est pas rien quand on colorie à trois. J’en ai imprimé plusieurs fois les coloriages.',
-      },
-    ],
   },
   {
     id: 'prd_pack_complet',
@@ -512,22 +446,6 @@ export const products: Product[] = [
     createdAt: '2026-03-18',
     file: 'pack-complet-famille-sereine.pdf',
     related: ['pack-routines', 'pack-emotions-connexion-confiance', 'semainier-famille'],
-    reviews: [
-      {
-        author: 'Anne-Sophie',
-        context: 'maman de trois enfants',
-        rating: 5,
-        date: '2026-08-28',
-        body: 'J’ai pris le pack complet en me disant que je n’utiliserais que la moitié. Six mois plus tard, tout est passé par l’imprimante au moins une fois.',
-      },
-      {
-        author: 'Céline',
-        context: 'éducatrice',
-        rating: 5,
-        date: '2026-07-05',
-        body: 'Cohérent, joli, et surtout réutilisable avec plusieurs enfants. Le rapport qualité-prix est difficile à battre.',
-      },
-    ],
   },
   {
     id: 'prd_routine_matin',
@@ -555,15 +473,6 @@ export const products: Product[] = [
     createdAt: '2026-01-20',
     file: 'routine-du-matin.pdf',
     related: ['pack-routines', 'rituel-du-soir', 'tableau-des-petites-missions'],
-    reviews: [
-      {
-        author: 'Marie',
-        context: 'maman d’un garçon de 5 ans',
-        rating: 5,
-        date: '2026-05-15',
-        body: 'Prise pour essayer à 4,90 €, j’ai acheté le pack complet la semaine suivante. Tout est dit.',
-      },
-    ],
   },
   {
     id: 'prd_tableau_emotions',
@@ -618,15 +527,6 @@ export const products: Product[] = [
     createdAt: '2026-03-05',
     file: 'semainier-famille.pdf',
     related: ['tableau-des-petites-missions', 'pack-routines', 'pack-recettes'],
-    reviews: [
-      {
-        author: 'Hélène',
-        context: 'maman de deux enfants',
-        rating: 5,
-        date: '2026-06-27',
-        body: 'On le remplit le dimanche soir tous ensemble. Cinq minutes qui font gagner la semaine.',
-      },
-    ],
   },
   {
     id: 'prd_rituel_soir',
@@ -779,11 +679,3 @@ export function searchProducts(query: string): Product[] {
   return products.filter((p) => haystack(p).includes(q)).slice(0, 8);
 }
 
-export function averageRating(product: Product): { value: number; count: number } | null {
-  if (!product.reviews?.length) return null;
-  const total = product.reviews.reduce((sum, r) => sum + r.rating, 0);
-  return {
-    value: Math.round((total / product.reviews.length) * 10) / 10,
-    count: product.reviews.length,
-  };
-}

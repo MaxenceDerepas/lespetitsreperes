@@ -63,7 +63,7 @@ export function CartView() {
                 <p className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-sage-dark">
                   {line.type}
                 </p>
-                <h2 className="mt-1 font-script text-[1.42rem] leading-snug text-sage-dark">
+                <h2 className="mt-1 title-editorial text-editorial-md">
                   <Link
                     href={`/boutique/${line.slug}`}
                     className="transition-colors hover:text-terracotta-deep"
@@ -77,7 +77,7 @@ export function CartView() {
                 </p>
 
                 <div className="mt-auto flex items-end justify-between gap-3 pt-3">
-                  <p className="font-serif text-[1.3rem] text-terracotta-deep">
+                  <p className="font-serif text-[1.3rem] text-terracotta-deep lining-nums">
                     {formatPrice(line.priceCents)}
                   </p>
                   <button

@@ -101,16 +101,8 @@ export interface Product {
   file: string;
   /** Produits associés (slugs). */
   related?: string[];
-  reviews?: ProductReview[];
 }
 
-export interface ProductReview {
-  author: string;
-  context?: string;
-  rating: 1 | 2 | 3 | 4 | 5;
-  date: string;
-  body: string;
-}
 
 export interface CartLine {
   productId: string;

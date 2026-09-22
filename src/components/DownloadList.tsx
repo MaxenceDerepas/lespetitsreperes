@@ -56,7 +56,7 @@ export function DownloadList({ order }: { order: Order }) {
               </span>
 
               <span className="min-w-[10rem] flex-1">
-                <span className="block font-script text-[1.36rem] leading-snug text-sage-dark">
+                <span className="block title-editorial text-editorial-md">
                   {item.name}
                 </span>
                 <span className="mt-0.5 block text-[0.78rem] text-muted">

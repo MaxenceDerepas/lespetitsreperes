@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import {
-  averageRating,
   categoryBySlug,
   getAllProducts,
   getProductBySlug,
@@ -11,12 +10,11 @@ import {
 import { keyFaq } from '@/lib/faq';
 import { site } from '@/lib/site';
 import { pageDescription, pageTitle, priceValidUntil } from '@/lib/seo';
-import { discountPercent, formatDate, formatPrice, priceForSchema } from '@/lib/format';
+import { discountPercent, formatPrice, priceForSchema } from '@/lib/format';
 import { Breadcrumbs } from '@/components/PageHeader';
 import { ProductGallery } from '@/components/ProductGallery';
 import { AddToCart } from '@/components/AddToCart';
 import { ProductCard } from '@/components/ProductCard';
-import { Rating } from '@/components/Rating';
 import { Accordion } from '@/components/Accordion';
 import { DigitalChecklist, TrustRow } from '@/components/TrustRow';
 import { SectionHeading } from '@/components/SectionHeading';
@@ -62,7 +60,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   const category = categoryBySlug(product.category);
   const related = getRelatedProducts(product, 3);
-  const rating = averageRating(product);
   const discount = discountPercent(product.priceCents, product.compareAtCents);
 
   const digitalFacts = [
@@ -94,22 +91,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       itemCondition: 'https://schema.org/NewCondition',
       seller: { '@type': 'Organization', name: site.name },
     },
-    ...(rating
-      ? {
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: rating.value,
-            reviewCount: rating.count,
-          },
-          review: (product.reviews ?? []).map((review) => ({
-            '@type': 'Review',
-            author: { '@type': 'Person', name: review.author },
-            datePublished: review.date,
-            reviewBody: review.body,
-            reviewRating: { '@type': 'Rating', ratingValue: review.rating, bestRating: 5 },
-          })),
-        }
-      : {}),
   };
 
   const faqItems = [...(product.faq ?? []), ...keyFaq.slice(0, 3)];
@@ -149,21 +130,16 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             {product.isNew && <NewStamp />}
           </div>
 
-          <h1 className="mt-4 text-balance title text-display-lg">
+          <h1 className="mt-4 text-balance title-editorial text-editorial-xl">
             {product.name}
           </h1>
-          <p className="mt-2 font-script text-[1.3rem] leading-snug text-terracotta-deep">
+          <p className="mt-2 font-serif text-[1.22rem] font-medium leading-snug text-terracotta-deep">
             {product.tagline}
           </p>
 
-          {rating && (
-            <div className="mt-4">
-              <Rating value={rating.value} count={rating.count} size={16} showValue />
-            </div>
-          )}
 
           <div className="mt-6 flex flex-wrap items-baseline gap-3">
-            <p className="font-serif text-[2.4rem] leading-none text-terracotta-deep">
+            <p className="font-serif text-[2.4rem] leading-none text-terracotta-deep lining-nums">
               {formatPrice(product.priceCents)}
             </p>
             {product.compareAtCents && (
@@ -219,14 +195,14 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       {/* ===================== DESCRIPTION ===================== */}
       <section className="shell grid gap-10 py-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
         <div>
-          <h2 className="title text-display-sm">Description</h2>
+          <h2 className="title-editorial text-editorial-lg">Description</h2>
           <p className="mt-3.5 text-pretty text-[0.98rem] leading-[1.75] text-ink-soft">
             {product.description}
           </p>
 
           {product.sections?.map((section) => (
             <div key={section.title} className="mt-7">
-              <h3 className="font-script text-2xl text-sage-dark">{section.title}</h3>
+              <h3 className="title-editorial text-[1.32rem]">{section.title}</h3>
               <p className="mt-2 text-[0.95rem] leading-[1.75] text-ink-soft">{section.body}</p>
             </div>
           ))}
@@ -238,7 +214,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </div>
 
         <aside className="rounded-card border border-ink/[0.07] bg-white p-6 shadow-soft lg:self-start">
-          <h2 className="title text-display-sm">Ce que contient le fichier</h2>
+          <h2 className="title-editorial text-editorial-lg">Ce que contient le fichier</h2>
           <ul className="mt-4 space-y-3">
             {product.contents.map((item, index) => (
               <li key={item} className="flex gap-3 text-[0.92rem] leading-relaxed text-ink-soft">
@@ -252,42 +228,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </aside>
       </section>
 
-      {/* ======================= AVIS ======================= */}
-      {product.reviews && product.reviews.length > 0 && (
-        <section className="bg-cream py-14" aria-labelledby="avis-produit">
-          <div className="shell">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <h2 id="avis-produit" className="title text-display-sm">
-                Avis des familles
-              </h2>
-              {rating && <Rating value={rating.value} count={rating.count} size={17} showValue />}
-            </div>
-
-            <ul className="mt-7 grid gap-5 md:grid-cols-3">
-              {product.reviews.map((review) => (
-                <li
-                  key={review.author + review.date}
-                  className="flex flex-col rounded-card border border-ink/[0.07] bg-white p-5 shadow-soft"
-                >
-                  <Rating value={review.rating} size={14} />
-                  <p className="mt-3 flex-1 text-[0.92rem] leading-relaxed text-ink-soft">
-                    «&nbsp;{review.body}&nbsp;»
-                  </p>
-                  <p className="mt-4 text-[0.8rem] text-muted">
-                    <span className="font-semibold text-ink">{review.author}</span>
-                    {review.context ? `, ${review.context}` : ''} · {formatDate(review.date)}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
-
       {/* ======================== FAQ ======================== */}
       <section className="py-14" aria-labelledby="faq-produit">
         <div className="shell max-w-3xl">
-          <h2 id="faq-produit" className="title text-display-sm">
+          <h2 id="faq-produit" className="title-editorial text-editorial-lg">
             Questions fréquentes sur ce produit
           </h2>
           <div className="mt-6">

@@ -79,7 +79,7 @@ export function ProductCard({ product, compact = false }: { product: Product; co
       </div>
 
       <div className="flex flex-1 flex-col items-center px-4 py-4 text-center sm:px-5 sm:py-5">
-        <h3 className="font-script text-[1.36rem] leading-snug text-sage-dark">
+        <h3 className="title-editorial text-editorial-md">
           <Link
             href={`/boutique/${product.slug}`}
             className="transition-colors duration-200 after:absolute after:inset-0 after:z-0 after:content-[''] hover:text-terracotta-deep"
@@ -94,7 +94,7 @@ export function ProductCard({ product, compact = false }: { product: Product; co
         </p>
 
         <p className="mt-auto flex items-baseline justify-center gap-2 pt-3">
-          <span className="font-serif text-[1.3rem] text-terracotta-deep">
+          <span className="font-serif text-[1.3rem] text-terracotta-deep lining-nums">
             {formatPrice(product.priceCents)}
           </span>
           {product.compareAtCents && (
