@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { isAdmin, isAdminConfigured } from '@/lib/auth';
 import { adminLogout } from '@/app/compte/actions';
-import { categories, getAllProducts } from '@/lib/catalog';
+import { categories, getAllProducts, productFiles } from '@/lib/catalog';
 import { promoCodes } from '@/lib/promo';
 import { getAllOrders, getOrderStats } from '@/lib/orders';
 import { localFileExists, isRemoteStorageConfigured } from '@/lib/storage';
@@ -50,7 +50,12 @@ export default async function AdminPage() {
   const stats = getOrderStats();
   const remoteStorage = isRemoteStorageConfigured();
 
-  const missingFiles = products.filter((product) => !remoteStorage && !localFileExists(product.file));
+  // Un produit peut porter plusieurs PDF : on les vérifie tous.
+  const missingFiles = products.flatMap((product) =>
+    productFiles(product)
+      .filter((file) => !remoteStorage && !localFileExists(file.name))
+      .map((file) => file.name),
+  );
   const customers = Array.from(
     orders.reduce((map, order) => {
       const entry = map.get(order.email) ?? { orders: 0, totalCents: 0 };
@@ -159,7 +164,7 @@ export default async function AdminPage() {
                 {missingFiles.length > 1 ? 's' : ''}
               </strong>{' '}
               dans <code className="font-mono text-[0.78rem]">private/files/</code> :{' '}
-              {missingFiles.map((product) => product.file).join(', ')}. Lancez{' '}
+              {missingFiles.join(', ')}. Lancez{' '}
               <code className="font-mono text-[0.78rem]">npm run seed:pdf</code> pour générer des
               PDF de démonstration, ou déposez-y vos vrais fichiers.
             </p>
@@ -180,7 +185,10 @@ export default async function AdminPage() {
               </thead>
               <tbody>
                 {products.map((product) => {
-                  const present = remoteStorage || localFileExists(product.file);
+                  const files = productFiles(product);
+                  const present = files.every(
+                    (file) => remoteStorage || localFileExists(file.name),
+                  );
                   return (
                     <tr key={product.id} className="border-b border-ink/[0.06] last:border-0">
                       <td className="px-4 py-3">
@@ -198,9 +206,16 @@ export default async function AdminPage() {
                         {formatPrice(product.priceCents)}
                       </td>
                       <td className="px-4 py-3">
-                        <code className="font-mono text-[0.76rem] text-muted">{product.file}</code>
+                        {files.map((file) => (
+                          <code
+                            key={file.name}
+                            className="block font-mono text-[0.76rem] text-muted"
+                          >
+                            {file.name}
+                          </code>
+                        ))}
                         <span
-                          className={`ml-2 rounded-full px-2 py-0.5 text-[0.68rem] font-semibold ${
+                          className={`mt-1 inline-block rounded-full px-2 py-0.5 text-[0.68rem] font-semibold ${
                             present
                               ? 'bg-sage-pale/70 text-sage-dark'
                               : 'bg-peach/50 text-terracotta-deep'

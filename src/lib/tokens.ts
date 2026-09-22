@@ -22,6 +22,13 @@ const TTL_HOURS = Number(process.env.DOWNLOAD_LINK_TTL_HOURS ?? 72);
 export interface DownloadPayload {
   orderId: string
   productId: string
+  /**
+   * Rang du fichier dans la ligne de commande, pour les produits livrés en
+   * plusieurs PDF. Absent (ou 0) pour un produit à fichier unique. Comme il
+   * fait partie de la charge signée, on ne peut pas le modifier pour aller
+   * chercher un autre fichier.
+   */
+  fileIndex?: number
   expiresAt: number
 }
 
@@ -45,11 +52,13 @@ function sign(payload: string): string {
 export function createDownloadToken(
   orderId: string,
   productId: string,
+  fileIndex = 0,
   ttlHours: number = TTL_HOURS,
 ): string {
   const payload: DownloadPayload = {
     orderId,
     productId,
+    fileIndex,
     expiresAt: Date.now() + ttlHours * 3600 * 1000,
   };
   const body = base64url(JSON.stringify(payload));

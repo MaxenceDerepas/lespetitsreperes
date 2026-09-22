@@ -106,8 +106,26 @@ export interface Product {
    * Jamais exposé côté client : seul /api/download/[token] y accède.
    */
   file: string;
+  /**
+   * Produit livré en plusieurs fichiers (le pack complet, par exemple).
+   * Quand cette liste est renseignée, c'est elle qui fait foi : le client
+   * reçoit un lien signé par fichier, chacun avec son propre compteur de
+   * téléchargements. `file` reste renseigné pour les outils qui ne
+   * connaissent qu'un fichier par produit (page /admin notamment).
+   */
+  files?: ProductFile[];
   /** Produits associés (slugs). */
   related?: string[];
+}
+
+/** Un fichier livrable, tel qu'il apparaît dans l'espace client. */
+export interface ProductFile {
+  /** Nom du fichier dans le stockage privé. */
+  name: string;
+  /** Intitulé lisible, affiché à côté du bouton de téléchargement. */
+  label: string;
+  /** Nombre de pages, affiché sous l'intitulé. */
+  pages?: number;
 }
 
 
@@ -132,6 +150,20 @@ export interface OrderItem {
   quantity: number;
   file: string;
   /** Nombre de téléchargements déjà effectués pour cette ligne. */
+  downloads: number;
+  /**
+   * Fichiers de la ligne, figés au moment de la commande — une commande
+   * passée hier doit rester livrable même si le catalogue change demain.
+   * Chaque fichier a son propre compteur : télécharger les recettes ne doit
+   * pas entamer le quota des routines.
+   */
+  files?: OrderFile[];
+}
+
+export interface OrderFile {
+  name: string;
+  label: string;
+  pages?: number;
   downloads: number;
 }
 

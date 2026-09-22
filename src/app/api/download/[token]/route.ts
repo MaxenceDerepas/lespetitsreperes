@@ -40,7 +40,7 @@ export async function GET(
     );
   }
 
-  const { orderId, productId } = verified.payload;
+  const { orderId, productId, fileIndex = 0 } = verified.payload;
 
   const order = getOrder(orderId);
   if (!order) {
@@ -62,7 +62,18 @@ export async function GET(
     );
   }
 
-  if (!registerDownload(orderId, productId, downloadMaxCount)) {
+  // Produit livré en plusieurs PDF : le rang demandé doit exister dans la
+  // commande. Il fait partie de la charge signée, donc il ne peut pas avoir
+  // été bricolé, mais on le revérifie ici par principe.
+  const orderFile = item.files?.[fileIndex];
+  if (item.files && !orderFile) {
+    return NextResponse.json(
+      { error: 'Ce fichier ne fait pas partie de cette commande.' },
+      { status: 403, headers: noStore() },
+    );
+  }
+
+  if (!registerDownload(orderId, productId, downloadMaxCount, fileIndex)) {
     return NextResponse.json(
       {
         error: `Vous avez atteint la limite de ${downloadMaxCount} téléchargements pour ce fichier. Écrivez-nous et nous la réinitialisons.`,
@@ -71,9 +82,10 @@ export async function GET(
     );
   }
 
-  const file = await getProductFile(item.file);
+  const storedName = orderFile?.name ?? item.file;
+  const file = await getProductFile(storedName);
   if (!file) {
-    console.error('[download] Fichier absent du stockage privé :', item.file);
+    console.error('[download] Fichier absent du stockage privé :', storedName);
     return NextResponse.json(
       {
         error: 'Le fichier est momentanément indisponible. Merci de nous écrire, nous vous l’envoyons directement.',
@@ -83,7 +95,8 @@ export async function GET(
   }
 
   const product = getProductById(productId);
-  const fileName = `${slugify(product?.name ?? item.name)}-les-petits-reperes.pdf`;
+  const title = orderFile?.label ?? product?.name ?? item.name;
+  const fileName = `${slugify(title)}-les-petits-reperes.pdf`;
 
   return new NextResponse(new Uint8Array(file.body), {
     status: 200,

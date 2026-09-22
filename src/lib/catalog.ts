@@ -1,4 +1,4 @@
-import type { AgeRange, Category, CategorySlug, Product, ProductType } from './types';
+import type { AgeRange, Category, CategorySlug, Product, ProductFile, ProductType } from './types';
 
 /* =====================================================================
  *  CATÉGORIES
@@ -87,14 +87,25 @@ export const priceBrackets = [
  *  déposer le PDF dans `private/files/` et renseigner `file`.
  * =================================================================== */
 
-const includedInFullPack = [
-  'Le pack routines du matin et du soir (24 pages)',
-  'Le pack émotions, connexion et confiance (18 pages)',
-  'Le pack activités créatives (20 pages)',
-  'Le pack expériences scientifiques (16 pages)',
-  'Le pack recettes en famille (14 pages)',
-  'Notre semainier famille et le tableau des petites missions',
+/**
+ * Les cinq packs réunis dans l'ensemble complet.
+ * Une seule liste sert à la fois au descriptif affiché sur la fiche produit
+ * et aux fichiers effectivement livrés : impossible d'annoncer un contenu
+ * qui ne serait pas dans la commande.
+ */
+const fullPackFiles = [
+  { name: 'pack-routines.pdf', label: 'Routines, autonomie et repères', pages: 30 },
+  { name: 'pack-emotions.pdf', label: 'Émotions, connexion et confiance', pages: 24 },
+  { name: 'pack-experiences-scientifiques.pdf', label: 'Expériences scientifiques', pages: 19 },
+  { name: 'pack-recettes.pdf', label: 'Recettes en famille', pages: 18 },
+  { name: 'pack-activites.pdf', label: 'Activités créatives', pages: 18 },
 ];
+
+const includedInFullPack = fullPackFiles.map(
+  (file) => `Le pack ${file.label.toLowerCase()} (${file.pages} pages)`,
+);
+
+const fullPackPages = fullPackFiles.reduce((sum, file) => sum + file.pages, 0);
 
 export const products: Product[] = [
   {
@@ -429,19 +440,19 @@ export const products: Product[] = [
     subcategory: 'Ensemble complet',
     type: 'Pack PDF',
     ages: ['2-3 ans', '3-5 ans', '5-7 ans', '7-10 ans', 'Toute la famille'],
-    pages: 96,
+    pages: fullPackPages,
     format: 'A4 — portrait et paysage',
     description:
-      'L’ensemble de la boutique en un seul fichier : routines, émotions, activités, expériences, recettes et outils d’organisation. Quatre-vingt-seize pages qui couvrent le quotidien d’une famille pendant plusieurs années, avec une économie de plus de 35 % par rapport aux packs achetés séparément.',
+      'Les cinq packs de la boutique réunis : routines et autonomie, émotions et confiance, expériences scientifiques, recettes et activités créatives. Cent neuf pages qui couvrent le quotidien d’une famille pendant plusieurs années, avec une économie de plus de 35 % par rapport aux packs achetés séparément.',
     contents: includedInFullPack,
     sections: [
       {
         title: 'Ce que vous économisez',
-        body: 'Achetés séparément, ces packs représentent 46,50 €. Réunis, ils sont à 29,90 € — et vous n’avez qu’un seul fichier à retrouver dans votre espace client.',
+        body: 'Achetés séparément, ces cinq packs représentent 46,50 €. Réunis, ils sont à 29,90 € — soit 16,60 € d’économie.',
       },
       {
         title: 'Par où commencer',
-        body: 'Le pack s’ouvre sur un sommaire cliquable et une page « par où commencer » : un sujet à la fois, sur deux semaines, plutôt que tout afficher le premier jour.',
+        body: 'Vous recevez les cinq packs en cinq fichiers séparés : vous imprimez le thème du moment sans avoir à chercher au milieu de cent pages. Un sujet à la fois, sur deux semaines, plutôt que tout afficher le premier jour.',
       },
     ],
     motif: 'gift',
@@ -449,7 +460,8 @@ export const products: Product[] = [
     featured: true,
     popularity: 91,
     createdAt: '2026-03-18',
-    file: 'pack-complet-famille-sereine.pdf',
+    file: fullPackFiles[0].name,
+    files: fullPackFiles,
     related: ['pack-routines', 'pack-emotions-connexion-confiance', 'semainier-famille'],
   },
   {
@@ -684,3 +696,12 @@ export function searchProducts(query: string): Product[] {
   return products.filter((p) => haystack(p).includes(q)).slice(0, 8);
 }
 
+
+/**
+ * Fichiers livrés pour un produit.
+ * Un produit ordinaire n'en a qu'un ; le pack complet en a cinq.
+ */
+export function productFiles(product: Product): ProductFile[] {
+  if (product.files?.length) return product.files;
+  return [{ name: product.file, label: product.name, pages: product.pages }];
+}

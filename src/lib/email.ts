@@ -118,10 +118,15 @@ export async function sendOrderEmail(order: Order): Promise<boolean> {
 
   const baseUrl = site.url;
 
-  const links = order.items.map((item) => ({
-    name: item.name,
-    url: downloadUrl(createDownloadToken(order.id, item.productId), baseUrl),
-  }));
+  // Un lien par fichier : le pack complet en contient cinq, un par thème.
+  const links = order.items.flatMap((item) =>
+    (item.files?.length ? item.files : [{ name: item.file, label: item.name }]).map(
+      (file, index) => ({
+        name: file.label,
+        url: downloadUrl(createDownloadToken(order.id, item.productId, index), baseUrl),
+      }),
+    ),
+  );
 
   const allFilesUrl = `${baseUrl}/telechargements/${order.id}`;
 

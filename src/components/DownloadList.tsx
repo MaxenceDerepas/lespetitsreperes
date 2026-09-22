@@ -34,57 +34,76 @@ export function DownloadList({ order }: { order: Order }) {
       <ul className="space-y-3">
         {order.items.map((item) => {
           const product = getProductById(item.productId);
-          const token = createDownloadToken(order.id, item.productId);
-          const remaining = downloadMaxCount > 0 ? downloadMaxCount - item.downloads : null;
-          const exhausted = remaining !== null && remaining <= 0;
+          // Un produit peut être livré en plusieurs PDF (le pack complet en
+          // a cinq) : chaque fichier a son lien signé et son propre quota.
+          const files = item.files?.length
+            ? item.files
+            : [{ name: item.file, label: item.name, pages: product?.pages, downloads: item.downloads }];
+          const plural = files.length > 1;
 
           return (
             <li
               key={item.productId}
-              className="flex flex-wrap items-center gap-4 rounded-card border border-ink/[0.07] bg-white p-4 shadow-soft sm:flex-nowrap"
+              className="rounded-card border border-ink/[0.07] bg-white p-4 shadow-soft"
             >
-              <span className="h-20 w-16 shrink-0 overflow-hidden rounded-soft">
-                {product ? (
-                  <ProductVisual
-                    motif={product.motif}
-                    accent={product.accent}
-                    title={product.name}
-                    alt=""
-                    className="h-full w-full"
-                  />
-                ) : null}
-              </span>
+              <div className="flex flex-wrap items-center gap-4 sm:flex-nowrap">
+                <span className="h-20 w-16 shrink-0 overflow-hidden rounded-soft">
+                  {product ? (
+                    <ProductVisual
+                      motif={product.motif}
+                      accent={product.accent}
+                      title={product.name}
+                      alt=""
+                      className="h-full w-full"
+                    />
+                  ) : null}
+                </span>
 
-              <span className="min-w-[10rem] flex-1">
-                <span className="block title-editorial text-editorial-md">
-                  {item.name}
-                </span>
-                <span className="mt-0.5 block text-[0.78rem] text-muted">
-                  Fichier PDF
-                  {product ? ` · ${product.pages} pages · ${product.format}` : ''}
-                </span>
-                {remaining !== null && (
-                  <span className="mt-1 block text-[0.74rem] text-muted">
-                    {exhausted
-                      ? 'Limite de téléchargements atteinte — écrivez-nous, nous la réinitialisons.'
-                      : `${remaining} téléchargement${remaining > 1 ? 's' : ''} restant${remaining > 1 ? 's' : ''}`}
+                <span className="min-w-[10rem] flex-1">
+                  <span className="block title-editorial text-editorial-md">{item.name}</span>
+                  <span className="mt-0.5 block text-[0.78rem] text-muted">
+                    {plural ? `${files.length} fichiers PDF` : 'Fichier PDF'}
+                    {product ? ` · ${product.pages} pages · ${product.format}` : ''}
                   </span>
-                )}
-              </span>
-
-              {exhausted ? (
-                <span className="rounded-full bg-sand/60 px-5 py-2.5 text-[0.85rem] font-semibold text-muted">
-                  Indisponible
                 </span>
-              ) : (
-                <a
-                  href={`/api/download/${token}`}
-                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-terracotta-deep px-5 py-2.5 text-[0.88rem] font-semibold text-white transition-all duration-200 ease-calm hover:-translate-y-px hover:bg-terracotta-deeper"
-                  rel="nofollow"
-                >
-                  <DownloadIcon size={17} />
-                  Télécharger le PDF
-                </a>
+
+                {!plural && (
+                  <DownloadButton
+                    orderId={order.id}
+                    productId={item.productId}
+                    index={0}
+                    downloads={files[0].downloads}
+                  />
+                )}
+              </div>
+
+              {plural && (
+                <ul className="mt-4 space-y-2 border-t border-ink/[0.07] pt-4">
+                  {files.map((file, index) => (
+                    <li
+                      key={file.name}
+                      className="flex flex-wrap items-center gap-3 rounded-soft bg-cream/70 px-3 py-2.5 sm:flex-nowrap"
+                    >
+                      <span className="min-w-[8rem] flex-1">
+                        <span className="block text-[0.88rem] font-semibold text-ink">
+                          {file.label}
+                        </span>
+                        {file.pages ? (
+                          <span className="block text-[0.74rem] text-muted">
+                            {file.pages} pages
+                          </span>
+                        ) : null}
+                      </span>
+                      <DownloadButton
+                        orderId={order.id}
+                        productId={item.productId}
+                        index={index}
+                        downloads={file.downloads}
+                        compact
+                      />
+                    </li>
+                  ))}
+                </ul>
               )}
             </li>
           );
@@ -98,5 +117,57 @@ export function DownloadList({ order }: { order: Order }) {
         depuis votre espace client.
       </p>
     </div>
+  );
+}
+
+/**
+ * Bouton d'un fichier : le lien signé est fabriqué au dernier moment, avec
+ * le rang du fichier dans la commande. Ce rang fait partie de la signature,
+ * il ne peut donc pas être changé pour aller chercher un autre PDF.
+ */
+function DownloadButton({
+  orderId,
+  productId,
+  index,
+  downloads,
+  compact = false,
+}: {
+  orderId: string
+  productId: string
+  index: number
+  downloads: number
+  compact?: boolean
+}) {
+  const remaining = downloadMaxCount > 0 ? downloadMaxCount - downloads : null;
+  const exhausted = remaining !== null && remaining <= 0;
+
+  if (exhausted) {
+    return (
+      <span className="rounded-full bg-sand/60 px-5 py-2.5 text-[0.85rem] font-semibold text-muted">
+        Limite atteinte
+      </span>
+    );
+  }
+
+  const token = createDownloadToken(orderId, productId, index);
+
+  return (
+    <span className="flex shrink-0 flex-col items-end gap-0.5">
+      <a
+        href={`/api/download/${token}`}
+        className={`inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-terracotta-deep font-semibold text-white transition-all duration-200 ease-calm hover:-translate-y-px hover:bg-terracotta-deeper ${
+          compact ? 'px-4 py-2 text-[0.82rem]' : 'px-5 py-2.5 text-[0.88rem]'
+        }`}
+        rel="nofollow"
+      >
+        <DownloadIcon size={compact ? 15 : 17} />
+        Télécharger
+      </a>
+      {remaining !== null && (
+        <span className="text-[0.72rem] text-muted">
+          {remaining} restant{remaining > 1 ? 's' : ''}
+        </span>
+      )}
+    </span>
   );
 }

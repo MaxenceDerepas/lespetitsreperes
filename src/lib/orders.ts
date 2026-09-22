@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { CartLine, Order, OrderItem, OrderStatus } from './types';
-import { getProductById } from './catalog';
+import { getProductById, productFiles } from './catalog';
 import { generateOrderId, generateOrderReference } from './tokens';
 
 /**
@@ -56,6 +56,9 @@ export function buildOrderItems(lines: CartLine[]): OrderItem[] {
       // envoyé par le navigateur n'est jamais une source de vérité.
       const product = getProductById(line.productId);
       if (!product) return null;
+      // Les fichiers sont recopiés dans la commande : elle doit rester
+      // livrable telle quelle même si le catalogue change plus tard.
+      const files = productFiles(product).map((file) => ({ ...file, downloads: 0 }));
       const item: OrderItem = {
         productId: product.id,
         slug: product.slug,
@@ -64,6 +67,7 @@ export function buildOrderItems(lines: CartLine[]): OrderItem[] {
         quantity: Math.max(1, Math.min(10, Math.trunc(line.quantity) || 1)),
         file: product.file,
         downloads: 0,
+        files,
       };
       return item;
     })
@@ -158,13 +162,32 @@ export function attachStripeSession(id: string, sessionId: string): void {
  * Incrémente le compteur de téléchargements d'une ligne de commande.
  * Renvoie false si la limite configurée est atteinte.
  */
-export function registerDownload(orderId: string, productId: string, maxCount: number): boolean {
+export function registerDownload(
+  orderId: string,
+  productId: string,
+  maxCount: number,
+  fileIndex = 0,
+): boolean {
   const orders = readAll();
   const order = orders.find((o) => o.id === orderId);
   if (!order) return false;
   const item = order.items.find((i) => i.productId === productId);
   if (!item) return false;
-  if (maxCount > 0 && item.downloads >= maxCount) return false;
+
+  // Produit livré en plusieurs fichiers : chacun a son propre quota, pour
+  // que télécharger les recettes n'entame pas celui des routines.
+  const file = item.files?.[fileIndex];
+  if (item.files && !file) return false;
+
+  if (file) {
+    if (maxCount > 0 && file.downloads >= maxCount) return false;
+    file.downloads += 1;
+  } else {
+    if (maxCount > 0 && item.downloads >= maxCount) return false;
+  }
+
+  // `item.downloads` reste le total de la ligne : c'est ce que comptent
+  // les statistiques de l'espace d'administration.
   item.downloads += 1;
   writeAll(orders);
   return true;
