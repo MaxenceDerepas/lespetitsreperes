@@ -51,6 +51,13 @@ export interface ProductFaqItem {
   answer: string;
 }
 
+export interface ProductImage {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
 export interface Product {
   id: string;
   slug: string;
@@ -75,6 +82,13 @@ export interface Product {
   faq?: ProductFaqItem[];
   motif: Motif;
   accent: AccentKey;
+  /**
+   * Photos du produit, dans l'ordre d'affichage — la première sert de
+   * vignette dans la boutique. Sans photos, le produit garde son visuel
+   * dessiné : les deux styles cohabitent le temps que le catalogue soit
+   * photographié.
+   */
+  images?: ProductImage[];
   featured?: boolean;
   isNew?: boolean;
   /** Score utilisé pour le tri « popularité » (démo). */

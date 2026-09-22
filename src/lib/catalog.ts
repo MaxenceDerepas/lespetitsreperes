@@ -200,6 +200,38 @@ export const products: Product[] = [
         body: 'Nommer une émotion, c’est déjà en reprendre un peu le contrôle. Les cartes servent autant à l’enfant qui n’arrive pas à parler qu’au parent qui cherche la bonne phrase au mauvais moment.',
       },
     ],
+    images: [
+      {
+        src: '/produits/pack-emotions/couverture.jpg',
+        alt: 'Couverture du pack : 30 fiches de connexion et partage en famille',
+        width: 1200,
+        height: 1201,
+      },
+      {
+        src: '/produits/pack-emotions/les-fiches.jpg',
+        alt: 'Les fiches imprimées étalées sur une table : thermomètre des émotions, cartes de discussion, cartes respiration, boîte à souvenirs',
+        width: 1200,
+        height: 1014,
+      },
+      {
+        src: '/produits/pack-emotions/thermometre-en-famille.jpg',
+        alt: 'Une famille attablée utilise le thermomètre des émotions et les cartes « quand je me sens débordé »',
+        width: 1200,
+        height: 800,
+      },
+      {
+        src: '/produits/pack-emotions/defis-en-famille.jpg',
+        alt: 'Des enfants et leur maman jouent aux cartes défis en famille dans le salon',
+        width: 1200,
+        height: 1097,
+      },
+      {
+        src: '/produits/pack-emotions/comment-ca-fonctionne.jpg',
+        alt: 'Comment ça fonctionne : je télécharge, j’imprime, je découpe, je plastifie',
+        width: 1200,
+        height: 1199,
+      },
+    ],
     motif: 'heart',
     accent: 'terracotta',
     featured: true,

@@ -128,7 +128,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
       {/* ===================== BLOC ACHAT ===================== */}
       <section className="shell grid gap-9 py-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-12">
-        <ProductGallery motif={product.motif} accent={product.accent} productName={product.name} />
+        <ProductGallery
+          motif={product.motif}
+          accent={product.accent}
+          productName={product.name}
+          images={product.images}
+        />
 
         <div className="lg:pt-2">
           <div className="flex flex-wrap items-center gap-2.5">
