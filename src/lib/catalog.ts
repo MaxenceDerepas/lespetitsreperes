@@ -504,6 +504,15 @@ export const products: Product[] = [
         body: 'Inutile de tout imprimer ou de tout mettre en place dès le début !\n\nPiochez simplement dans le pack selon vos besoins et vos envies : une routine pour faciliter le matin, une activité pour un mercredi après-midi, une recette à préparer ensemble, une expérience pour satisfaire une petite curiosité ou encore un outil pour parler d’une émotion.\n\nVous imprimez uniquement ce dont vous avez besoin, au moment où vous en avez besoin.',
       },
     ],
+    images: [
+      {
+        src: '/produits/pack-complet/les-fiches.jpg',
+        alt: 'Les fiches des cinq packs étalées sur une table : semainier, routines, missions, thermomètre des émotions, cartes de discussion, recettes et expériences',
+        width: 1200,
+        height: 1200,
+        thumb: true,
+      },
+    ],
     motif: 'gift',
     accent: 'gold',
     featured: true,
