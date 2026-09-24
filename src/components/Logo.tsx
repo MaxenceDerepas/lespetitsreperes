@@ -38,8 +38,12 @@ function Sun({ className = '' }: { className?: string }) {
         strokeWidth="2.6"
         strokeLinecap="round"
       />
+      {/* Le trait d'horizon passe SOUS le disque : le demi-soleil repose
+          dessus, il ne le traverse jamais. Le disque s'arrête à y=38, le
+          sommet du trait est à y=40 — un peu en dessous, comme sur le
+          médaillon d'origine. */}
       <path
-        d="M4 41c12-5.5 22-8 28-8s16 2.5 28 8"
+        d="M4 43c12-1.9 22-2.7 28-2.7s16 .8 28 2.7"
         stroke="#C9A78C"
         strokeWidth="2"
         strokeLinecap="round"
@@ -87,7 +91,13 @@ export function LogoMark({ className = '', size = 36 }: { className?: string; si
         strokeWidth="2.4"
         strokeLinecap="round"
       />
-      <path d="M8 44c14-6 26-9 24-9s10 3 24 9" stroke="#C9A78C" strokeWidth="2" strokeLinecap="round" />
+      {/* Idem : le disque s'arrête à y=40, le trait culmine à y=42,6. */}
+      <path
+        d="M8 46c10-2.4 18-3.4 24-3.4s14 1 24 3.4"
+        stroke="#C9A78C"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
       <g fill="#A5AE8A">
         <ellipse cx="14" cy="52" rx="8" ry="4.6" transform="rotate(-20 14 52)" />
         <ellipse cx="28" cy="57" rx="8" ry="4.6" transform="rotate(10 28 57)" />

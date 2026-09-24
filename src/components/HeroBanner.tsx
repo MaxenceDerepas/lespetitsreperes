@@ -57,7 +57,14 @@ function SoleilLevant({ className = '' }: { className?: string }) {
         strokeWidth="3.4"
         strokeLinecap="round"
       />
-      <path d="M6 54c12-7 25-10 40-10s28 3 40 10" stroke="#C99C79" strokeWidth="2.6" strokeLinecap="round" />
+      {/* Le trait d'horizon reste sous le disque, qui s'arrête à y=48 :
+          il culmine à y=50,5, jamais au-dessus. */}
+      <path
+        d="M6 55c12-2.9 25-4.5 40-4.5s28 1.6 40 4.5"
+        stroke="#C99C79"
+        strokeWidth="2.6"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
