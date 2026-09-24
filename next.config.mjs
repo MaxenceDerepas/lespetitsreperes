@@ -21,6 +21,20 @@ const nextConfig = {
         destination: '/blog/rituel-du-dimanche-soir-preparer-la-semaine',
         permanent: true,
       },
+      // Fiches vendues à l'unité, retirées de la boutique : leurs adresses
+      // renvoient vers le pack qui reprend leur contenu, plutôt que sur un 404.
+      ...[
+        ['routine-du-matin', 'pack-routines'],
+        ['rituel-du-soir', 'pack-routines'],
+        ['semainier-famille', 'pack-routines'],
+        ['tableau-des-petites-missions', 'pack-routines'],
+        ['tableau-des-emotions', 'pack-emotions-connexion-confiance'],
+        ['cartes-activites-calmes', 'pack-activites'],
+      ].map(([ancien, pack]) => ({
+        source: `/boutique/${ancien}`,
+        destination: `/boutique/${pack}`,
+        permanent: true,
+      })),
     ];
   },
   async headers() {

@@ -2,9 +2,12 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { isAdmin, isAdminConfigured } from '@/lib/auth';
 import { adminLogout } from '@/app/compte/actions';
-import { categories, getAllProducts, productFiles } from '@/lib/catalog';
+import { categories, getAllProducts, getProductById, productFiles } from '@/lib/catalog';
 import { promoCodes } from '@/lib/promo';
 import { getAllOrders, getOrderStats } from '@/lib/orders';
+import { getAllReviews, reviewStats } from '@/lib/reviews';
+import { moderateReview, removeReview } from './actions';
+import { Stars } from '@/components/Stars';
 import { localFileExists, isRemoteStorageConfigured } from '@/lib/storage';
 import { isStripeConfigured } from '@/lib/stripe';
 import { isEmailConfigured } from '@/lib/email';
@@ -48,6 +51,8 @@ export default async function AdminPage() {
   const products = getAllProducts();
   const orders = getAllOrders();
   const stats = getOrderStats();
+  const reviews = getAllReviews();
+  const avisStats = reviewStats();
   const remoteStorage = isRemoteStorageConfigured();
 
   // Un produit peut porter plusieurs PDF : on les vérifie tous.
@@ -90,13 +95,14 @@ export default async function AdminPage() {
           <h2 id="stats" className="title text-display-sm">
             Vue d’ensemble
           </h2>
-          <ul className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-5">
+          <ul className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {[
               { label: 'Commandes', value: String(stats.ordersCount) },
               { label: 'Payées', value: String(stats.paidCount) },
               { label: 'Chiffre d’affaires', value: formatPrice(stats.revenueCents) },
               { label: 'Téléchargements', value: String(stats.downloads) },
               { label: 'Clients', value: String(stats.customers) },
+              { label: 'Avis à relire', value: String(avisStats.pending) },
             ].map((stat) => (
               <li key={stat.label} className="rounded-card border border-sage/15 bg-white p-4">
                 <p className="font-serif text-2xl text-sage-dark">{stat.value}</p>
@@ -235,6 +241,102 @@ export default async function AdminPage() {
               </tbody>
             </table>
           </div>
+        </section>
+
+        {/* Avis clients */}
+        <section aria-labelledby="avis">
+          <h2 id="avis" className="title text-display-sm">
+            Avis clients{' '}
+            <span className="text-[0.8rem] font-normal text-muted">
+              ({avisStats.pending} à relire · {avisStats.published} publiés)
+            </span>
+          </h2>
+          <p className="mt-2 max-w-2xl text-[0.86rem] leading-relaxed text-ink-soft">
+            Un avis n’apparaît sur la fiche produit qu’une fois publié ici. Tous proviennent d’une
+            commande payée : personne ne peut noter un fichier qu’il n’a pas acheté.
+          </p>
+
+          {reviews.length === 0 ? (
+            <p className="mt-4 rounded-card border border-dashed border-sage/30 bg-white/60 px-5 py-8 text-center text-[0.88rem] text-ink-soft">
+              Aucun avis pour l’instant.
+            </p>
+          ) : (
+            <ul className="mt-5 space-y-3">
+              {reviews.map((avis) => {
+                const produit = getProductById(avis.productId);
+                const etat = {
+                  pending: { label: 'À relire', classe: 'bg-sand/60 text-ink-soft' },
+                  published: { label: 'Publié', classe: 'bg-sage-pale/70 text-sage-dark' },
+                  rejected: { label: 'Refusé', classe: 'bg-peach/50 text-terracotta-deep' },
+                }[avis.status];
+
+                return (
+                  <li
+                    key={avis.id}
+                    className="rounded-card border border-ink/[0.07] bg-white p-5 shadow-soft"
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <p className="text-[0.9rem]">
+                        <span className="font-semibold text-ink">{avis.displayName}</span>
+                        <span className="text-muted"> · {avis.email}</span>
+                        <span className="block text-[0.8rem] text-muted">
+                          {produit?.name ?? avis.productId} — commande {avis.orderId.slice(0, 12)}…
+                          · {formatDateTime(avis.createdAt)}
+                        </span>
+                      </p>
+                      <span
+                        className={`rounded-full px-3 py-1 text-[0.72rem] font-semibold ${etat.classe}`}
+                      >
+                        {etat.label}
+                      </span>
+                    </div>
+
+                    <Stars value={avis.rating} className="mt-2" />
+
+                    <p className="mt-2 whitespace-pre-line text-[0.9rem] leading-relaxed text-ink-soft">
+                      {avis.body}
+                    </p>
+
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {avis.status !== 'published' && (
+                        <form action={moderateReview}>
+                          <input type="hidden" name="id" value={avis.id} />
+                          <input type="hidden" name="decision" value="published" />
+                          <button
+                            type="submit"
+                            className="rounded-full bg-sage-dark px-4 py-2 text-[0.82rem] font-semibold text-white transition-colors hover:bg-sage-deep"
+                          >
+                            Publier
+                          </button>
+                        </form>
+                      )}
+                      {avis.status !== 'rejected' && (
+                        <form action={moderateReview}>
+                          <input type="hidden" name="id" value={avis.id} />
+                          <input type="hidden" name="decision" value="rejected" />
+                          <button
+                            type="submit"
+                            className="rounded-full border border-ink/15 px-4 py-2 text-[0.82rem] font-semibold text-ink-soft transition-colors hover:border-terracotta/50 hover:text-terracotta-deep"
+                          >
+                            Ne pas publier
+                          </button>
+                        </form>
+                      )}
+                      <form action={removeReview}>
+                        <input type="hidden" name="id" value={avis.id} />
+                        <button
+                          type="submit"
+                          className="rounded-full px-4 py-2 text-[0.82rem] text-muted underline underline-offset-2 transition-colors hover:text-terracotta-deep"
+                        >
+                          Supprimer
+                        </button>
+                      </form>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </section>
 
         {/* Commandes */}

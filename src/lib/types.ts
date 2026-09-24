@@ -85,6 +85,8 @@ export interface Product {
   description: string;
   /** Ce que contient le fichier, en points courts. */
   contents: string[];
+  /** Phrase de conclusion affichée sous la liste « Ce que contient le fichier ». */
+  contentsNote?: string;
   sections?: ProductSection[];
   faq?: ProductFaqItem[];
   motif: Motif;
@@ -236,4 +238,28 @@ export interface FaqItem {
   question: string;
   answer: string;
   group: 'Commande et téléchargement' | 'Impression et utilisation' | 'Paiement et facturation' | 'Contact et aide';
+}
+
+/* ------------------------------- Avis clients ---------------------------- */
+
+export type ReviewStatus = 'pending' | 'published' | 'rejected';
+
+/**
+ * Avis déposé par un client sur un produit qu'il a acheté.
+ * `email` sert à empêcher les doublons et à pouvoir répondre : il n'est
+ * jamais affiché publiquement, contrairement à `displayName`.
+ */
+export interface Review {
+  id: string;
+  productId: string;
+  orderId: string;
+  email: string;
+  displayName: string;
+  /** Note de 1 à 5. */
+  rating: number;
+  body: string;
+  status: ReviewStatus;
+  createdAt: string;
+  /** Date de publication ou de refus. */
+  reviewedAt?: string;
 }

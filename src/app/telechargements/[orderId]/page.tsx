@@ -81,7 +81,15 @@ export default async function OrderDownloadsPage({
               plastique peut fonctionner.
             </li>
           </ul>
-          <p className="mt-5 text-[0.86rem] text-muted">
+          <p className="mt-5 text-[0.86rem] text-ink-soft">
+            Une fois que vous les aurez essayées,{' '}
+            <Link href="/compte/avis" className="link-underline font-semibold text-terracotta-deep">
+              votre avis nous aiderait beaucoup
+            </Link>{' '}
+            — seulement si vous en avez envie.
+          </p>
+
+          <p className="mt-3 text-[0.86rem] text-muted">
             Un fichier ne s’ouvre pas ?{' '}
             <Link href="/contact" className="text-terracotta-deep underline underline-offset-2">
               Écrivez-nous

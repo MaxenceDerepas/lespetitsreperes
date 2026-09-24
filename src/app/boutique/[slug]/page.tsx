@@ -19,7 +19,10 @@ import { Accordion } from '@/components/Accordion';
 import { DigitalChecklist, TrustRow } from '@/components/TrustRow';
 import { SectionHeading } from '@/components/SectionHeading';
 import { NewStamp } from '@/components/Decor';
-import { MotifIcon } from '@/components/icons';
+import { ArrowRightIcon, MotifIcon } from '@/components/icons';
+import { ButtonLink } from '@/components/Button';
+import { ProductReviews } from '@/components/ProductReviews';
+import { getPublishedReviews, ratingSummary } from '@/lib/reviews';
 
 export async function generateStaticParams() {
   return getAllProducts().map((product) => ({ slug: product.slug }));
@@ -60,6 +63,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   const category = categoryBySlug(product.category);
   const related = getRelatedProducts(product, 3);
+  // Le pack complet ne se recommande pas lui-même.
+  const packComplet =
+    product.slug === 'pack-complet-famille-sereine'
+      ? undefined
+      : getProductBySlug('pack-complet-famille-sereine');
   const discount = discountPercent(product.priceCents, product.compareAtCents);
 
   const digitalFacts = [
@@ -70,6 +78,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     `Format ${product.format}`,
     'Réimprimable autant de fois que souhaité',
   ];
+
+  const reviews = getPublishedReviews(product.id);
+  const summary = ratingSummary(product.id);
 
   const productSchema = {
     '@context': 'https://schema.org',
@@ -91,6 +102,31 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       itemCondition: 'https://schema.org/NewCondition',
       seller: { '@type': 'Organization', name: site.name },
     },
+    // Les étoiles dans les résultats Google ne sont déclarées que si de vrais
+    // avis existent : annoncer une note sans avis est une fausse déclaration.
+    ...(summary
+      ? {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: summary.average,
+            reviewCount: summary.count,
+            bestRating: 5,
+            worstRating: 1,
+          },
+          review: reviews.slice(0, 5).map((avis) => ({
+            '@type': 'Review',
+            author: { '@type': 'Person', name: avis.displayName },
+            datePublished: avis.createdAt.slice(0, 10),
+            reviewBody: avis.body,
+            reviewRating: {
+              '@type': 'Rating',
+              ratingValue: avis.rating,
+              bestRating: 5,
+              worstRating: 1,
+            },
+          })),
+        }
+      : {}),
   };
 
   const faqItems = [...(product.faq ?? []), ...keyFaq.slice(0, 3)];
@@ -223,6 +259,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               </li>
             ))}
           </ul>
+
+          {product.contentsNote && (
+            <p className="mt-5 border-t border-ink/[0.07] pt-4 text-[0.9rem] leading-relaxed text-ink-soft">
+              {product.contentsNote}
+            </p>
+          )}
         </aside>
       </section>
 
@@ -237,6 +279,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </section>
+
+      {/* ===================== AVIS CLIENTS ==================== */}
+      <ProductReviews reviews={reviews} summary={summary} />
 
       {/* ================= PRODUITS ASSOCIÉS ================= */}
       {related.length > 0 && (
@@ -253,6 +298,23 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 </li>
               ))}
             </ul>
+
+            {packComplet && (
+              <div className="mx-auto mt-10 flex max-w-4xl flex-wrap items-center justify-between gap-5 rounded-card border border-terracotta/25 bg-peach/25 px-6 py-5">
+                <p className="text-[1rem] leading-relaxed text-ink">
+                  <span className="font-semibold">Vous souhaitez plusieurs packs ?</span>{' '}
+                  Découvrez le pack complet !
+                  <span className="mt-0.5 block text-[0.86rem] text-ink-soft">
+                    Les cinq packs réunis, {formatPrice(packComplet.priceCents)} au lieu de{' '}
+                    {formatPrice(packComplet.compareAtCents ?? 0)}.
+                  </span>
+                </p>
+                <ButtonLink href={`/boutique/${packComplet.slug}`} size="md">
+                  Voir le pack complet
+                  <ArrowRightIcon size={16} />
+                </ButtonLink>
+              </div>
+            )}
           </div>
         </section>
       )}
