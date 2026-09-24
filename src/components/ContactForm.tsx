@@ -8,7 +8,6 @@ const subjects = [
   'Question avant achat',
   'Problème de téléchargement',
   'Facture ou paiement',
-  'Licence professionnelle (crèche, classe, cabinet)',
   'Suggestion de fiche',
   'Autre',
 ];

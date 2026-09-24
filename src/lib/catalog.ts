@@ -144,7 +144,7 @@ export const products: Product[] = [
       {
         question: 'Faut-il plastifier les fiches ?',
         answer:
-          'Ce n’est pas obligatoire, mais une simple pochette transparente et un feutre effaçable permettent de réutiliser le même tableau chaque jour pendant des mois.',
+          'Ce n’est pas une obligation mais c’est préférable afin qu’elles durent plus longtemps dans le temps. Si vous ne le pouvez pas, une simple pochette plastique peut fonctionner.',
       },
       {
         question: 'Mon enfant ne sait pas encore lire, est-ce adapté ?',

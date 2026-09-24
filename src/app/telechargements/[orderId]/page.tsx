@@ -76,8 +76,9 @@ export default async function OrderDownloadsPage({
             <li>Choisissez le format A4 et l’option « taille réelle » (sans mise à l’échelle).</li>
             <li>Un papier 120 g rend mieux pour les supports destinés à être affichés.</li>
             <li>
-              Une pochette plastique et un feutre effaçable permettent de réutiliser la même fiche
-              pendant des mois.
+              Plastifier les fiches n’est pas une obligation, mais c’est préférable afin qu’elles
+              durent plus longtemps dans le temps. Si vous ne le pouvez pas, une simple pochette
+              plastique peut fonctionner.
             </li>
           </ul>
           <p className="mt-5 text-[0.86rem] text-muted">

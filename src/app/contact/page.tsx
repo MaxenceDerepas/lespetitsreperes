@@ -11,7 +11,7 @@ import { InstagramIcon, MailIcon, SparkleIcon } from '@/components/icons';
 export const metadata: Metadata = {
   title: 'Contact — nous écrire',
   description:
-    'Une question sur un fichier, un téléchargement, une facture ou une licence professionnelle ? Écrivez-nous, nous répondons sous 24 à 48 h ouvrées.',
+    'Une question sur un fichier, un téléchargement ou une facture ? Écrivez-nous, nous répondons sous 24 à 48 h ouvrées.',
   alternates: { canonical: '/contact' },
 };
 

@@ -47,7 +47,7 @@ export const faqItems: FaqItem[] = [
     group: 'Impression et utilisation',
     question: 'Faut-il plastifier les fiches ?',
     answer:
-      'Ce n’est pas nécessaire. Une pochette plastique transparente et un feutre effaçable suffisent pour réutiliser la même fiche pendant des mois, sans machine spécifique.',
+      'Ce n’est pas une obligation mais c’est préférable afin qu’elles durent plus longtemps dans le temps. Si vous ne le pouvez pas, une simple pochette plastique peut fonctionner.',
   },
   {
     group: 'Impression et utilisation',

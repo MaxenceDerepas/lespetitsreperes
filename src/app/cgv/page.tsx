@@ -73,9 +73,7 @@ Sont en revanche strictement interdits :
 - la revente, la cession, le prêt ou le partage du fichier, à titre gratuit ou onéreux ;
 - la diffusion du fichier sur Internet, un réseau social, un espace de stockage partagé ou une plateforme de partage ;
 - la modification, l’extraction d’éléments graphiques ou la réutilisation dans une création destinée à la diffusion ;
-- l’usage collectif en établissement (crèche, école, cabinet, association) sans licence professionnelle.
-
-Une **licence professionnelle** est disponible pour les usages collectifs : il suffit d’en faire la demande à ${site.email}.
+- l’usage collectif en établissement (crèche, école, cabinet, association).
 
 L’ensemble des contenus (textes, illustrations, mises en page) demeure la propriété exclusive du Vendeur et reste protégé par le droit d’auteur.
 
