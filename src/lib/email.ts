@@ -1,7 +1,7 @@
 import type { Order } from './types';
 import { site } from './site';
 import { formatPrice } from './format';
-import { createDownloadToken, downloadTtlHours, downloadUrl } from './tokens';
+import { createDownloadToken, downloadUrl } from './tokens';
 
 /**
  * Envoi des emails transactionnels.
@@ -42,7 +42,10 @@ async function send({ to, subject, html, text, replyTo }: SendArgs): Promise<boo
   }
 
   try {
-    const response = await fetch('https://api.resend.com/emails', {
+    // L'adresse de l'API est surchargeable pour pouvoir vérifier l'envoi
+    // sans consommer de vrai quota (tests automatisés).
+    const endpoint = process.env.EMAIL_API_URL || 'https://api.resend.com/emails';
+    const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${process.env.EMAIL_API_KEY}`,
@@ -130,57 +133,95 @@ export async function sendOrderEmail(order: Order): Promise<boolean> {
 
   const allFilesUrl = `${baseUrl}/telechargements/${order.id}`;
 
-  const itemsHtml = links
-    .map(
-      (link) => `<tr>
+  // Un pack livré en plusieurs fichiers (le pack complet) est détaillé sous le
+  // bouton ; un pack à fichier unique n'a besoin que du bouton.
+  const plusieurs = links.length > 1;
+
+  const itemsHtml = plusieurs
+    ? links
+        .map(
+          (link) => `<tr>
         <td style="padding:10px 0;border-bottom:1px solid rgba(102,88,75,.08);">
           <div style="font-size:15px;font-weight:700;color:#66584B;">${link.name}</div>
           <a href="${link.url}" style="font-size:13px;color:#C26A4B;text-decoration:underline;">Télécharger le PDF</a>
         </td></tr>`,
-    )
-    .join('');
+        )
+        .join('')
+    : '';
 
   const inner = `
-    <h1 style="margin:14px 0 6px;font-family:Georgia,serif;font-size:26px;font-weight:500;color:#5F6B51;text-align:center;">Vos fichiers sont prêts !</h1>
+    <h1 style="margin:14px 0 6px;font-family:Georgia,serif;font-size:26px;font-weight:500;color:#5F6B51;text-align:center;">Votre pack est prêt !</h1>
     <p style="font-size:15px;line-height:1.7;margin:16px 0;">Bonjour${order.firstName ? ` ${order.firstName}` : ''},</p>
-    <p style="font-size:15px;line-height:1.7;margin:0 0 18px;">Merci pour votre commande et bienvenue chez Les Petits Repères ♡</p>
-    <div style="text-align:center;">${button(allFilesUrl, 'Télécharger mes fichiers')}</div>
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:18px 0 6px;">${itemsHtml}</table>
-    <p style="font-size:14px;line-height:1.7;color:#7C6E60;margin:18px 0 0;">
-      Vous pouvez imprimer vos documents autant de fois que nécessaire pour votre usage personnel.
+    <p style="font-size:15px;line-height:1.7;margin:0 0 6px;">
+      Merci beaucoup pour votre commande et bienvenue dans l’univers Les Petits Repères
     </p>
-    <p style="font-size:13px;line-height:1.7;color:#91877B;margin:14px 0 0;">
-      Ces liens sont personnels et valables ${downloadTtlHours} h. Vos fichiers restent disponibles à tout moment
-      dans votre espace client, rubrique « Mes téléchargements ».
+    <p style="font-size:15px;line-height:1.7;margin:0 0 18px;">
+      Votre pack est maintenant prêt à être téléchargé et imprimé à la maison.
     </p>
-    <p style="font-size:13px;line-height:1.7;color:#91877B;margin:14px 0 0;">
-      Commande ${order.reference} — ${formatPrice(order.totalCents)}${order.demo ? ' (commande de démonstration)' : ''}
+
+    <div style="text-align:center;">${button(allFilesUrl, plusieurs ? 'Télécharger mes packs' : 'Télécharger mon pack')}</div>
+    ${plusieurs
+      ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:6px 0;">${itemsHtml}</table>`
+      : ''}
+
+    <p style="font-size:15px;line-height:1.7;margin:18px 0 0;">
+      Une fois téléchargé, vous pouvez imprimer uniquement les pages dont vous avez besoin et
+      avancer à votre rythme, selon les envies et les besoins de votre enfant.
     </p>
-    <p style="font-size:15px;line-height:1.7;margin:22px 0 0;">À bientôt,<br>Les Petits Repères</p>
+    <p style="font-size:15px;line-height:1.7;margin:14px 0 0;">
+      J’espère que ces outils trouveront naturellement leur place dans votre quotidien et vous
+      permettront de partager de jolis moments en famille.
+    </p>
+    <p style="font-size:15px;line-height:1.7;margin:14px 0 0;">
+      Une question ou un souci avec votre téléchargement ? Vous pouvez simplement répondre à cet
+      e-mail, je serai ravie de vous aider.
+    </p>
+
+    <p style="font-size:15px;line-height:1.7;margin:22px 0 0;">À très bientôt,</p>
+    <p style="font-size:15px;line-height:1.6;margin:10px 0 0;">
+      <strong style="color:#66584B;">Sandrine</strong><br>
+      <span style="font-size:13px;color:#91877B;">Éducatrice de jeunes enfants &amp; maman de 2 garçons</span>
+    </p>
+    <p style="font-size:13px;line-height:1.6;margin:14px 0 0;color:#788568;">
+      <strong>Les Petits Repères</strong><br>
+      Des outils pour grandir en confiance
+    </p>
+
+    <p style="font-size:12px;line-height:1.7;color:#91877B;margin:22px 0 0;border-top:1px solid rgba(102,88,75,.08);padding-top:14px;">
+      Vos fichiers restent disponibles à tout moment dans votre espace client, rubrique
+      « Mes téléchargements ». Commande ${order.reference} — ${formatPrice(order.totalCents)}${order.demo ? ' (commande de démonstration)' : ''}.
+    </p>
   `;
 
   const text = [
     `Bonjour${order.firstName ? ` ${order.firstName}` : ''},`,
     '',
-    'Merci pour votre commande et bienvenue chez Les Petits Repères.',
+    'Merci beaucoup pour votre commande et bienvenue dans l’univers Les Petits Repères',
+    'Votre pack est maintenant prêt à être téléchargé et imprimé à la maison.',
     '',
-    'Vos fichiers sont prêts :',
-    ...links.map((l) => `- ${l.name} : ${l.url}`),
+    `Télécharger mon pack : ${allFilesUrl}`,
+    ...(plusieurs ? ['', ...links.map((l) => `- ${l.name} : ${l.url}`)] : []),
     '',
-    `Tous vos fichiers : ${allFilesUrl}`,
+    'Une fois téléchargé, vous pouvez imprimer uniquement les pages dont vous avez besoin et avancer à votre rythme, selon les envies et les besoins de votre enfant.',
     '',
-    'Vous pouvez imprimer vos documents autant de fois que nécessaire pour votre usage personnel.',
-    `Ces liens sont valables ${downloadTtlHours} h ; vos fichiers restent disponibles dans votre espace client.`,
+    'J’espère que ces outils trouveront naturellement leur place dans votre quotidien et vous permettront de partager de jolis moments en famille.',
     '',
-    `Commande ${order.reference} — ${formatPrice(order.totalCents)}`,
+    'Une question ou un souci avec votre téléchargement ? Vous pouvez simplement répondre à cet e-mail, je serai ravie de vous aider.',
     '',
-    'À bientôt,',
+    'À très bientôt,',
+    '',
+    'Sandrine',
+    'Éducatrice de jeunes enfants & maman de 2 garçons',
+    '',
     'Les Petits Repères',
+    'Des outils pour grandir en confiance',
+    '',
+    `Vos fichiers restent disponibles dans votre espace client. Commande ${order.reference} — ${formatPrice(order.totalCents)}.`,
   ].join('\n');
 
   return send({
     to: order.email,
-    subject: 'Votre commande Les Petits Repères est prête',
+    subject: 'Votre pack Les Petits Repères est prêt',
     html: layout(inner),
     text,
   });

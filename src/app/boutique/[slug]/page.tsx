@@ -75,7 +75,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     'Téléchargement immédiat',
     'Impression à la maison',
     'Usage personnel et familial',
-    `Format ${product.format}`,
     'Réimprimable autant de fois que souhaité',
   ];
 
@@ -199,14 +198,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <AddToCart product={product} />
           </div>
 
-          <dl className="mt-7 grid gap-x-6 gap-y-3 rounded-card border border-sage/15 bg-white/70 p-5 sm:grid-cols-2">
+          <dl className="mt-7 rounded-card border border-sage/15 bg-white/70 p-5">
             <div>
-              <dt className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-muted">
-                Format
-              </dt>
-              <dd className="mt-0.5 text-[0.9rem] text-ink">{product.format}</dd>
-            </div>
-            <div className="sm:col-span-2">
               <dt className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-muted">
                 Ce qui est inclus
               </dt>

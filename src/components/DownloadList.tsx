@@ -63,7 +63,7 @@ export function DownloadList({ order }: { order: Order }) {
                   <span className="block title-editorial text-editorial-md">{item.name}</span>
                   <span className="mt-0.5 block text-[0.78rem] text-muted">
                     {plural ? `${files.length} fichiers PDF` : 'Fichier PDF'}
-                    {product ? ` · ${product.pages} pages · ${product.format}` : ''}
+                    {product ? ` · ${product.pages} pages` : ''}
                   </span>
                 </span>
 

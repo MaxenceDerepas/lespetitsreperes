@@ -28,13 +28,13 @@ export function ProductCard({ product, compact = false }: { product: Product; co
   // Vignette : la photo marquée `thumb` (les fiches posées sur la table),
   // sinon la première photo du produit.
   const thumb = product.images?.find((image) => image.thumb) ?? product.images?.[0];
-  // Une photo de fiches se regarde en entier : la rogner couperait justement
-  // ce qu'on veut montrer. Une scène de vie, elle, remplit la carte.
-  const whole = Boolean(thumb?.thumb);
 
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-card border border-ink/[0.07] bg-white shadow-soft transition-all duration-300 ease-calm hover:-translate-y-1 hover:shadow-lift">
-      <span className="relative block aspect-[4/5] overflow-hidden bg-cream">
+      {/* Cadre 5/4 pour toutes les vignettes : les photos de fiches vont du
+          carré au 3/2, ce format est celui qui les rogne le moins tout en
+          leur donnant exactement la même taille d'une carte à l'autre. */}
+      <span className="relative block aspect-[5/4] overflow-hidden bg-cream">
         {/* Photo si le produit en a une, sinon le visuel dessiné. */}
         {thumb ? (
           <Image
@@ -43,9 +43,7 @@ export function ProductCard({ product, compact = false }: { product: Product; co
             width={thumb.width}
             height={thumb.height}
             sizes="(min-width: 1024px) 18rem, (min-width: 640px) 45vw, 50vw"
-            className={`h-full w-full transition-transform duration-500 ease-calm group-hover:scale-[1.035] ${
-              whole ? 'object-contain p-1.5' : 'object-cover'
-            }`}
+            className="h-full w-full object-cover transition-transform duration-500 ease-calm group-hover:scale-[1.035]" 
           />
         ) : (
           <ProductVisual
