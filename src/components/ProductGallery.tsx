@@ -110,9 +110,6 @@ export function ProductGallery({
           </ul>
         )}
 
-        <p className="mt-2 text-center text-[0.76rem] text-muted" aria-live="polite">
-          {photo.alt}
-        </p>
       </div>
     );
   }

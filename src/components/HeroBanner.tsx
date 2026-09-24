@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { ButtonLink } from './Button';
 import {
   ArrowRightIcon,
-  HeartFilledIcon,
   HeartIcon,
   LeafIcon,
   RainbowIcon,
@@ -157,8 +156,7 @@ export function HeroBanner() {
               Des outils doux et créatifs
             </span>
             <span className="mt-1 block text-balance font-script text-[clamp(1.25rem,2.5vw,1.75rem)] leading-snug text-ink-soft">
-              pour accompagner le quotidien des familles{' '}
-              <HeartFilledIcon size={19} className="-mt-1 inline-block text-lilac" aria-hidden="true" />
+              pour accompagner le quotidien des familles
             </span>
           </h1>
 

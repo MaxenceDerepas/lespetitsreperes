@@ -75,7 +75,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.name,
-    description: product.description,
+    description: flatten(product.description),
     sku: product.id,
     image: [`${site.url}/boutique/${product.slug}/opengraph-image`],
     brand: { '@type': 'Brand', name: site.name },
@@ -170,12 +170,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               </dt>
               <dd className="mt-0.5 text-[0.9rem] text-ink">{product.format}</dd>
             </div>
-            <div>
-              <dt className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-muted">
-                Âges conseillés
-              </dt>
-              <dd className="mt-0.5 text-[0.9rem] text-ink">{product.ages.join(' · ')}</dd>
-            </div>
             <div className="sm:col-span-2">
               <dt className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-muted">
                 Ce qui est inclus
@@ -196,14 +190,18 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <section className="shell grid gap-10 py-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
         <div>
           <h2 className="title-editorial text-editorial-lg">Description</h2>
-          <p className="mt-3.5 text-pretty text-[0.98rem] leading-[1.75] text-ink-soft">
-            {product.description}
-          </p>
+          <Paragraphes
+            texte={product.description}
+            className="mt-3.5 text-pretty text-[0.98rem] leading-[1.75] text-ink-soft"
+          />
 
           {product.sections?.map((section) => (
             <div key={section.title} className="mt-7">
               <h3 className="title-editorial text-[1.32rem]">{section.title}</h3>
-              <p className="mt-2 text-[0.95rem] leading-[1.75] text-ink-soft">{section.body}</p>
+              <Paragraphes
+                texte={section.body}
+                className="mt-2 text-[0.95rem] leading-[1.75] text-ink-soft"
+              />
             </div>
           ))}
 
@@ -265,4 +263,28 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       />
     </>
   );
+}
+
+/**
+ * Un texte de descriptif peut contenir plusieurs paragraphes, séparés par une
+ * ligne vide — exactement comme la cliente les écrit. On les rend en autant de
+ * blocs plutôt que d'un seul pavé.
+ */
+function Paragraphes({ texte, className }: { texte: string; className?: string }) {
+  const paragraphes = texte.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+
+  // Un conteneur porte la mise en forme : empiler `mt-3` par-dessus la classe
+  // reçue donnerait deux marges Tailwind concurrentes sur le même élément.
+  return (
+    <div className={`${className ?? ''} space-y-3.5`}>
+      {paragraphes.map((paragraphe) => (
+        <p key={paragraphe.slice(0, 48)}>{paragraphe}</p>
+      ))}
+    </div>
+  );
+}
+
+/** Version sur une seule ligne, pour les données structurées et les métadonnées. */
+function flatten(texte: string): string {
+  return texte.replace(/\s+/g, ' ').trim();
 }

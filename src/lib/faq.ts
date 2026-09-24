@@ -35,7 +35,7 @@ export const faqItems: FaqItem[] = [
     group: 'Impression et utilisation',
     question: 'Puis-je utiliser le fichier avec plusieurs enfants ?',
     answer:
-      'Bien sûr, pour tous les enfants de votre famille. La licence couvre un usage personnel et familial. En revanche, un usage en classe, en crèche ou en cabinet nécessite une licence professionnelle : écrivez-nous, nous la proposons à un tarif adapté.',
+      'Bien sûr, pour tous les enfants de votre famille. La licence couvre un usage personnel et familial.',
   },
   {
     group: 'Impression et utilisation',

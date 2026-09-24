@@ -30,7 +30,7 @@ export const blogPosts: BlogPost[] = [
     motif: 'tools',
     accent: 'sand',
     featured: true,
-    relatedProducts: ['semainier-famille', 'tableau-des-petites-missions'],
+    relatedProducts: ['pack-routines'],
     image: {
       src: '/blog/coloriage-au-salon.jpg',
       alt: 'Une petite fille allongée sur le tapis du salon colorie tranquillement, entourée de ses crayons et de ses livres',
@@ -176,7 +176,7 @@ Parce que l’autonomie ne consiste pas seulement à « faire seul ». Elle comm
     motif: 'house',
     accent: 'sage',
     featured: true,
-    relatedProducts: ['pack-routines', 'routine-du-matin'],
+    relatedProducts: ['pack-routines'],
     image: {
       src: '/blog/routine-du-matin.jpg',
       alt: 'Un petit garçon décroche sa veste devant l’affiche « Ma routine du matin » accrochée au mur de sa chambre',
@@ -350,7 +350,7 @@ L’important est que l’enfant puisse progressivement savoir ce qui est attend
     motif: 'heart',
     accent: 'terracotta',
     featured: true,
-    relatedProducts: ['pack-emotions-connexion-confiance', 'tableau-des-emotions'],
+    relatedProducts: ['pack-emotions-connexion-confiance'],
     image: {
       src: '/blog/accueillir-la-colere.jpg',
       alt: 'Un petit garçon assis en tailleur, les mains sur la poitrine et le ventre, respire calmement devant une affiche des émotions',
@@ -478,7 +478,7 @@ Pas pour empêcher la colère d’exister. Pour apprendre, petit à petit, à la
     author: 'Sandrine',
     motif: 'palette',
     accent: 'sageLight',
-    relatedProducts: ['cartes-activites-calmes', 'pack-activites'],
+    relatedProducts: ['pack-activites', 'pack-experiences-scientifiques'],
     image: {
       src: '/blog/cette-semaine-en-famille.jpg',
       alt: 'Une maman et ses deux garçons attablés dans le salon, devant le semainier « Cette semaine » affiché au mur',
@@ -581,7 +581,7 @@ Et parfois, l’activité la plus utile de la fin de journée, c’est simplemen
     author: 'Sandrine',
     motif: 'chef',
     accent: 'peach',
-    relatedProducts: ['pack-recettes', 'pack-experiences-scientifiques'],
+    relatedProducts: ['pack-recettes'],
     image: {
       src: '/blog/cuisiner-en-famille.jpg',
       alt: 'Un papa et ses deux enfants préparent une pâte à gâteau, la fiche recette illustrée posée sur le plan de travail',
@@ -656,7 +656,7 @@ Parce qu’en cuisine comme ailleurs, l’autonomie ne consiste pas à laisser l
     author: 'Sandrine',
     motif: 'star',
     accent: 'gold',
-    relatedProducts: ['tableau-des-petites-missions', 'pack-routines'],
+    relatedProducts: ['pack-routines'],
     image: {
       src: '/blog/bien-grandir-a-son-rythme.jpg',
       alt: 'Une affiche « Bien grandir, à son rythme » accrochée dans une chambre d’enfant, au-dessus d’un tabouret avec un sac à dos et des vêtements pliés',

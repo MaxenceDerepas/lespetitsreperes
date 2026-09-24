@@ -112,7 +112,7 @@ export const products: Product[] = [
     id: 'prd_routines',
     slug: 'pack-routines',
     name: 'Pack routines',
-    tagline: 'Des matins sans course et des soirs qui s’apaisent',
+    tagline: 'Des repères pour gagner en autonomie au quotidien',
     priceCents: 1290,
     category: 'routines-autonomie',
     subcategory: 'Matin et soir',
@@ -120,24 +120,24 @@ export const products: Product[] = [
     ages: ['3-5 ans', '5-7 ans', '7-10 ans'],
     pages: 30,
     format: 'A4 — portrait et paysage',
-    description:
-      'Le pack le plus demandé de la boutique. Trente pages pour installer, une fois pour toutes, une routine du matin et un rituel du soir que votre enfant peut suivre seul. Les étapes sont illustrées, dans un ordre logique, avec de la place pour cocher, déplacer ou colorier — parce qu’un enfant qui voit ce qui l’attend n’a plus besoin qu’on le lui répète six fois.',
+    description: 
+      'Le Pack Routines, Autonomie & Repères accompagne l’enfant dans les petits moments du quotidien : comprendre sa semaine, suivre une routine, participer à la maison, préparer ses affaires ou encore apprendre à réaliser certaines tâches seul.\n\nGrâce aux supports visuels, aux pictogrammes et aux check-lists, l’enfant sait plus facilement ce qu’il doit faire et dans quel ordre, tout en avançant progressivement vers davantage d’autonomie.',
     contents: [
-      'Deux tableaux de routine du matin (version illustrée et version à compléter)',
-      'Deux tableaux de rituel du soir, dont une version « temps calme »',
-      'Des cartes-étapes à découper pour composer votre propre routine',
-      'Un tableau de suivi hebdomadaire avec gommettes à colorier',
-      'Une page de conseils pour installer la routine en une semaine',
-      'Deux affiches « Je suis prêt » et « Bonne nuit » format A4',
+      'Le semainier',
+      'Les routines',
+      'Le tableau des missions + étoiles et cartes missions',
+      'Des planches de pictogrammes',
+      'Des check-lists d’autonomie : tenue, cartable, valise, piscine, randonnée, plantes, rangement après une activité, rangement des courses…',
+      'Les fiches « Comment l’utiliser ? » pour guider les parents',
     ],
     sections: [
       {
-        title: 'Pourquoi ça fonctionne',
-        body: 'Un enfant de 3 à 7 ans n’a pas encore la capacité de se représenter une suite d’actions dans le temps. Rendre la séquence visible, à hauteur d’yeux, remplace la consigne orale — et fait tomber la plupart des conflits du matin.',
+        title: 'Pourquoi ça fonctionne ?',
+        body: 'Les supports visuels rendent les consignes et le temps plus concrets et accessibles. L’enfant peut regarder, suivre les étapes, cocher ce qui est fait et constater ses progrès.\n\nPetit à petit, il dépend moins des rappels de l’adulte et développe sa confiance : « Je sais ce que j’ai à faire et je peux essayer seul. »',
       },
       {
-        title: 'Comment l’utiliser',
-        body: 'Imprimez le tableau, affichez-le à hauteur d’enfant dans la salle de bain ou l’entrée, et laissez votre enfant cocher lui-même. Vous pouvez glisser la feuille dans une pochette plastique pour l’utiliser au feutre effaçable pendant des mois.',
+        title: 'Comment l’utiliser ?',
+        body: 'Pas besoin de tout mettre en place en même temps ! Choisissez simplement l’outil qui correspond au besoin du moment : semainier, routine, missions ou check-list.\n\nDécouvrez-le d’abord ensemble, accompagnez votre enfant dans son utilisation, puis laissez-le progressivement s’y référer seul. Les pictogrammes permettent de personnaliser les supports selon votre quotidien.',
       },
     ],
     faq: [
@@ -197,7 +197,7 @@ export const products: Product[] = [
     id: 'prd_emotions',
     slug: 'pack-emotions-connexion-confiance',
     name: 'Pack émotions, connexion et confiance',
-    tagline: 'Des mots simples pour les grandes tempêtes',
+    tagline: 'Des outils pour se comprendre, prendre confiance et créer du lien',
     priceCents: 990,
     category: 'connexion-emotions',
     subcategory: 'Émotions et confiance',
@@ -205,20 +205,27 @@ export const products: Product[] = [
     ages: ['3-5 ans', '5-7 ans', '7-10 ans'],
     pages: 24,
     format: 'A4 — portrait',
-    description:
-      'Vingt-quatre pages pour traverser les émotions sans les subir. Une roue des émotions, un tableau à afficher, des cartes « de quoi j’ai besoin » et des supports de connexion à utiliser le soir. L’idée n’est pas de faire disparaître la colère, mais de donner à votre enfant — et à vous — un vocabulaire commun pour la nommer.',
+    description: 
+      'Le Pack Connexion, Confiance & Émotions rassemble des outils ludiques et bienveillants pour aider l’enfant à mieux comprendre ce qu’il ressent, développer sa confiance en lui et renforcer les liens en famille.\n\nÀ travers des cartes, des jeux et des supports visuels, l’enfant apprend progressivement à mettre des mots sur ce qu’il vit, découvrir des moyens de retrouver son calme et mieux se connaître, tout en partageant de vrais moments de complicité avec ses parents.',
     contents: [
-      'La roue des émotions à assembler (deux tailles)',
-      'Un tableau des émotions à afficher, version fille et garçon neutres',
-      'Douze cartes « de quoi j’ai besoin là, maintenant »',
-      'Le thermomètre de la colère à colorier',
-      'Un support « mes trois fiertés du jour »',
-      'Un guide parent de 3 pages : quoi dire, quoi éviter',
+      'Des cartes défis en famille pour créer des moments de complicité',
+      'Des cartes de discussion parents/enfants',
+      'Des outils autour des émotions, du calme et de la confiance en soi',
+      'Un thermomètre des émotions',
+      'Un support « Quand je me sens débordé(e), je peux… »',
+      'Des cartes de respiration à découvrir et expérimenter',
+      'Des supports pour mieux se connaître et croire en soi',
+      'Un petit questionnaire personnel à refaire au fil du temps',
+      'De quoi créer une boîte à souvenirs et conserver les petits moments précieux de la famille',
     ],
     sections: [
       {
-        title: 'Un vocabulaire partagé',
-        body: 'Nommer une émotion, c’est déjà en reprendre un peu le contrôle. Les cartes servent autant à l’enfant qui n’arrive pas à parler qu’au parent qui cherche la bonne phrase au mauvais moment.',
+        title: 'Pourquoi ça fonctionne ?',
+        body: 'Les émotions, la confiance en soi ou encore la connaissance de soi sont parfois difficiles à aborder uniquement avec des mots.\n\nLes supports permettent de rendre ces notions plus concrètes et accessibles à l’enfant. Ils ouvrent naturellement la discussion, donnent des pistes pour exprimer ses ressentis et permettent d’expérimenter différentes stratégies dans les moments calmes, afin de pouvoir progressivement les réutiliser lorsque l’enfant en a besoin.\n\nEt parce que le lien se construit aussi dans le plaisir, le pack propose des moments simplement faits pour rire, jouer, discuter et créer des souvenirs ensemble.',
+      },
+      {
+        title: 'Comment l’utiliser ?',
+        body: 'Il n’est pas nécessaire de tout utiliser en même temps. Choisissez un outil en fonction du moment : une carte discussion pendant un temps calme, un exercice de respiration à découvrir ensemble, le thermomètre pour apprendre à identifier l’intensité d’une émotion ou encore un défi pour partager un moment en famille.\n\nCertains supports peuvent être laissés accessibles au quotidien, tandis que d’autres peuvent devenir de petits rituels familiaux. Le questionnaire peut notamment être refait de temps en temps pour garder une trace de ce que l’enfant aime, pense et ressent, et observer son évolution au fil des années.',
       },
     ],
     images: [
@@ -267,7 +274,7 @@ export const products: Product[] = [
     id: 'prd_sciences',
     slug: 'pack-experiences-scientifiques',
     name: 'Pack expériences scientifiques',
-    tagline: 'Douze expériences avec ce que vous avez déjà chez vous',
+    tagline: '30 expériences pour découvrir les sciences en s’amusant',
     priceCents: 790,
     category: 'experiences',
     subcategory: 'Expériences',
@@ -275,14 +282,27 @@ export const products: Product[] = [
     ages: ['5-7 ans', '7-10 ans'],
     pages: 19,
     format: 'A4 — portrait',
-    description:
-      'Douze expériences testées à la maison, à faire avec du bicarbonate, un verre d’eau, du papier et un peu de patience. Chaque fiche tient sur une page : le matériel, les étapes illustrées, et une explication écrite pour que vous puissiez répondre à la question qui arrive toujours — « mais pourquoi ? ».',
+    description: 
+      'Le Pack 30 fiches d’expériences scientifiques invite les enfants à observer, manipuler, tester et s’émerveiller à travers des expériences simples à réaliser à la maison.\n\nChaque fiche accompagne l’enfant étape par étape, avec du matériel généralement facile à trouver, pour découvrir de façon ludique différents phénomènes : couleurs, eau, air, réactions, densité, lumière, magnétisme et bien plus encore.',
     contents: [
-      'Douze fiches expériences, une par page',
-      'La liste du matériel, tout se trouve dans la cuisine',
-      'Une explication simple du phénomène pour chaque expérience',
-      'Un carnet d’observation à imprimer pour noter les résultats',
-      'Un diplôme de petit scientifique à remplir',
+      '30 fiches d’expériences scientifiques à imprimer',
+      'Les infos concernant le matériel nécessaire et les étapes illustrées',
+      'Une partie « Ce qu’on observe » pour comprendre le résultat',
+      'Des explications simples sur « Pourquoi ça marche ? »',
+      'Des astuces, variantes et défis selon les expériences',
+      'Des expériences autour de l’eau, l’air, des couleurs, de la lumière, du magnétisme, des réactions et bien plus encore',
+      'Un support d’observation pour adopter une démarche de petit scientifique',
+      'Un diplôme du petit scientifique à imprimer et personnaliser',
+    ],
+    sections: [
+      {
+        title: 'Pourquoi ça fonctionne ?',
+        body: 'Les enfants comprennent particulièrement bien lorsqu’ils peuvent voir et expérimenter par eux-mêmes.\n\nFaire une hypothèse, observer ce qui se passe puis chercher à comprendre permet de développer naturellement la curiosité, le raisonnement, le sens de l’observation et l’envie d’apprendre. L’expérience devient alors un véritable moment de découverte à partager.',
+      },
+      {
+        title: 'Comment l’utiliser ?',
+        body: 'Choisissez une expérience selon l’envie du moment et préparez ensemble le matériel indiqué sur la fiche.\n\nLaissez d’abord votre enfant observer, questionner et imaginer ce qui va se passer, puis réalisez l’expérience en suivant les différentes étapes. Prenez ensuite le temps d’échanger sur le résultat et sur le petit phénomène scientifique qui se cache derrière.',
+      },
     ],
     images: [
       {
@@ -323,7 +343,7 @@ export const products: Product[] = [
     id: 'prd_recettes',
     slug: 'pack-recettes',
     name: 'Pack recettes en famille',
-    tagline: 'Des recettes qu’un enfant peut suivre seul',
+    tagline: '30 recettes pour cuisiner et partager en famille',
     priceCents: 790,
     category: 'recettes',
     subcategory: 'Cuisine en famille',
@@ -331,14 +351,27 @@ export const products: Product[] = [
     ages: ['3-5 ans', '5-7 ans', '7-10 ans', 'Toute la famille'],
     pages: 18,
     format: 'A4 — portrait',
-    description:
-      'Dix recettes illustrées étape par étape, avec des pictogrammes plutôt que des paragraphes : un enfant de quatre ans peut suivre la fiche des sablés, un enfant de huit ans peut préparer le goûter tout seul. Les quantités sont indiquées en cuillères et en verres, pas seulement en grammes.',
+    description: 
+      'Le Pack 30 fiches recettes a été pensé pour faire de la cuisine un vrai moment de partage avec les enfants. Des recettes sucrées et salées, simples et gourmandes, présentées de manière claire et visuelle pour permettre à l’enfant de participer réellement à leur préparation.\n\nChaque fiche rassemble les ingrédients et les différentes étapes illustrées, pour suivre facilement la recette ensemble et encourager progressivement l’autonomie en cuisine.',
     contents: [
-      'Dix fiches recettes illustrées, du petit-déjeuner au goûter',
-      'Des quantités en cuillères et en verres, lisibles sans balance',
-      'Une fiche « je mets la table » et une fiche « je range après »',
-      'Un tableau des ustensiles à découper',
-      'Deux pages de recettes vierges pour ajouter les vôtres',
+      '30 fiches recettes à imprimer',
+      'Des recettes sucrées et salées',
+      'Des idées pour les goûters, desserts, repas et petits plaisirs à partager',
+      'Des ingrédients et étapes illustrés pour faciliter la compréhension',
+      'Des astuces et variantes selon les recettes',
+      'Un support « Ma première recette » pour imaginer ou noter sa propre création',
+      'Un diplôme du petit cuisinier',
+      'Un set de table ludique à imprimer',
+    ],
+    sections: [
+      {
+        title: 'Pourquoi ça fonctionne ?',
+        body: 'Cuisiner permet à l’enfant d’apprendre en faisant : mesurer, verser, mélanger, découper, observer les transformations et suivre différentes étapes dans l’ordre.\n\nAu-delà du plaisir de préparer quelque chose ensemble, la cuisine favorise naturellement l’autonomie, la motricité fine, la concentration et la confiance en soi.',
+      },
+      {
+        title: 'Comment l’utiliser ?',
+        body: 'Choisissez ensemble une recette selon vos envies, préparez les ingrédients et installez la fiche à portée de vue.\n\nL’enfant peut suivre les étapes avec l’adulte et participer selon son âge et ses capacités. Petit à petit, il peut réaliser certaines actions de façon plus autonome, toujours sous la surveillance d’un adulte lorsque cela est nécessaire.',
+      },
     ],
     images: [
       {
@@ -378,7 +411,7 @@ export const products: Product[] = [
     id: 'prd_activites',
     slug: 'pack-activites',
     name: 'Pack activités créatives',
-    tagline: 'Dix-huit pages pour les après-midi de pluie',
+    tagline: '30 activités pour créer, explorer et s’amuser',
     priceCents: 790,
     category: 'activites',
     subcategory: 'Créatif',
@@ -386,14 +419,27 @@ export const products: Product[] = [
     ages: ['2-3 ans', '3-5 ans', '5-7 ans'],
     pages: 18,
     format: 'A4 — portrait et paysage',
-    description:
-      'Coloriages doux, découpages, graphisme, labyrinthes, dessins à compléter et petits bricolages à monter avec trois feuilles et une paire de ciseaux. Dix-huit pages qui ne demandent ni matériel spécifique, ni préparation, et qui tiennent dans une pochette pour le train ou le restaurant.',
+    description: 
+      'Le Pack 30 fiches d’activités propose une sélection d’activités variées à réaliser à la maison avec du matériel simple : activités créatives, sensorielles, manipulations, jeux d’observation et petites découvertes.\n\nChaque fiche guide l’adulte étape par étape, tout en laissant à l’enfant la possibilité d’expérimenter, de créer et de faire à sa manière. Une façon simple d’avoir toujours une idée d’activité sous la main, sans passer du temps à chercher quoi proposer.',
     contents: [
-      'Six coloriages aux motifs végétaux',
-      'Quatre pages de graphisme et de tracés préparatoires à l’écriture',
-      'Trois découpages faciles avec gabarits',
-      'Deux labyrinthes et deux jeux d’observation',
-      'Trois modèles de petits bricolages en papier',
+      '30 fiches d’activités à imprimer',
+      'Des activités créatives et manuelles',
+      'Des expériences sensorielles et de manipulation',
+      'Des jeux d’observation, de recherche et de découverte',
+      'Des activités avec du matériel simple et facile à trouver',
+      'Pour chaque activité information sur : matériel, étapes et bénéfices pour l’enfant',
+      'Des astuces et variantes sur de nombreuses fiches',
+      'Des petits bonus, dont le diplôme du petit créateur et d’autres surprises',
+    ],
+    sections: [
+      {
+        title: 'Pourquoi ça fonctionne ?',
+        body: 'Les activités permettent à l’enfant d’apprendre en faisant : toucher, observer, manipuler, découper, construire, expérimenter…\n\nSelon l’activité, il développe naturellement sa motricité fine, sa créativité, sa concentration, son imagination, ses capacités d’observation et son autonomie, tout en partageant un moment agréable avec l’adulte.',
+      },
+      {
+        title: 'Comment l’utiliser ?',
+        body: 'Choisissez une activité selon l’envie du moment, l’âge de votre enfant ou le matériel dont vous disposez.\n\nChaque fiche indique le matériel nécessaire, les différentes étapes et ce que l’activité apporte à l’enfant. Certaines proposent également des astuces ou des variantes pour prolonger l’expérience.\n\nPas besoin de suivre la fiche à la lettre : elle est là pour vous guider et vous donner une base, tout en laissant une vraie place à l’imagination de l’enfant.',
+      },
     ],
     images: [
       {
