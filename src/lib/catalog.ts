@@ -550,12 +550,6 @@ export const products: Product[] = [
         width: 1200,
         height: 1200,
       },
-      {
-        src: '/produits/pack-complet/les-fiches.jpg',
-        alt: 'Les fiches des cinq packs étalées sur une table : semainier, routines, missions, thermomètre des émotions, cartes de discussion, recettes et expériences',
-        width: 1200,
-        height: 1200,
-      },
     ],
     motif: 'gift',
     accent: 'gold',
