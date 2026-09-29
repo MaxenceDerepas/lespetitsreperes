@@ -474,8 +474,10 @@ export const products: Product[] = [
     slug: 'pack-complet-famille-sereine',
     name: 'Pack complet famille sereine',
     tagline: 'La boîte à outils complète des Petits Repères pour grandir et partager en famille',
-    priceCents: 2990,
+    priceCents: 2490,
     compareAtCents: 4650,
+    priceNote:
+      'Prix de lancement — au lieu de 46,50 € achetés séparément',
     category: 'routines-autonomie',
     subcategory: 'Ensemble complet',
     type: 'Pack PDF',

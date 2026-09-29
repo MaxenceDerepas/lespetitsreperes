@@ -173,21 +173,30 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </p>
 
 
-          <div className="mt-6 flex flex-wrap items-baseline gap-3">
-            <p className="font-serif text-[2.4rem] leading-none text-terracotta-deep lining-nums">
-              {formatPrice(product.priceCents)}
-            </p>
-            {product.compareAtCents && (
-              <>
-                <span className="text-[1rem] text-muted line-through">
-                  {formatPrice(product.compareAtCents)}
-                </span>
-                {discount && (
-                  <span className="rounded-full bg-terracotta/12 px-2.5 py-1 text-[0.76rem] font-bold text-terracotta-deep">
-                    Économisez {discount}%
+          <div className="mt-6">
+            <div className="flex flex-wrap items-baseline gap-3">
+              <p className="font-serif text-[2.4rem] leading-none text-terracotta-deep lining-nums">
+                {formatPrice(product.priceCents)}
+              </p>
+              {/* Un produit peut porter sa propre mention de prix ; elle
+                  remplace alors le prix barré et le pourcentage. */}
+              {!product.priceNote && product.compareAtCents && (
+                <>
+                  <span className="text-[1rem] text-muted line-through">
+                    {formatPrice(product.compareAtCents)}
                   </span>
-                )}
-              </>
+                  {discount && (
+                    <span className="rounded-full bg-terracotta/12 px-2.5 py-1 text-[0.76rem] font-bold text-terracotta-deep">
+                      Économisez {discount}%
+                    </span>
+                  )}
+                </>
+              )}
+            </div>
+            {product.priceNote && (
+              <p className="mt-1.5 text-[0.92rem] font-semibold text-terracotta-deep">
+                {product.priceNote}
+              </p>
             )}
           </div>
           <p className="mt-1.5 text-[0.82rem] text-muted">

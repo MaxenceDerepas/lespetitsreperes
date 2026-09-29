@@ -85,6 +85,11 @@ export interface Product {
   description: string;
   /** Ce que contient le fichier, en points courts. */
   contents: string[];
+  /**
+   * Mention affichée sous le prix, à la place du prix barré et du
+   * pourcentage d'économie (« Prix de lancement », par exemple).
+   */
+  priceNote?: string;
   /** Phrase de conclusion affichée sous la liste « Ce que contient le fichier ». */
   contentsNote?: string;
   sections?: ProductSection[];

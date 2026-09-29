@@ -107,6 +107,13 @@ export function ProductCard({ product, compact = false }: { product: Product; co
             </span>
           )}
         </p>
+
+        {/* Mention courte sous le prix : le détail complet est sur la fiche. */}
+        {product.priceNote && !compact && (
+          <p className="mt-1 text-center text-[0.74rem] font-semibold text-terracotta-deep">
+            Prix de lancement
+          </p>
+        )}
       </div>
     </article>
   );
