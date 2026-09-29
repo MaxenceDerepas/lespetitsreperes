@@ -228,7 +228,6 @@ export const products: Product[] = [
         alt: 'Présentation du pack connexion, émotions et confiance en soi : thermomètre des émotions, cartes respiration, cartes défis, cartes discussion, questionnaire de découverte',
         width: 1200,
         height: 1200,
-        thumb: true,
       },
       {
         src: '/produits/pack-emotions/thermometre-en-famille.jpg',
@@ -243,16 +242,11 @@ export const products: Product[] = [
         height: 1097,
       },
       {
-        src: '/produits/pack-emotions/couverture.jpg',
-        alt: 'Couverture du pack : 30 fiches de connexion et partage en famille',
-        width: 1200,
-        height: 1201,
-      },
-      {
         src: '/produits/pack-emotions/les-fiches.jpg',
         alt: 'Les fiches imprimées étalées sur une table : thermomètre des émotions, cartes de discussion, cartes respiration, boîte à souvenirs',
         width: 1200,
         height: 1014,
+        thumb: true,
       },
       {
         src: '/produits/pack-emotions/comment-ca-fonctionne.jpg',
