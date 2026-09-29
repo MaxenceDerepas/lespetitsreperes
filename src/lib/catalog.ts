@@ -93,7 +93,7 @@ export const priceBrackets = [
  */
 const fullPackFiles = [
   { name: 'pack-routines.pdf', label: 'Routines, autonomie et repères', pages: 30 },
-  { name: 'pack-emotions.pdf', label: 'Émotions, connexion et confiance', pages: 24 },
+  { name: 'pack-emotions.pdf', label: 'Émotions, connexion et confiance', pages: 27 },
   { name: 'pack-experiences-scientifiques.pdf', label: 'Expériences scientifiques', pages: 19 },
   { name: 'pack-recettes.pdf', label: 'Recettes en famille', pages: 18 },
   { name: 'pack-activites.pdf', label: 'Activités créatives', pages: 18 },
@@ -197,7 +197,7 @@ export const products: Product[] = [
     subcategory: 'Émotions et confiance',
     type: 'Pack PDF',
     ages: ['3-5 ans', '5-7 ans', '7-10 ans'],
-    pages: 24,
+    pages: 27,
     format: 'A4 — portrait',
     description: 
       'Le Pack Connexion, Confiance & Émotions rassemble des outils ludiques et bienveillants pour aider l’enfant à mieux comprendre ce qu’il ressent, développer sa confiance en lui et renforcer les liens en famille.\n\nÀ travers des cartes, des jeux et des supports visuels, l’enfant apprend progressivement à mettre des mots sur ce qu’il vit, découvrir des moyens de retrouver son calme et mieux se connaître, tout en partageant de vrais moments de complicité avec ses parents.',
