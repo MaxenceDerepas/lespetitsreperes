@@ -9,12 +9,6 @@ export const faqItems: FaqItem[] = [
   },
   {
     group: 'Commande et téléchargement',
-    question: 'Est-ce que les fichiers sont envoyés par courrier ?',
-    answer:
-      'Non, jamais. Tous nos produits sont des fichiers PDF numériques : rien n’est imprimé, emballé ni expédié. C’est aussi pourquoi nous ne vous demandons pas d’adresse de livraison au moment du paiement.',
-  },
-  {
-    group: 'Commande et téléchargement',
     question: 'Que faire si je ne reçois pas mon lien de téléchargement ?',
     answer:
       'Commencez par vérifier vos spams et vos onglets « promotions » : c’est la cause dans la grande majorité des cas. Vos fichiers sont de toute façon accessibles depuis votre espace client. Si le problème persiste, écrivez-nous en indiquant votre numéro de commande et nous vous renvoyons un lien neuf.',
@@ -41,7 +35,7 @@ export const faqItems: FaqItem[] = [
     group: 'Impression et utilisation',
     question: 'De quoi ai-je besoin pour imprimer ?',
     answer:
-      'D’une imprimante domestique et de papier A4 classique. Tous les fichiers sont conçus pour rendre correctement en noir et blanc comme en couleur, et les marges sont pensées pour les imprimantes grand public. Un papier un peu épais (120 g) donne un résultat plus agréable pour les supports affichés.',
+      'D’une imprimante domestique et de papier A4 classique. Tous les fichiers sont conçus pour rendre correctement avec les imprimantes grand public. Un papier un peu épais (120 g) donne un résultat plus agréable pour les supports affichés.',
   },
   {
     group: 'Impression et utilisation',
@@ -94,12 +88,11 @@ export const faqGroups = [
   'Contact et aide',
 ] as const;
 
-/** Les cinq questions clés reprises sur les fiches produits et la page d'accueil. */
+/** Les questions clés reprises sur les fiches produits et la page d'accueil. */
 export const keyFaqQuestions = [
   'Comment vais-je recevoir mon fichier ?',
   'Puis-je imprimer plusieurs fois mon PDF ?',
   'Puis-je utiliser le fichier avec plusieurs enfants ?',
-  'Est-ce que les fichiers sont envoyés par courrier ?',
   'Que faire si je ne reçois pas mon lien de téléchargement ?',
 ];
 
