@@ -432,13 +432,39 @@ aucune image bitmap, aucune banque d'images :
 
 ## À faire avant la mise en ligne
 
-- [ ] Renseigner SIRET, adresse et hébergeur dans `src/lib/site.ts`
-- [ ] Faire relire les CGV, mentions légales et politique de confidentialité,
-      puis supprimer `src/components/LegalNotice.tsx` et ses appels
-- [ ] Générer `DOWNLOAD_TOKEN_SECRET` (`openssl rand -hex 32`)
-- [ ] Brancher Stripe (clés + webhook) et Resend
-- [ ] Remplacer les PDF de démonstration par les vrais fichiers
-- [ ] Remplacer les témoignages et les avis produits par de vrais retours
-- [ ] Renseigner le vrai compte Instagram et l'adresse email de contact
-- [ ] Définir `NEXT_PUBLIC_SITE_URL` sur le domaine de production
-- [ ] Vérifier le nom du médiateur de la consommation dans les CGV
+Fait :
+
+- [x] SIRET, SIREN, adresse et gérante renseignés dans `src/lib/site.ts`
+- [x] CGV, mentions légales et politique de confidentialité fournies par
+      l'éditrice ; `LegalNotice` supprimé
+- [x] Vrais PDF en place, recompressés (220 Mo → 40 Mo)
+- [x] Avis produits vérifiés (achat obligatoire, modération dans /admin)
+- [x] Instagram et adresse de contact renseignés
+
+Reste à faire, du plus bloquant au moins urgent :
+
+- [ ] **Stripe** : `STRIPE_SECRET_KEY`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`,
+      `STRIPE_WEBHOOK_SECRET`. Sans elles, le tunnel va au bout sans débit.
+- [ ] **Envoi des emails** : `EMAIL_API_KEY` (Resend) et un domaine vérifié
+      chez eux ; `EMAIL_FROM` doit être une adresse de ce domaine, pas Gmail.
+- [ ] **Stockage privé des PDF** : `STORAGE_URL`, `STORAGE_BUCKET`,
+      `SUPABASE_SERVICE_ROLE_KEY`. En hébergement serverless, `private/files/`
+      n'est pas déployé et le disque n'est pas inscriptible.
+- [ ] **Base de données** : `DATABASE_URL`, puis remplacer le corps de
+      `orders.ts`, `accounts.ts` et `reviews.ts` par des requêtes SQL. Les
+      fichiers JSON de `.data/` sont perdus à chaque déploiement.
+- [ ] `DOWNLOAD_TOKEN_SECRET` : en générer un pour la production
+      (`openssl rand -hex 32`), différent de celui de développement.
+- [ ] `ADMIN_PASSWORD` : sans lui, `/admin` reste fermé et les avis ne
+      peuvent pas être publiés.
+- [ ] `NEXT_PUBLIC_SITE_URL` sur le domaine de production.
+- [ ] Remplacer les sept témoignages de `src/lib/testimonials.ts`, qui sont
+      inventés, par de vrais retours — ou supprimer la section.
+- [ ] Supprimer les PDF de démonstration restants dans `private/files/`
+      (`cartes-activites-calmes.pdf`, `rituel-du-soir.pdf`, `semainier-famille.pdf`,
+      `routine-du-matin.pdf`, `tableau-des-emotions.pdf`,
+      `tableau-des-petites-missions.pdf`, `pack-complet-famille-sereine.pdf`).
+- [ ] Pages légales : elles désignent Systeme.io comme hébergeur et comme
+      site. À corriger si c'est ce site-ci qui est mis en ligne.
+- [ ] Adhérer à un médiateur de la consommation et renseigner son nom dans
+      les CGV (obligatoire pour vendre à des particuliers).
