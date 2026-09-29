@@ -1,143 +1,318 @@
 import type { Metadata } from 'next';
-import { site } from '@/lib/site';
 import { PageBanner } from '@/components/PageBanner';
 import { BannerScene } from '@/components/BannerScenes';
 import { RichText } from '@/components/RichText';
-import { LegalNotice } from '@/components/LegalNotice';
 
 export const metadata: Metadata = {
   title: 'Conditions générales de vente',
   description:
-    'Conditions de vente des fichiers numériques Les Petits Repères : commande, paiement, livraison, licence d’utilisation et droit de rétractation.',
+    'Les conditions de vente des fichiers numériques Les Petits Repères : commande, paiement, livraison, licence d’utilisation et droit de rétractation.',
   alternates: { canonical: '/cgv' },
 };
 
-const content = `Les présentes conditions générales de vente régissent les relations entre ${site.name}, ${site.legal.form.toLowerCase()} immatriculée sous le numéro SIRET ${site.legal.siret} (ci-après « le Vendeur »), et toute personne physique ou morale effectuant un achat sur le site ${site.url.replace(/^https?:\/\//, '')} (ci-après « le Client »).
+/** Texte fourni par l'éditrice du site : à ne pas reformuler. */
+const content = `CONDITIONS GÉNÉRALES DE VENTE (CGV)
 
-Toute commande implique l’acceptation sans réserve des présentes conditions.
+**Dernière mise à jour : 15 juillet 2026**
 
-## 1. Objet
+## Article 1 – Identification du vendeur
 
-Le Vendeur commercialise exclusivement des **produits numériques** : des fichiers au format PDF, destinés à être téléchargés puis imprimés par le Client. Aucun produit physique n’est fabriqué, emballé ni expédié.
+Les présentes Conditions Générales de Vente sont proposées par :
 
-## 2. Produits et prix
+Les Petits Repères — Entreprise individuelle (micro-entreprise)
+Entrepreneure : Sandrine Quéméré
+SIREN : 105 404 347
+SIRET : 105 404 347 00012
+Code APE : 82.11Z
 
-Les caractéristiques essentielles de chaque produit (nombre de pages, format, tranches d’âge conseillées, contenu) sont indiquées sur sa fiche produit.
+**Adresse**
+36 rue de Migneaux, 78300 Poissy — France
 
-Les prix sont affichés en euros, toutes taxes comprises. ${site.legal.vat}. Le Vendeur se réserve le droit de modifier ses prix à tout moment ; le prix applicable est celui affiché au moment de la validation de la commande.
+**Adresse électronique**
+petitsreperes@gmail.com
 
-Aucun frais de livraison n’est facturé, les produits étant intégralement dématérialisés.
+**Site internet**
+https://petitsreperes.systeme.io/
 
-## 3. Commande
+## Article 2 – Objet
 
-La commande s’effectue en ligne selon les étapes suivantes :
+Les présentes Conditions Générales de Vente définissent les droits et obligations des parties dans le cadre de la vente en ligne de produits numériques proposés par Les Petits Repères.
 
-- sélection des produits et ajout au panier ;
-- saisie de l’adresse email de réception et, le cas échéant, d’un code promotionnel ;
-- acceptation des présentes conditions générales de vente ;
-- paiement sécurisé ;
-- confirmation de la commande et mise à disposition des fichiers.
+Les produits vendus sont exclusivement des contenus numériques téléchargeables. Ils peuvent notamment comprendre :
 
-Le Client est seul responsable de l’exactitude de l’adresse email communiquée, celle-ci conditionnant la réception des liens de téléchargement.
+- fiches d’activités
+- fiches d’expériences scientifiques
+- recettes
+- jeux éducatifs
+- routines
+- supports pédagogiques
+- affiches
+- cartes
+- tableaux
+- documents imprimables
+- bonus numériques
 
-## 4. Paiement
+Aucun produit physique n’est expédié.
 
-Le paiement s’effectue en ligne, au comptant, par carte bancaire ou par tout autre moyen proposé par le prestataire de paiement.
+## Article 3 – Acceptation des CGV
 
-Les transactions sont traitées par **Stripe Payments Europe, Ltd.**, prestataire agréé. À aucun moment les coordonnées bancaires du Client ne transitent par les serveurs du Vendeur, ni n’y sont conservées.
+Toute commande passée sur le site implique l’acceptation pleine et entière des présentes Conditions Générales de Vente.
 
-La commande n’est validée qu’après confirmation du paiement par le prestataire.
+Le client reconnaît avoir pris connaissance des présentes CGV avant la validation de sa commande.
 
-## 5. Livraison des fichiers
+La validation de la commande vaut signature électronique et acceptation sans réserve des présentes conditions.
 
-La livraison est **immédiate et dématérialisée**. Dès la confirmation du paiement :
+## Article 4 – Produits
 
-- la page de confirmation affiche les liens de téléchargement ;
-- un email récapitulatif contenant ces mêmes liens est envoyé à l’adresse indiquée ;
-- les fichiers restent accessibles dans l’espace client du Client.
+Les Petits Repères propose exclusivement des produits numériques.
 
-Les liens envoyés par email sont sécurisés, personnels et temporaires (72 heures par défaut). Leur expiration n’entraîne aucune perte : un nouveau lien est généré à chaque connexion à l’espace client.
+Les photographies, illustrations, maquettes, couleurs et visuels présentés sur le site sont réalisés avec le plus grand soin afin de représenter fidèlement les produits proposés. Toutefois, de légères différences d’affichage peuvent exister selon les écrans, les navigateurs ou les paramètres d’impression du client.
 
-Le nombre de téléchargements par fichier peut être limité pour des raisons techniques et de sécurité. Cette limite peut être réinitialisée sur simple demande à ${site.email}.
+Les produits sont fournis au format indiqué sur la fiche produit (PDF sauf indication contraire).
 
-## 6. Licence d’utilisation
+## Article 5 – Disponibilité
 
-L’achat confère au Client un droit d’usage **personnel, familial et non exclusif**, incluant notamment le droit de :
+Les produits sont disponibles dans la limite de leur présence sur le site.
 
-- imprimer le fichier autant de fois que souhaité ;
-- l’utiliser pour tous les enfants de son foyer ;
-- en conserver une copie de sauvegarde.
+Les Petits Repères se réserve le droit :
 
-Sont en revanche strictement interdits :
+- de modifier un produit ;
+- de mettre à jour son contenu ;
+- d’ajouter des bonus ;
+- de retirer un produit de la vente à tout moment.
 
-- la revente, la cession, le prêt ou le partage du fichier, à titre gratuit ou onéreux ;
-- la diffusion du fichier sur Internet, un réseau social, un espace de stockage partagé ou une plateforme de partage ;
-- la modification, l’extraction d’éléments graphiques ou la réutilisation dans une création destinée à la diffusion ;
-- l’usage collectif en établissement (crèche, école, cabinet, association).
+Les commandes déjà validées restent bien entendu accessibles au client conformément aux modalités prévues lors de l’achat.
 
-L’ensemble des contenus (textes, illustrations, mises en page) demeure la propriété exclusive du Vendeur et reste protégé par le droit d’auteur.
+## Article 6 – Prix
 
-## 7. Droit de rétractation
+Les prix sont indiqués en euros (€).
 
-Conformément à l’**article L221-28, 13° du Code de la consommation**, le droit de rétractation ne peut être exercé pour les contrats de fourniture d’un contenu numérique non fourni sur un support matériel dont l’exécution a commencé avec l’accord préalable exprès du consommateur.
+Les Petits Repères bénéficie du régime de la franchise en base de TVA. En conséquence, la TVA n’est pas applicable conformément à l’article 293 B du Code général des impôts. Les prix affichés sont donc nets de TVA.
 
-En validant sa commande, le Client :
+Les Petits Repères se réserve le droit de modifier ses prix à tout moment. Le prix applicable est celui affiché au moment de la commande.
 
-- demande expressément l’exécution immédiate du contrat ;
-- reconnaît renoncer à son droit de rétractation dès le premier téléchargement.
+## Article 7 – Commande
 
-Cette renonciation est recueillie par une case à cocher obligatoire au moment du paiement.
+Le client sélectionne les produits qu’il souhaite acheter. Avant validation définitive, il peut vérifier :
 
-## 8. Garantie et réclamations
+- les produits sélectionnés ;
+- le montant total de la commande ;
+- ses informations personnelles.
 
-Le Vendeur s’engage à fournir des fichiers conformes à leur description et techniquement exploitables.
+La commande devient définitive après :
 
-En cas de fichier corrompu, illisible, non conforme à sa description ou de lien de téléchargement défaillant, le Client contacte ${site.email} en indiquant son numéro de commande. Le Vendeur procède, selon le cas, à l’envoi d’un fichier de remplacement ou au remboursement de la commande.
+- validation du paiement ;
+- acceptation des présentes Conditions Générales de Vente.
 
-Les garanties légales de conformité (articles L217-3 et suivants du Code de la consommation) s’appliquent dans les conditions prévues par la loi.
+Une confirmation est ensuite envoyée par courrier électronique.
 
-## 9. Responsabilité
+## Article 8 – Paiement
 
-Le Vendeur ne peut être tenu responsable :
+Les paiements sont effectués par l’intermédiaire des solutions de paiement sécurisées proposées sur le site. À ce jour, les paiements sont traités via Stripe.
 
-- des difficultés liées au matériel du Client (imprimante, logiciel de lecture PDF, connexion) ;
-- de la non-réception d’un email consécutive à une adresse erronée ou à un filtre anti-spam ;
-- de l’usage fait des supports, qui relèvent d’un accompagnement éducatif et ne constituent en aucun cas un avis médical, psychologique ou paramédical.
+Les Petits Repères n’a jamais accès aux coordonnées bancaires du client.
 
-## 10. Données personnelles
+La commande est validée uniquement après confirmation du paiement. En cas de refus du paiement, la commande est automatiquement annulée.
 
-Les données collectées (adresse email, prénom, nom, historique de commandes) sont nécessaires au traitement de la commande et à la mise à disposition des fichiers. Leur traitement est détaillé dans la politique de confidentialité.
+## Article 9 – Livraison des produits numériques
 
-## 11. Service client
+Les produits vendus étant numériques, aucune livraison postale n’est effectuée.
 
-Toute question ou réclamation peut être adressée à ${site.email}. Le Vendeur s’engage à répondre ${site.support.responseTime}.
+Après validation du paiement, le client reçoit un accès lui permettant de télécharger son ou ses fichiers. Le téléchargement est généralement immédiat.
 
-## 12. Médiation et litiges
+Toutefois, un délai exceptionnel peut être observé en cas :
 
-En cas de litige, le Client est invité à contacter le Vendeur afin de rechercher une solution amiable.
+- d’opération de maintenance ;
+- d’incident technique ;
+- de problème indépendant de la volonté des Petits Repères.
 
-Conformément aux articles L611-1 et suivants du Code de la consommation, le Client peut recourir gratuitement à un médiateur de la consommation. Les coordonnées du médiateur compétent sont communiquées sur demande.
+## Article 10 – Droit de rétractation
 
-Les présentes conditions sont soumises au droit français. À défaut de résolution amiable, les tribunaux français sont seuls compétents.
+Conformément à l’article L221-28 du Code de la consommation, le droit de rétractation ne peut être exercé pour les contenus numériques fournis sur un support immatériel lorsque leur exécution a commencé avec l’accord préalable exprès du consommateur et avec son renoncement exprès à son droit de rétractation.
 
-## 13. Modification des conditions
+En validant sa commande et en accédant immédiatement au téléchargement du produit, le client reconnaît expressément :
 
-Le Vendeur peut modifier les présentes conditions à tout moment. Les conditions applicables à une commande sont celles en vigueur à la date de cette commande.`;
+- demander l’exécution immédiate du contrat ;
+- renoncer à son droit de rétractation.
 
-export default function CgvPage() {
+Aucun remboursement ne pourra être accordé une fois le téléchargement commencé, sauf disposition légale contraire.
+
+## Article 11 – Compte client et accès aux produits
+
+Selon le mode de fonctionnement du site, le client peut être amené à créer un compte personnel afin d’accéder aux produits achetés.
+
+Le client s’engage à fournir des informations exactes, complètes et à jour.
+
+Les identifiants de connexion sont strictement personnels et confidentiels. Le client est seul responsable de leur utilisation et de leur conservation.
+
+Les Petits Repères ne pourra être tenu responsable des conséquences résultant d’une utilisation frauduleuse des identifiants du client par un tiers.
+
+## Article 12 – Propriété intellectuelle
+
+L’ensemble des contenus proposés par Les Petits Repères est protégé par le Code de la propriété intellectuelle. Sont notamment protégés :
+
+- les fiches d’activités ;
+- les expériences scientifiques ;
+- les recettes ;
+- les illustrations ;
+- les photographies ;
+- les pictogrammes ;
+- les mises en page ;
+- les textes ;
+- les graphismes ;
+- les logos ;
+- les fichiers PDF ;
+- ainsi que tout autre contenu proposé sur le site.
+
+L’achat d’un produit ne transfère aucun droit de propriété intellectuelle au client. Le client bénéficie uniquement d’un droit d’utilisation personnel conformément à la licence décrite ci-dessous.
+
+Toute reproduction, diffusion, modification ou exploitation non autorisée constitue une contrefaçon susceptible d’engager la responsabilité civile et pénale de son auteur.
+
+## Article 13 – Licence d’utilisation
+
+L’achat d’un produit numérique donne droit à une licence personnelle, non exclusive, non transférable et non cessible.
+
+Le client est autorisé à :
+
+- télécharger le fichier ;
+- le conserver sur ses appareils personnels ;
+- imprimer les documents autant de fois que nécessaire ;
+- utiliser les supports dans un cadre familial ;
+- utiliser les supports dans le cadre de son activité professionnelle lorsqu’il les a personnellement acquis (par exemple : assistante maternelle, enseignant, éducateur, psychologue, orthophoniste, psychomotricien, ergothérapeute ou autre professionnel de l’accompagnement).
+
+En revanche, il est strictement interdit de :
+
+- revendre le fichier ou tout ou partie de son contenu ;
+- partager le fichier PDF avec des tiers ;
+- transmettre le fichier à un collègue, un établissement ou une autre personne ;
+- publier le document sur Internet ou sur les réseaux sociaux ;
+- déposer le fichier sur une plateforme de téléchargement ;
+- supprimer ou modifier les mentions de copyright présentes sur les documents ;
+- modifier les documents dans le but de les revendre ou de les redistribuer ;
+- intégrer tout ou partie des contenus dans une autre création destinée à être vendue ou diffusée.
+
+Chaque achat correspond à une licence pour un seul acheteur. Lorsqu’un établissement, une association, une école, une entreprise ou plusieurs professionnels souhaitent utiliser les supports, chaque utilisateur doit disposer de sa propre licence ou obtenir une autorisation écrite préalable des Petits Repères.
+
+Toute utilisation non autorisée pourra entraîner des poursuites conformément aux dispositions du Code de la propriété intellectuelle.
+
+## Article 14 – Sécurité des activités
+
+Les activités, expériences, jeux et recettes proposés par Les Petits Repères ont une vocation exclusivement éducative et ludique. Ils ne remplacent en aucun cas les recommandations d’un professionnel de santé, d’un enseignant ou d’un spécialiste.
+
+Les activités doivent toujours être réalisées sous la surveillance d’un adulte responsable. Il appartient aux parents ou accompagnants :
+
+- d’adapter les activités à l’âge et aux capacités de l’enfant ;
+- de vérifier que le matériel utilisé est adapté ;
+- de respecter les consignes de sécurité ;
+- de prendre en compte les allergies, intolérances ou contre-indications éventuelles.
+
+Certaines expériences utilisent des ingrédients alimentaires, des liquides ou du petit matériel pouvant présenter un risque en cas d’utilisation inappropriée.
+
+Les Petits Repères ne pourra être tenu responsable des dommages résultant d’une mauvaise utilisation des activités proposées ou d’un défaut de surveillance.
+
+## Article 15 – Responsabilité
+
+Les Petits Repères met tout en œuvre afin de proposer des contenus fiables, clairs et régulièrement mis à jour. Toutefois, le vendeur ne saurait être tenu responsable :
+
+- d’une mauvaise utilisation des produits ;
+- d’une impression de mauvaise qualité liée au matériel du client ;
+- d’un problème informatique propre au client ;
+- d’une interruption temporaire du site ;
+- d’une incompatibilité entre les fichiers et le matériel informatique du client.
+
+La responsabilité des Petits Repères ne pourra être engagée en cas de force majeure telle que définie par la jurisprudence française.
+
+## Article 16 – Disponibilité du site
+
+Les Petits Repères s’efforce d’assurer un accès continu à son site internet. Cependant, l’accès peut être temporairement interrompu notamment pour :
+
+- maintenance ;
+- mises à jour ;
+- incidents techniques ;
+- opérations de sécurité.
+
+Ces interruptions ne pourront donner lieu à aucune indemnisation.
+
+## Article 17 – Garanties légales
+
+Les produits proposés étant des contenus numériques, le client bénéficie des garanties légales prévues par les dispositions applicables du Code de la consommation et du Code civil, notamment en cas de défaut de conformité ou de vice caché, dans les conditions prévues par la loi.
+
+## Article 18 – Protection des données personnelles
+
+Les informations personnelles collectées lors de la commande sont traitées conformément à la réglementation en vigueur, notamment au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés.
+
+Les données sont collectées uniquement dans le cadre de la gestion des commandes, de la facturation, du suivi des achats, du service client et, lorsque le client y consent, de l’envoi d’informations commerciales.
+
+Les modalités de collecte, d’utilisation, de conservation et les droits des utilisateurs sont détaillés dans la Politique de confidentialité accessible sur le site.
+
+## Article 19 – Force majeure
+
+Les Petits Repères ne pourra être tenu responsable de l’inexécution totale ou partielle de ses obligations lorsqu’elle résulte d’un événement imprévisible, irrésistible et indépendant de sa volonté, tel que défini par le droit français.
+
+Sont notamment concernés, sans que cette liste soit limitative :
+
+- catastrophe naturelle ;
+- incendie ;
+- panne majeure des réseaux de télécommunication ;
+- cyberattaque ;
+- interruption des services d’hébergement ou de paiement ;
+- décision administrative empêchant temporairement l’exécution du contrat.
+
+Pendant la durée de l’événement de force majeure, l’exécution des obligations concernées est suspendue.
+
+## Article 20 – Nullité partielle
+
+Si une ou plusieurs stipulations des présentes Conditions Générales de Vente étaient déclarées nulles ou inapplicables par une juridiction compétente, les autres dispositions conserveraient toute leur force et leur portée.
+
+## Article 21 – Modification des Conditions Générales de Vente
+
+Les Petits Repères se réserve le droit de modifier les présentes Conditions Générales de Vente à tout moment.
+
+Les conditions applicables sont celles en vigueur à la date de validation de la commande. Les modifications ultérieures ne s’appliqueront pas aux commandes déjà conclues.
+
+## Article 22 – Droit applicable
+
+Les présentes Conditions Générales de Vente sont régies par le droit français. Elles sont rédigées en langue française. En cas de traduction, seule la version française fera foi.
+
+## Article 23 – Réclamation et service client
+
+Pour toute question relative à une commande, au téléchargement d’un produit ou à l’application des présentes Conditions Générales de Vente, le client peut contacter Les Petits Repères à l’adresse suivante :
+
+E-mail : petitsreperes@gmail.com
+
+Les Petits Repères s’engage à répondre dans les meilleurs délais.
+
+## Article 24 – Règlement amiable des litiges
+
+En cas de difficulté ou de litige, le client est invité à contacter en priorité Les Petits Repères afin de rechercher une solution amiable.
+
+À défaut d’accord, le consommateur peut recourir gratuitement à un dispositif de médiation de la consommation conformément aux articles L.611-1 et suivants du Code de la consommation.
+
+Les coordonnées du médiateur de la consommation désigné par Les Petits Repères seront communiquées dès qu’une adhésion aura été effectuée, conformément aux obligations légales.
+
+## Article 25 – Tribunal compétent
+
+En cas d’échec de la résolution amiable, les tribunaux français seront seuls compétents dans les conditions prévues par les dispositions légales applicables.
+
+## Article 26 – Acceptation
+
+Le client reconnaît avoir pris connaissance des présentes Conditions Générales de Vente avant la validation de sa commande.
+
+La validation de la commande vaut acceptation pleine, entière et sans réserve des présentes Conditions Générales de Vente.`;
+
+export default function TermsPage() {
   return (
     <>
       <PageBanner
         compact
-        title="Conditions de vente"
-        subtitle="Version en vigueur — produits numériques, livraison immédiate, licence d’usage familial."
+        title="Conditions générales de vente"
+        subtitle="Commande, paiement, livraison et licence d’utilisation."
         crumbs={[{ label: 'CGV' }]}
         scene={<BannerScene variant="legal" />}
       />
 
       <div className="shell max-w-prose py-10 lg:py-14">
-        <LegalNotice />
-        <RichText content={content} className="mt-8" />
+        <RichText content={content} />
       </div>
     </>
   );

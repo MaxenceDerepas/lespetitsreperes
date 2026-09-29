@@ -1,50 +1,102 @@
 import type { Metadata } from 'next';
-import { site } from '@/lib/site';
 import { PageBanner } from '@/components/PageBanner';
 import { BannerScene } from '@/components/BannerScenes';
 import { RichText } from '@/components/RichText';
-import { LegalNotice } from '@/components/LegalNotice';
 
 export const metadata: Metadata = {
   title: 'Mentions légales',
-  description: `Mentions légales du site ${site.name} : éditeur du site, statut juridique, hébergeur, propriété intellectuelle des fichiers et contact du support.`,
+  description:
+    'Éditeur, directrice de la publication, hébergeur, propriété intellectuelle et responsabilité : les informations légales du site Les Petits Repères.',
   alternates: { canonical: '/mentions-legales' },
 };
 
-const content = `## Éditeur du site
+/** Texte fourni par l'éditrice du site : à ne pas reformuler. */
+const content = `MENTIONS LÉGALES
 
-**${site.legal.company}**
-${site.legal.form}
-SIRET : ${site.legal.siret}
-Siège : ${site.legal.address}
-${site.legal.vat}
+**Dernière mise à jour : 15 juillet 2026**
 
-Contact : ${site.email}
-Responsable de la publication : ${site.founder.name}
+## Éditeur du site
 
-## Hébergeur
+Le présent site est édité par :
 
-${site.legal.hostingProvider}
+Les Petits Repères — Entreprise individuelle (micro-entreprise)
+Entrepreneure : Sandrine Quéméré
+SIREN : 105 404 347
+SIRET : 105 404 347 00012
+Code APE : 82.11Z
+
+**Adresse**
+36 rue de Migneaux, 78300 Poissy — France
+
+**Adresse e-mail**
+petitsreperes@gmail.com
+
+**Site internet**
+https://petitsreperes.systeme.io/
+
+## Directrice de la publication
+
+La directrice de la publication est : Sandrine Quéméré
+
+## Hébergement
+
+Le site est hébergé par :
+
+ITACWT Limited (Systeme.io)
+3 Cruise Park Rise, Tyrrelstown, Dublin 15 — Irlande
+Site internet : https://systeme.io
 
 ## Propriété intellectuelle
 
-L’ensemble des éléments composant ce site — textes, illustrations, mises en page, identité graphique, fichiers PDF proposés à la vente — est la propriété exclusive de ${site.legal.company} et protégé par le Code de la propriété intellectuelle.
+L’ensemble des contenus présents sur le site Les Petits Repères est protégé par le Code de la propriété intellectuelle. Cela comprend notamment :
 
-Toute reproduction, représentation, diffusion ou exploitation, totale ou partielle, sans autorisation écrite préalable, est interdite et constituerait une contrefaçon sanctionnée par les articles L335-2 et suivants du Code de la propriété intellectuelle.
+- les textes ;
+- les illustrations ;
+- les photographies ;
+- les pictogrammes ;
+- les graphismes ;
+- les logos ;
+- les mises en page ;
+- les fiches d’activités ;
+- les expériences ;
+- les recettes ;
+- les documents téléchargeables ;
+- les fichiers PDF.
 
-L’achat d’un fichier confère un droit d’usage personnel et familial, dont l’étendue exacte est décrite dans les conditions générales de vente.
+Toute reproduction, représentation, diffusion, adaptation, modification ou exploitation, totale ou partielle, sans autorisation écrite préalable est interdite.
+
+## Responsabilité
+
+Les Petits Repères s’efforce de fournir des informations aussi exactes et à jour que possible. Toutefois, l’éditrice ne saurait être tenue responsable :
+
+- d’éventuelles erreurs ou omissions ;
+- d’une interruption temporaire du site ;
+- d’un dysfonctionnement indépendant de sa volonté ;
+- de l’utilisation qui pourrait être faite des informations proposées.
+
+Les activités et expériences présentées sur le site sont proposées à titre éducatif et doivent toujours être réalisées sous la surveillance d’un adulte.
 
 ## Liens hypertextes
 
-Le site peut contenir des liens vers des sites tiers. ${site.legal.company} n’exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.
+Le site peut contenir des liens vers des sites internet tiers.
 
-## Accessibilité
+Les Petits Repères ne peut être tenu responsable du contenu, des services ou des politiques de confidentialité de ces sites externes.
 
-Ce site est conçu dans le respect des bonnes pratiques d’accessibilité : structure sémantique, contrastes suffisants, navigation complète au clavier, textes alternatifs, respect des préférences de mouvement réduit. Si vous rencontrez une difficulté d’accès à un contenu, écrivez-nous à ${site.email} : nous corrigerons.
+## Données personnelles
 
-## Signalement
+Les modalités de collecte et de traitement des données personnelles sont détaillées dans la Politique de confidentialité accessible sur le site.
 
-Pour signaler un contenu illicite ou un dysfonctionnement : ${site.email}`;
+## Cookies
+
+Le site est susceptible d’utiliser des cookies afin d’améliorer l’expérience utilisateur, de mesurer l’audience et d’assurer le bon fonctionnement du site.
+
+Les informations détaillées sont disponibles dans la Politique de confidentialité.
+
+## Contact
+
+Pour toute question concernant le site ou les produits proposés, vous pouvez contacter :
+
+Les Petits Repères — petitsreperes@gmail.com`;
 
 export default function LegalPage() {
   return (
@@ -52,14 +104,13 @@ export default function LegalPage() {
       <PageBanner
         compact
         title="Mentions légales"
-        subtitle="Éditeur du site, hébergement, propriété intellectuelle et médiation."
+        subtitle="Qui édite ce site, qui l’héberge, et à qui appartiennent les contenus."
         crumbs={[{ label: 'Mentions légales' }]}
         scene={<BannerScene variant="legal" />}
       />
 
       <div className="shell max-w-prose py-10 lg:py-14">
-        <LegalNotice />
-        <RichText content={content} className="mt-8" />
+        <RichText content={content} />
       </div>
     </>
   );

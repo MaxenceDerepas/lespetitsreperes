@@ -22,8 +22,10 @@ export const site = {
   legal: {
     company: 'Les Petits Repères',
     form: 'Entreprise individuelle (micro-entreprise)',
-    siret: '000 000 000 00000',
-    address: 'France',
+    manager: 'Sandrine Quéméré',
+    siren: '105 404 347',
+    siret: '105 404 347 00012',
+    address: '36 rue de Migneaux, 78300 Poissy — France',
     vat: 'TVA non applicable, art. 293 B du CGI',
     hostingProvider: 'Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis',
   },

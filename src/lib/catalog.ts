@@ -224,6 +224,13 @@ export const products: Product[] = [
     ],
     images: [
       {
+        src: '/produits/pack-emotions/presentation.jpg',
+        alt: 'Présentation du pack connexion, émotions et confiance en soi : thermomètre des émotions, cartes respiration, cartes défis, cartes discussion, questionnaire de découverte',
+        width: 1200,
+        height: 1200,
+        thumb: true,
+      },
+      {
         src: '/produits/pack-emotions/thermometre-en-famille.jpg',
         alt: 'Une famille attablée utilise le thermomètre des émotions et les cartes « quand je me sens débordé »',
         width: 1200,
@@ -246,7 +253,6 @@ export const products: Product[] = [
         alt: 'Les fiches imprimées étalées sur une table : thermomètre des émotions, cartes de discussion, cartes respiration, boîte à souvenirs',
         width: 1200,
         height: 1014,
-        thumb: true,
       },
       {
         src: '/produits/pack-emotions/comment-ca-fonctionne.jpg',
@@ -508,11 +514,47 @@ export const products: Product[] = [
     ],
     images: [
       {
+        src: '/produits/pack-complet/presentation.jpg',
+        alt: 'Présentation du pack complet : les cinq packs réunis — routines et autonomie, émotions et confiance, activités créatives, recettes en famille et expériences scientifiques',
+        width: 1200,
+        height: 1200,
+        thumb: true,
+      },
+      {
+        src: '/produits/pack-complet/presentation-routines.jpg',
+        alt: 'Pack routines, semainiers, pictos et rituels : des repères visuels pour un quotidien plus fluide',
+        width: 1200,
+        height: 1197,
+      },
+      {
+        src: '/produits/pack-complet/presentation-emotions.jpg',
+        alt: 'Pack connexion, émotions et confiance en soi : des outils pour mieux se comprendre, échanger et grandir ensemble',
+        width: 1200,
+        height: 1200,
+      },
+      {
+        src: '/produits/pack-complet/presentation-experiences.jpg',
+        alt: 'Trente fiches d’expériences scientifiques simples et fascinantes, à réaliser à la maison en famille',
+        width: 1200,
+        height: 1187,
+      },
+      {
+        src: '/produits/pack-complet/presentation-activites.jpg',
+        alt: 'Trente fiches d’activités créatives et ludiques, simples et amusantes à réaliser à la maison',
+        width: 1200,
+        height: 1200,
+      },
+      {
+        src: '/produits/pack-complet/presentation-recettes.jpg',
+        alt: 'Trente fiches de recettes de cuisine simples, gourmandes et ludiques à réaliser avec son enfant',
+        width: 1200,
+        height: 1200,
+      },
+      {
         src: '/produits/pack-complet/les-fiches.jpg',
         alt: 'Les fiches des cinq packs étalées sur une table : semainier, routines, missions, thermomètre des émotions, cartes de discussion, recettes et expériences',
         width: 1200,
         height: 1200,
-        thumb: true,
       },
     ],
     motif: 'gift',

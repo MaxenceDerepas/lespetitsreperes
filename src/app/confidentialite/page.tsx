@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
-import { site } from '@/lib/site';
 import { PageBanner } from '@/components/PageBanner';
 import { BannerScene } from '@/components/BannerScenes';
 import { RichText } from '@/components/RichText';
-import { LegalNotice } from '@/components/LegalNotice';
 
 export const metadata: Metadata = {
   title: 'Politique de confidentialité',
@@ -12,94 +10,149 @@ export const metadata: Metadata = {
   alternates: { canonical: '/confidentialite' },
 };
 
-const content = `${site.name} attache de l’importance à la protection de vos données. Cette page explique, sans jargon, ce qui est collecté, pourquoi, pendant combien de temps, et ce que vous pouvez exiger.
+/** Texte fourni par l'éditrice du site : à ne pas reformuler. */
+const content = `POLITIQUE DE CONFIDENTIALITÉ & PROTECTION DES DONNÉES
 
-## Responsable du traitement
+**Dernière mise à jour : 15 juillet 2026**
 
-${site.name} — ${site.legal.form}, SIRET ${site.legal.siret}.
-Contact : ${site.email}
+## 1. Qui sommes-nous ?
 
-## Données collectées
+La présente politique de confidentialité explique comment Les Petits Repères collecte, utilise et protège les données personnelles de ses utilisateurs.
 
-**Lors d’une commande** : adresse email (indispensable pour recevoir vos fichiers), prénom et nom si vous les renseignez, contenu et montant de la commande, date, identifiant de transaction du prestataire de paiement.
+**Éditrice du site**
+Les Petits Repères — Entreprise individuelle (micro-entreprise)
+Entrepreneure : Sandrine Quéméré
+SIREN : 105 404 347
+SIRET : 105 404 347 00012
 
-**Lors d’une inscription à la lettre d’information** : adresse email uniquement.
+**Adresse**
+36 rue de Migneaux, 78300 Poissy — France
 
-**Lors d’un message via le formulaire de contact** : prénom, adresse email, sujet, contenu du message, et numéro de commande si vous l’indiquez.
+**E-mail**
+petitsreperes@gmail.com
 
-**Lors de la navigation** : un cookie technique de session (panier, connexion à l’espace client). Aucun cookie publicitaire, aucun traceur tiers, aucun profilage.
+## 2. Quelles données sont collectées ?
 
-Nous ne collectons **jamais** vos coordonnées bancaires : elles sont saisies directement sur les pages sécurisées de Stripe et ne transitent pas par nos serveurs.
+Selon votre utilisation du site, nous pouvons être amenés à collecter les données suivantes.
 
-## Finalités et bases légales
+**Lors d’un achat**
 
-- **Traiter votre commande et vous livrer vos fichiers** — exécution du contrat.
-- **Émettre et conserver les factures** — obligation légale (dix ans).
-- **Répondre à vos messages** — intérêt légitime.
-- **Vous envoyer la lettre d’information** — votre consentement, révocable à tout moment.
-- **Assurer la sécurité des téléchargements** (compteurs, liens signés) — intérêt légitime.
+- Nom
+- Prénom
+- Adresse e-mail
+- Adresse de facturation (si demandée)
+- Pays
+- Historique des commandes
 
-## Durées de conservation
+**Lors de la navigation**
 
-- Données de commande et factures : **10 ans** (obligation comptable).
-- Données de compte client : tant que le compte est actif, puis 3 ans après le dernier achat.
-- Messages de contact : 3 ans après le dernier échange.
-- Inscription à la lettre d’information : jusqu’à votre désinscription.
-- Cookies techniques : 30 jours au maximum.
+- Adresse IP
+- Type d’appareil
+- Navigateur utilisé
+- Données techniques nécessaires au bon fonctionnement du site
 
-## Sous-traitants
+**Lorsque vous nous contactez**
 
-Vos données peuvent être traitées par les prestataires suivants, dans la seule mesure nécessaire :
+- Nom
+- Adresse e-mail
+- Contenu de votre message
 
-- **Stripe Payments Europe, Ltd.** (Irlande) — paiement.
-- **Resend** — envoi des emails transactionnels.
-- **Vercel Inc.** — hébergement du site.
+Nous ne collectons jamais vos coordonnées bancaires. Les paiements sont entièrement sécurisés et traités par Stripe.
 
-Ces prestataires sont engagés contractuellement à ne traiter vos données que pour les besoins du service. Lorsqu’un transfert hors Union européenne a lieu, il est encadré par les clauses contractuelles types de la Commission européenne.
+## 3. Pourquoi collectons-nous ces données ?
 
-Vos données ne sont **jamais vendues, louées ni cédées** à des fins publicitaires.
+Vos données sont utilisées uniquement afin de :
 
-## Vos droits
+- traiter vos commandes ;
+- vous permettre de télécharger vos produits numériques ;
+- envoyer les e-mails liés à votre achat ;
+- répondre à vos demandes ;
+- assurer le suivi de notre relation client ;
+- respecter nos obligations légales et comptables ;
+- améliorer le fonctionnement du site.
 
-Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits d’accès, de rectification, d’effacement, de limitation, d’opposition et de portabilité de vos données.
+Nous ne revendons jamais vos données personnelles.
 
-Pour les exercer, écrivez à ${site.email} : nous répondons sous un mois au maximum, et généralement ${site.support.responseTime}.
+## 4. Base légale du traitement
 
-À noter : les données strictement nécessaires à la facturation ne peuvent être supprimées avant l’expiration du délai légal de conservation.
+Les traitements de données reposent notamment sur :
 
-Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la **CNIL** (cnil.fr).
+- l’exécution du contrat lorsque vous passez une commande ;
+- votre consentement lorsque vous choisissez de recevoir des communications ;
+- le respect de nos obligations légales ;
+- notre intérêt légitime à assurer le bon fonctionnement du site et du service client.
 
-## Cookies
+## 5. Combien de temps vos données sont-elles conservées ?
 
-Le site n’utilise que des cookies techniques, indispensables à son fonctionnement :
+Vos données sont conservées uniquement pendant la durée nécessaire à la réalisation des finalités pour lesquelles elles ont été collectées.
 
-- un cookie de session pour votre espace client ;
-- un stockage local de votre panier dans votre navigateur.
+Certaines informations, notamment les données relatives à la facturation, peuvent être conservées pendant la durée imposée par la législation française.
 
-Ces éléments ne nécessitent pas de consentement préalable et ne permettent aucun suivi publicitaire. Aucun outil de mesure d’audience tiers n’est installé à ce jour ; si cela devait changer, un bandeau de consentement serait mis en place.
+## 6. Avec qui vos données sont-elles partagées ?
 
-## Sécurité
+Vos données peuvent être traitées par les prestataires nécessaires au fonctionnement de notre activité, notamment :
 
-Les fichiers PDF sont stockés sur un espace privé, jamais accessible publiquement. Chaque téléchargement passe par un lien signé cryptographiquement, lié à une commande, à durée de validité limitée et impossible à deviner. Les échanges avec le site sont chiffrés (HTTPS).
+- Systeme.io, qui héberge la boutique et permet la gestion des commandes ;
+- Stripe, qui assure le traitement sécurisé des paiements.
 
-## Modification
+Ces prestataires traitent uniquement les données nécessaires à leurs missions et sont eux-mêmes soumis à leurs propres obligations en matière de protection des données.
 
-Cette politique peut être mise à jour. Toute modification substantielle vous serait signalée par email si vous êtes client ou inscrit à la lettre d’information.`;
+Nous ne vendons ni ne louons vos données personnelles à des tiers.
+
+## 7. Vos droits
+
+Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :
+
+- droit d’accès ;
+- droit de rectification ;
+- droit à l’effacement ;
+- droit à la limitation du traitement ;
+- droit d’opposition ;
+- droit à la portabilité de vos données lorsque celui-ci est applicable.
+
+Vous pouvez exercer ces droits à tout moment en nous contactant à l’adresse suivante : petitsreperes@gmail.com
+
+Nous répondrons à votre demande dans les meilleurs délais et au plus tard dans le délai prévu par la réglementation.
+
+## 8. Sécurité des données
+
+Les Petits Repères met en œuvre des mesures raisonnables afin de protéger les données personnelles contre tout accès non autorisé, toute perte, toute divulgation ou toute modification.
+
+Les paiements sont sécurisés par Stripe et les données bancaires ne transitent jamais par Les Petits Repères.
+
+## 9. Cookies
+
+Le site peut utiliser des cookies nécessaires à son bon fonctionnement.
+
+Des cookies de mesure d’audience ou d’amélioration de l’expérience utilisateur peuvent également être utilisés si vous y consentez.
+
+Vous pouvez modifier vos préférences à tout moment depuis les paramètres de votre navigateur ou via le gestionnaire de consentement lorsqu’il est disponible.
+
+## 10. Modification de la politique de confidentialité
+
+La présente politique peut être modifiée à tout moment afin de tenir compte des évolutions législatives ou des modifications apportées au site.
+
+La version publiée sur le site est celle en vigueur à la date de votre consultation.
+
+## 11. Contact
+
+Pour toute question concernant cette politique de confidentialité ou le traitement de vos données personnelles, vous pouvez nous contacter :
+
+Les Petits Repères — petitsreperes@gmail.com`;
 
 export default function PrivacyPage() {
   return (
     <>
       <PageBanner
         compact
-        title="Confidentialité"
+        title="Confidentialité & protection des données"
         subtitle="Ce que nous collectons, pourquoi, et comment exercer vos droits."
         crumbs={[{ label: 'Confidentialité' }]}
         scene={<BannerScene variant="legal" />}
       />
 
       <div className="shell max-w-prose py-10 lg:py-14">
-        <LegalNotice />
-        <RichText content={content} className="mt-8" />
+        <RichText content={content} />
       </div>
     </>
   );

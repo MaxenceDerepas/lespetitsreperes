@@ -31,10 +31,11 @@ export function ProductCard({ product, compact = false }: { product: Product; co
 
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-card border border-ink/[0.07] bg-white shadow-soft transition-all duration-300 ease-calm hover:-translate-y-1 hover:shadow-lift">
-      {/* Cadre 5/4 pour toutes les vignettes : les photos de fiches vont du
-          carré au 3/2, ce format est celui qui les rogne le moins tout en
-          leur donnant exactement la même taille d'une carte à l'autre. */}
-      <span className="relative block aspect-[5/4] overflow-hidden bg-cream">
+      {/* Cadre carré pour toutes les vignettes : les visuels de présentation
+          des packs sont carrés et portent du texte jusqu'aux bords — tout
+          autre format les rognerait. Les cartes gardent ainsi exactement la
+          même taille d'un pack à l'autre. */}
+      <span className="relative block aspect-square overflow-hidden bg-cream">
         {/* Photo si le produit en a une, sinon le visuel dessiné. */}
         {thumb ? (
           <Image
