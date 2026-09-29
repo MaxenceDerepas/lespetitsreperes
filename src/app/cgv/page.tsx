@@ -31,9 +31,6 @@ Code APE : 82.11Z
 **Adresse électronique**
 petitsreperes@gmail.com
 
-**Site internet**
-https://petitsreperes.systeme.io/
-
 ## Article 2 – Objet
 
 Les présentes Conditions Générales de Vente définissent les droits et obligations des parties dans le cadre de la vente en ligne de produits numériques proposés par Les Petits Repères.

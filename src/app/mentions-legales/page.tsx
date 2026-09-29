@@ -31,9 +31,6 @@ Code APE : 82.11Z
 **Adresse e-mail**
 petitsreperes@gmail.com
 
-**Site internet**
-https://petitsreperes.systeme.io/
-
 ## Directrice de la publication
 
 La directrice de la publication est : Sandrine Quéméré
