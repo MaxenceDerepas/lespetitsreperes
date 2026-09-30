@@ -468,4 +468,3 @@ Reste à faire, du plus bloquant au moins urgent :
       site. À corriger si c'est ce site-ci qui est mis en ligne.
 - [ ] Adhérer à un médiateur de la consommation et renseigner son nom dans
       les CGV (obligatoire pour vendre à des particuliers).
-# lespetitsreperes
