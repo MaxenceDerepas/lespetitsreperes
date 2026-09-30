@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getSessionEmail } from '@/lib/auth';
 import { getOrder } from '@/lib/orders';
 import { site } from '@/lib/site';
 import { formatDate, formatPrice } from '@/lib/format';
@@ -12,25 +11,29 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-/** Facture imprimable (Ctrl/Cmd + P donne un PDF propre). */
+/**
+ * Facture imprimable (Ctrl/Cmd + P donne un PDF propre).
+ *
+ * L'identifiant de commande tient lieu de secret, comme pour la page de
+ * téléchargement : dix-huit caractères hexadécimaux tirés au hasard, jamais
+ * devinables. C'est ce qui permet d'envoyer le lien dans l'email de
+ * confirmation, à une cliente qui n'a pas forcément créé de compte. La page
+ * n'est pas indexée et n'est jamais listée publiquement.
+ */
 export default async function InvoicePage({ params }: { params: Promise<{ id: string }> }) {
-  const email = await getSessionEmail();
-  if (!email) redirect('/connexion');
-
   const { id } = await params;
   const order = getOrder(id);
 
-  // Un client ne peut voir que ses propres factures.
-  if (!order || order.email !== email) notFound();
+  if (!order) notFound();
 
   return (
     <div className="shell max-w-3xl py-10 print:py-0">
       <div className="mb-6 flex items-center justify-between gap-4 print:hidden">
         <Link
-          href="/compte/commandes"
+          href={`/telechargements/${order.id}`}
           className="link-underline text-[0.86rem] font-semibold text-sage-dark"
         >
-          ← Retour à mes commandes
+          ← Retour à mes fichiers
         </Link>
         <p className="text-[0.8rem] text-muted">
           Utilisez l’impression de votre navigateur pour enregistrer un PDF.
@@ -44,6 +47,8 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
             <p className="mt-1.5 font-serif text-xl text-sage-dark">{site.name}</p>
             <p className="mt-1 text-[0.78rem] leading-relaxed text-muted">
               {site.legal.form}
+              <br />
+              {site.legal.address}
               <br />
               SIRET {site.legal.siret}
               <br />

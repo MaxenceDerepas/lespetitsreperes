@@ -14,7 +14,7 @@ import { isEmailConfigured } from '@/lib/email';
 import { formatDateTime, formatPrice, pluralize } from '@/lib/format';
 import { AdminLoginForm } from '@/components/AdminLoginForm';
 import { PageHeader } from '@/components/PageHeader';
-import { CheckIcon, CloseIcon } from '@/components/icons';
+import { CheckIcon, CloseIcon, DownloadIcon } from '@/components/icons';
 
 export const metadata: Metadata = {
   title: 'Administration',
@@ -51,6 +51,8 @@ export default async function AdminPage() {
   const products = getAllProducts();
   const orders = getAllOrders();
   const stats = getOrderStats();
+  const facturees = orders.filter((order) => order.status === 'paid');
+  const encaisseCents = facturees.reduce((somme, order) => somme + order.totalCents, 0);
   const reviews = getAllReviews();
   const avisStats = reviewStats();
   const remoteStorage = isRemoteStorageConfigured();
@@ -241,6 +243,95 @@ export default async function AdminPage() {
               </tbody>
             </table>
           </div>
+        </section>
+
+        {/* Factures */}
+        <section aria-labelledby="factures">
+          <h2 id="factures" className="title text-display-sm">
+            Factures{' '}
+            <span className="text-[0.8rem] font-normal text-muted">
+              ({facturees.length} · {formatPrice(encaisseCents)})
+            </span>
+          </h2>
+          <p className="mt-2 max-w-2xl text-[0.86rem] leading-relaxed text-ink-soft">
+            Une facture par commande payée. Chacune s’ouvre dans une page prête à imprimer :
+            l’impression du navigateur en fait un PDF. L’export CSV s’ouvre directement dans un
+            tableur, pour la comptabilité.
+          </p>
+
+          {facturees.length === 0 ? (
+            <p className="mt-4 rounded-card border border-dashed border-sage/30 bg-white/60 px-5 py-8 text-center text-[0.88rem] text-ink-soft">
+              Aucune facture pour l’instant : elles apparaissent dès la première commande payée.
+            </p>
+          ) : (
+            <>
+              <a
+                href="/admin/factures.csv"
+                className="mt-4 inline-flex items-center gap-2 rounded-full bg-sage-dark px-5 py-2.5 text-[0.85rem] font-semibold text-white transition-colors hover:bg-sage-deep"
+              >
+                <DownloadIcon size={16} />
+                Exporter en CSV
+              </a>
+
+              <div className="mt-5 overflow-x-auto rounded-card border border-ink/[0.07] bg-white">
+                <table className="w-full min-w-[44rem] text-left text-[0.86rem]">
+                  <caption className="sr-only">Liste des factures</caption>
+                  <thead className="border-b border-ink/10 bg-cream/60 text-[0.72rem] uppercase tracking-[0.1em] text-muted">
+                    <tr>
+                      <th scope="col" className="px-4 py-2.5 font-semibold">Numéro</th>
+                      <th scope="col" className="px-4 py-2.5 font-semibold">Date</th>
+                      <th scope="col" className="px-4 py-2.5 font-semibold">Client</th>
+                      <th scope="col" className="px-4 py-2.5 text-right font-semibold">Total</th>
+                      <th scope="col" className="px-4 py-2.5 font-semibold">Paiement</th>
+                      <th scope="col" className="px-4 py-2.5 font-semibold">
+                        <span className="sr-only">Ouvrir</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {facturees.map((order) => (
+                      <tr key={order.id} className="border-b border-ink/[0.06] last:border-0">
+                        <td className="px-4 py-3 font-mono text-[0.78rem] text-ink">
+                          {order.reference}
+                        </td>
+                        <td className="px-4 py-3 text-ink-soft">
+                          {formatDateTime(order.createdAt)}
+                        </td>
+                        <td className="px-4 py-3">
+                          <span className="block text-ink">
+                            {[order.firstName, order.lastName].filter(Boolean).join(' ') || '—'}
+                          </span>
+                          <span className="block text-[0.78rem] text-muted">{order.email}</span>
+                        </td>
+                        <td className="px-4 py-3 text-right font-semibold text-terracotta-deep">
+                          {formatPrice(order.totalCents)}
+                        </td>
+                        <td className="px-4 py-3">
+                          <span
+                            className={`rounded-full px-2.5 py-0.5 text-[0.7rem] font-semibold ${
+                              order.demo
+                                ? 'bg-sand/60 text-ink-soft'
+                                : 'bg-sage-pale/70 text-sage-dark'
+                            }`}
+                          >
+                            {order.demo ? 'démonstration' : 'Stripe'}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-right">
+                          <Link
+                            href={`/compte/commandes/${order.id}/facture`}
+                            className="link-underline whitespace-nowrap font-semibold text-terracotta-deep"
+                          >
+                            Voir la facture
+                          </Link>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          )}
         </section>
 
         {/* Avis clients */}

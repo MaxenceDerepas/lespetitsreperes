@@ -132,6 +132,7 @@ export async function sendOrderEmail(order: Order): Promise<boolean> {
   );
 
   const allFilesUrl = `${baseUrl}/telechargements/${order.id}`;
+  const invoiceUrl = `${baseUrl}/compte/commandes/${order.id}/facture`;
 
   // Un pack livré en plusieurs fichiers (le pack complet) est détaillé sous le
   // bouton ; un pack à fichier unique n'a besoin que du bouton.
@@ -190,6 +191,8 @@ export async function sendOrderEmail(order: Order): Promise<boolean> {
     <p style="font-size:12px;line-height:1.7;color:#91877B;margin:22px 0 0;border-top:1px solid rgba(102,88,75,.08);padding-top:14px;">
       Vos fichiers restent disponibles à tout moment dans votre espace client, rubrique
       « Mes téléchargements ». Commande ${order.reference} — ${formatPrice(order.totalCents)}${order.demo ? ' (commande de démonstration)' : ''}.
+      <br>
+      <a href="${invoiceUrl}" style="color:#788568;">Voir ou télécharger ma facture</a>
     </p>
   `;
 
@@ -217,6 +220,7 @@ export async function sendOrderEmail(order: Order): Promise<boolean> {
     'Des outils pour grandir en confiance',
     '',
     `Vos fichiers restent disponibles dans votre espace client. Commande ${order.reference} — ${formatPrice(order.totalCents)}.`,
+    `Votre facture : ${invoiceUrl}`,
   ].join('\n');
 
   return send({
