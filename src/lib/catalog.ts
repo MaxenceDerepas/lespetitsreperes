@@ -735,7 +735,7 @@ export const products: Product[] = [
     sections: [
       {
         title: 'Pourquoi ça fonctionne ?',
-        body: 'Décider quoi faire ensemble est souvent ce qui bloque : on y pense le soir, quand tout le monde est fatigué, et on finit devant un écran.\n\nLe bocal supprime cette étape. On pioche, on lit, on fait — et comme c’est le hasard qui décide, personne ne négocie. Les enfants adorent ce passage par le tirage au sort, et les parents y gagnent de ne plus avoir à trouver l’idée.\n\nLes cartes durent entre deux et dix minutes : c’est assez court pour tenir dans un quotidien chargé, et assez marquant pour qu’on en redemande.',
+        body: 'Décider quoi faire ensemble est souvent ce qui bloque : on y pense le soir, quand tout le monde est fatigué, et on finit devant un écran.\n\nLe bocal supprime cette étape. On pioche, on lit, on fait — et comme c’est le hasard qui décide, personne ne négocie. Les enfants adorent ce passage par le tirage au sort, et les parents y gagnent de ne plus avoir à trouver l’idée.\n\nLes cartes durent entre deux et dix minutes : c’est assez court pour tenir dans un quotidien chargé, et assez marquant pour qu’on en redemande. Vous pouvez aussi utiliser un minuteur ou un chronomètre pour arrêter le jeu et passer au défi suivant : c’est un bon intermédiaire pour aider l’enfant à s’arrêter et à enchaîner, puisque ce n’est plus l’adulte qui dit stop mais la sonnerie.',
       },
       {
         title: 'Comment l’utiliser ?',
