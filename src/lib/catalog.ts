@@ -470,6 +470,244 @@ export const products: Product[] = [
     related: ['pack-experiences-scientifiques', 'pack-recettes'],
   },
   {
+    id: 'prd_tableau_du_jour',
+    slug: 'tableau-du-jour',
+    name: 'Tableau du jour',
+    tagline: 'Un repère visuel pour commencer la journée en douceur',
+    priceCents: 490,
+    category: 'routines-autonomie',
+    subcategory: 'Repères du quotidien',
+    type: 'Pack PDF',
+    ages: ['3-5 ans', '5-7 ans', '7-10 ans'],
+    pages: 12,
+    format: 'A4 — portrait',
+    description:
+      'Un repère simple pour aider l’enfant à se situer dans la journée : quel jour on est, le temps qu’il fait, comment il se sent, et ce qui l’attend aujourd’hui.\n\nLe tableau se complète chaque matin en quelques minutes, en déplaçant les pictogrammes. L’enfant anticipe sa journée, met des mots sur son humeur et comprend ce qui va se passer — ce qui évite bien des « et après, on fait quoi ? ».\n\nLe pack contient le tableau, la planche des chiffres, jours, mois et météo, et plus de deux cents pictogrammes du quotidien et de missions à découper.',
+    contents: [
+      'Le tableau « Mon tableau du jour » à imprimer et à afficher',
+      'La planche à compléter : la météo, les chiffres de 1 à 31, les jours de la semaine et les douze mois',
+      'Trois planches de pictogrammes « Pour mes missions » : ranger, mettre la table, arroser les plantes, plier le linge, faire ses devoirs, nourrir l’animal…',
+      'Cinq planches de pictogrammes du quotidien : repas, école, toilette, coucher, sport, activités, sorties, rendez-vous, vacances…',
+      'La fiche « Comment utiliser le tableau du jour ? » pour les parents',
+      'La fiche « Les pictogrammes, comment les utiliser ? » : préparer, utiliser et personnaliser les planches',
+      'Des cases vierges pour ajouter vos propres pictogrammes ou vos photos',
+    ],
+    contentsNote:
+      'Imprimé une fois et plastifié, le tableau se réutilise chaque matin : on déplace simplement les pictogrammes.',
+    sections: [
+      {
+        title: 'Pourquoi ça fonctionne ?',
+        body: 'Un enfant n’a pas la même notion du temps qu’un adulte. « Tout à l’heure », « après l’école », « demain » restent flous tant que rien ne les rend visibles.\n\nLe tableau du jour donne une forme concrète à la journée : l’enfant voit ce qui est prévu, dans quel ordre, et peut s’y référer autant de fois qu’il en a besoin. Il anticipe au lieu de subir — et les transitions deviennent nettement plus faciles.\n\nLa partie « Comment je me sens ? » lui permet au passage de nommer son humeur du matin, parfois bien avant de savoir l’expliquer.',
+      },
+      {
+        title: 'Comment l’utiliser ?',
+        body: 'Imprimez le tableau et les planches de pictogrammes, découpez les étiquettes et plastifiez l’ensemble pour qu’il dure. Des pastilles auto-agrippantes ou de la patafix permettent de replacer les pictogrammes chaque jour.\n\nInstallez le tableau à hauteur d’enfant, dans un endroit de passage : la cuisine, l’entrée, sa chambre. Prenez deux ou trois minutes le matin pour le compléter ensemble — la date, la météo, l’humeur, puis les activités du jour.\n\nEt si la journée change en cours de route, modifiez simplement les pictogrammes : c’est une bonne occasion d’apprendre à s’adapter.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Faut-il plastifier les fiches ?',
+        answer:
+          'Ce n’est pas une obligation mais c’est préférable afin qu’elles durent plus longtemps dans le temps. Si vous ne le pouvez pas, une simple pochette plastique peut fonctionner.',
+      },
+      {
+        question: 'Comment fixer les pictogrammes sur le tableau ?',
+        answer:
+          'Une pastille auto-agrippante (type velcro adhésif) sur chaque emplacement fonctionne très bien et permet de replacer les étiquettes autant de fois qu’on veut. Une patafix ou un scotch repositionnable font aussi l’affaire.',
+      },
+      {
+        question: 'Et s’il manque un pictogramme qui correspond à notre quotidien ?',
+        answer:
+          'Des cases vierges sont prévues : vous pouvez y dessiner, y coller une petite photo ou y écrire le mot. C’est souvent ce qui rend le tableau vraiment personnel.',
+      },
+      {
+        question: 'Ce tableau est-il déjà dans le pack routines ?',
+        answer:
+          'Le tableau du jour et les planches de pictogrammes font partie du Pack routines, qui contient en plus le semainier, les routines du matin et du soir, le tableau des missions et les check-lists d’autonomie. Si vous hésitez entre les deux, le pack routines est le choix le plus complet.',
+      },
+    ],
+    images: [
+      {
+        src: '/produits/tableau-du-jour/en-famille.jpg',
+        alt: 'Une maman et ses deux enfants devant le tableau du jour affiché au mur, l’aîné pointe une activité du doigt',
+        width: 1200,
+        height: 1200,
+      },
+      {
+        src: '/produits/tableau-du-jour/le-pack.jpg',
+        alt: 'Le tableau du jour imprimé, avec la planche des chiffres, jours, mois et météo et une planche de pictogrammes de missions',
+        width: 1200,
+        height: 1200,
+        thumb: true,
+      },
+      {
+        src: '/produits/tableau-du-jour/comment-ca-fonctionne.jpg',
+        alt: 'Comment ça fonctionne : je télécharge, j’imprime, je découpe, je plastifie',
+        width: 1200,
+        height: 1199,
+      },
+    ],
+    motif: 'sun',
+    accent: 'peach',
+    isNew: true,
+    popularity: 76,
+    createdAt: '2026-10-02',
+    file: 'tableau-du-jour.pdf',
+    related: ['pack-routines', 'check-lists-du-quotidien'],
+  },
+  {
+    id: 'prd_check_lists',
+    slug: 'check-lists-du-quotidien',
+    name: 'Check-lists du quotidien',
+    tagline: 'Dix check-lists illustrées pour faire seul, du matin au départ en vacances',
+    priceCents: 290,
+    category: 'routines-autonomie',
+    subcategory: 'Autonomie',
+    type: 'Pack PDF',
+    ages: ['3-5 ans', '5-7 ans', '7-10 ans'],
+    pages: 6,
+    format: 'A4 — portrait',
+    description:
+      'Dix check-lists illustrées pour aider votre enfant à devenir autonome, à gagner en confiance et à se sentir fier de ses petites réussites, chaque jour.\n\nS’habiller, préparer son cartable, ranger sa chambre, faire sa valise, s’occuper des plantes ou de son animal : chaque check-list détaille les étapes une à une, avec une image à côté de chaque ligne et une case à cocher.\n\nL’enfant voit ce qu’il lui reste à faire, avance à son rythme et coche lui-même — sans que personne n’ait besoin de le lui rappeler.',
+    contents: [
+      'Je m’habille tout seul',
+      'Je prépare mon cartable',
+      'Je range ma chambre',
+      'Je prépare ma valise',
+      'Je pars en randonnée',
+      'Je prépare les courses',
+      'Je prépare mon sac de piscine',
+      'Je m’occupe des plantes',
+      'Je m’occupe de mon animal',
+      'Je prépare mon anniversaire',
+      'La fiche « Comment les utiliser ? » pour guider les parents',
+    ],
+    contentsNote:
+      'Deux check-lists par page : une image par étape, une case à cocher, et une petite phrase de félicitations à la fin.',
+    sections: [
+      {
+        title: 'Pourquoi ça fonctionne ?',
+        body: 'Une consigne orale disparaît dès qu’elle est prononcée. Une check-list reste.\n\nL’enfant peut la regarder autant de fois qu’il en a besoin, voir où il en est et constater lui-même ce qu’il a accompli. Les étapes étant illustrées, il n’a pas besoin de savoir lire pour s’en servir.\n\nPetit à petit, il dépend moins des rappels de l’adulte : il sait ce qu’il a à faire, et il peut essayer seul.',
+      },
+      {
+        title: 'Comment l’utiliser ?',
+        body: 'Imprimez la check-list qui correspond au besoin du moment, découvrez-la ensemble et expliquez à quoi elle sert. Accompagnez votre enfant les premières fois, puis laissez-le faire à son rythme.\n\nPlastifiée ou glissée dans une pochette plastique, elle se coche au feutre effaçable et se réutilise indéfiniment. Placez-la dans un endroit visible et accessible : la chambre, l’entrée, la salle de bain.\n\nValorisez chaque étape réalisée plutôt que le seul résultat — c’est ce qui donne envie de recommencer.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Faut-il plastifier les fiches ?',
+        answer:
+          'Ce n’est pas une obligation mais c’est préférable afin qu’elles durent plus longtemps dans le temps. Si vous ne le pouvez pas, une simple pochette plastique peut fonctionner.',
+      },
+      {
+        question: 'Mon enfant ne sait pas encore lire, est-ce adapté ?',
+        answer:
+          'Oui. Chaque étape est illustrée et le texte reste secondaire : l’enfant reconnaît l’image avant de lire le mot.',
+      },
+      {
+        question: 'Ces check-lists sont-elles déjà dans le pack routines ?',
+        answer:
+          'Oui. Les check-lists d’autonomie font partie du Pack routines, qui contient en plus le semainier, les routines du matin et du soir, le tableau des missions et les planches de pictogrammes. Si vous hésitez entre les deux, le pack routines est le choix le plus complet.',
+      },
+    ],
+    images: [
+      {
+        src: '/produits/check-lists/presentation.jpg',
+        alt: 'Quatre check-lists imprimées : je m’habille tout seul, je prépare mon cartable, je range ma chambre, je m’occupe de mon animal',
+        width: 1200,
+        height: 1200,
+        thumb: true,
+      },
+      {
+        src: '/produits/check-lists/comment-ca-fonctionne.jpg',
+        alt: 'Comment ça fonctionne : je télécharge, j’imprime, je découpe, je plastifie',
+        width: 1200,
+        height: 1199,
+      },
+    ],
+    motif: 'tools',
+    accent: 'sand',
+    isNew: true,
+    popularity: 70,
+    createdAt: '2026-10-02',
+    file: 'check-lists-du-quotidien.pdf',
+    related: ['pack-routines', 'outils-emotions'],
+  },
+  {
+    id: 'prd_outils_emotions',
+    slug: 'outils-emotions',
+    name: 'Outils émotions',
+    tagline: 'Un tableau, un thermomètre et des cartes pour accueillir les émotions',
+    priceCents: 390,
+    category: 'connexion-emotions',
+    subcategory: 'Émotions au quotidien',
+    type: 'Pack PDF',
+    ages: ['3-5 ans', '5-7 ans', '7-10 ans'],
+    pages: 6,
+    format: 'A4 — paysage',
+    description:
+      'Quatre outils simples et bienveillants pour aider votre enfant à identifier, comprendre et apaiser ses émotions.\n\nLe tableau des émotions permet de nommer ce que l’on ressent, le thermomètre d’en mesurer l’intensité, le visuel « Quand je me sens débordé(e), je peux… » de trouver une idée concrète dans les moments difficiles, et les cartes respiration de se recentrer en douceur.\n\nDes supports à imprimer une fois, à garder à portée de main, et à réutiliser aussi souvent que nécessaire.',
+    contents: [
+      'Le tableau « Mes émotions » avec son emplacement « Aujourd’hui, je me sens… »',
+      'Les 8 pictogrammes émotions à découper : heureux, calme, triste, en colère, inquiet, fatigué, j’ai peur, excité',
+      'Le thermomètre des émotions, de « très heureux » à « très en colère »',
+      'Le visuel « Quand je me sens débordé(e), je peux… » et ses 6 idées illustrées',
+      'Les 8 cartes respiration : souffle la bougie, gonfle le ballon, respire comme une tortue, senteur de fleur, l’étoile qui brille, le ballon qui dégonfle, la plume qui vole, le papillon qui se pose',
+      'Une version garçon et une version fille du thermomètre et du visuel « Quand je me sens débordé(e) »',
+      'La fiche « Comment les utiliser ? » pour guider les parents',
+    ],
+    sections: [
+      {
+        title: 'Pourquoi ça fonctionne ?',
+        body: 'Une émotion est difficile à expliquer avec des mots quand on est petit — et encore plus quand elle est déjà là.\n\nCes supports la rendent visible : l’enfant montre, pointe, déplace une étiquette. Il n’a plus besoin de trouver les mots pour être compris, et il découvre peu à peu que ce qu’il ressent porte un nom, a une intensité, et finit toujours par redescendre.\n\nLes idées et les cartes respiration se découvrent dans les moments calmes, pour pouvoir y revenir naturellement le jour où c’est plus difficile.',
+      },
+      {
+        title: 'Comment l’utiliser ?',
+        body: 'Imprimez le tableau et les pictogrammes, découpez les étiquettes, et installez l’ensemble dans un endroit facilement accessible : la chambre, le coin calme, ou près du tableau des routines.\n\nChaque jour, l’enfant peut choisir l’étiquette qui correspond à ce qu’il ressent et la placer sur le tableau. Le thermomètre vient ensuite préciser l’intensité, et le visuel « Quand je me sens débordé(e) » propose une piste à essayer.\n\nLes cartes respiration se piochent une par une, comme un petit jeu : on choisit une carte et on suit les étapes ensemble.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Faut-il plastifier les fiches ?',
+        answer:
+          'Ce n’est pas une obligation mais c’est préférable afin qu’elles durent plus longtemps dans le temps. Si vous ne le pouvez pas, une simple pochette plastique peut fonctionner.',
+      },
+      {
+        question: 'Mon enfant ne sait pas encore lire, est-ce adapté ?',
+        answer:
+          'Oui. Chaque émotion et chaque idée est illustrée : l’enfant reconnaît l’image avant de lire le mot, et vous lisez le reste avec lui.',
+      },
+      {
+        question: 'Comment fixer les étiquettes sur le tableau ?',
+        answer:
+          'Une pastille auto-agrippante (type velcro adhésif) sur chaque emplacement fonctionne très bien et permet de replacer les étiquettes autant de fois qu’on veut. Une patafix ou un simple scotch repositionnable font aussi l’affaire.',
+      },
+    ],
+    images: [
+      {
+        src: '/produits/outils-emotions/presentation.jpg',
+        alt: 'Le tableau « Mes émotions » imprimé et posé sur une table, avec les huit étiquettes émotions découpées à côté',
+        width: 1200,
+        height: 1200,
+        thumb: true,
+      },
+      {
+        src: '/produits/outils-emotions/comment-ca-fonctionne.jpg',
+        alt: 'Comment ça fonctionne : je télécharge, j’imprime, je découpe, je plastifie',
+        width: 1200,
+        height: 1199,
+      },
+    ],
+    motif: 'heart',
+    accent: 'terracotta',
+    isNew: true,
+    popularity: 72,
+    createdAt: '2026-10-02',
+    file: 'outils-emotions.pdf',
+    related: ['pack-emotions-connexion-confiance', 'pack-routines'],
+  },
+  {
     id: 'prd_pack_complet',
     slug: 'pack-complet-famille-sereine',
     name: 'Pack complet famille sereine',
