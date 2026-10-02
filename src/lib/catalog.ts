@@ -470,6 +470,411 @@ export const products: Product[] = [
     related: ['pack-experiences-scientifiques', 'pack-recettes'],
   },
   {
+    id: 'prd_semainier',
+    slug: 'semainier',
+    name: 'Semainier',
+    tagline: 'Toute la semaine en un coup d’œil, à préparer avec son enfant',
+    priceCents: 390,
+    category: 'routines-autonomie',
+    subcategory: 'Repères du quotidien',
+    type: 'Pack PDF',
+    ages: ['3-5 ans', '5-7 ans', '7-10 ans'],
+    pages: 8,
+    format: 'A4 — portrait',
+    description:
+      'Un semainier à composer ensemble, pour que l’enfant voie ce qui l’attend : les jours d’école et les jours à la maison, les activités, les rendez-vous, les sorties, le week-end.\n\nLe dimanche soir ou le lundi matin, vous le préparez à deux en plaçant les pictogrammes. C’est l’occasion d’en parler : ce qu’il y a demain, combien de dodos avant le mercredi, quand vient le jour du foot.\n\nPlus de deux cents pictogrammes du quotidien sont fournis, et des cases vierges permettent d’ajouter ce qui manque.',
+    contents: [
+      'Le semainier « Mon semainier — ma semaine, mes activités », du lundi au dimanche',
+      'Cinq planches de pictogrammes du quotidien : école, maison, repas, se laver, dormir, devoirs, sport, activités, sorties, rendez-vous, vacances…',
+      'La fiche « Mon semainier, comment l’utiliser ? » avec un exemple de semaine',
+      'La fiche « Les pictogrammes, comment les utiliser ? » : préparer, utiliser et personnaliser les planches',
+      'Des cases vierges pour ajouter vos propres pictogrammes ou vos photos',
+    ],
+    contentsNote:
+      'Imprimé une fois et plastifié, le semainier se recompose chaque semaine : on déplace simplement les pictogrammes.',
+    sections: [
+      {
+        title: 'Pourquoi ça fonctionne ?',
+        body: 'Avant 7 ans, une semaine ne veut pas dire grand-chose : « mercredi » ou « dans trois jours » restent des mots. Un enfant qui ne sait pas ce qui l’attend pose dix fois la même question, ou se bloque le matin devant un changement qu’il n’avait pas vu venir.\n\nLe semainier rend la semaine visible. L’enfant compte les cases, repère les jours d’école, voit arriver le week-end. Les transitions se préparent d’elles-mêmes, et les « pourquoi on va là ? » du matin disparaissent en grande partie.\n\nLe préparer ensemble change aussi son rôle : il ne subit plus le planning, il le lit — et parfois le commente.',
+      },
+      {
+        title: 'Comment l’utiliser ?',
+        body: 'Imprimez le semainier et les planches de pictogrammes, découpez les étiquettes et plastifiez l’ensemble. Des pastilles auto-agrippantes ou de la patafix permettent de les replacer chaque semaine.\n\nPrenez cinq minutes en fin de semaine pour préparer la suivante avec votre enfant : placez les jours d’école, les activités, les rendez-vous, et laissez-le poser lui-même les pictogrammes.\n\nAffichez-le à sa hauteur, dans un endroit de passage. Et si quelque chose change en cours de semaine, déplacez le pictogramme avec lui plutôt que de le lui annoncer : c’est bien plus facile à accepter quand on le voit.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Faut-il plastifier les fiches ?',
+        answer:
+          'Ce n’est pas une obligation mais c’est préférable afin qu’elles durent plus longtemps dans le temps. Si vous ne le pouvez pas, une simple pochette plastique peut fonctionner.',
+      },
+      {
+        question: 'Mon enfant ne sait pas encore lire, est-ce adapté ?',
+        answer:
+          'Oui, c’est même l’intérêt principal. Chaque pictogramme est illustré : l’enfant reconnaît l’image avant de lire le mot, et les couleurs des jours l’aident à se repérer.',
+      },
+      {
+        question: 'Comment fixer les pictogrammes ?',
+        answer:
+          'Une pastille auto-agrippante (type velcro adhésif) sur chaque emplacement fonctionne très bien et permet de replacer les étiquettes autant de fois qu’on veut. Une patafix ou un scotch repositionnable font aussi l’affaire.',
+      },
+      {
+        question: 'Ce semainier est-il déjà dans le pack routines ?',
+        answer:
+          'Oui. Le semainier et les planches de pictogrammes font partie du Pack routines, qui contient en plus les routines du matin et du soir, le tableau du jour, le tableau des missions et les check-lists d’autonomie. Si vous hésitez entre les deux, le pack routines est le choix le plus complet.',
+      },
+    ],
+    images: [
+      {
+        src: '/produits/semainier/le-pack.jpg',
+        alt: 'Le semainier imprimé, du lundi au dimanche, avec deux planches de pictogrammes du quotidien',
+        width: 1200,
+        height: 1200,
+        thumb: true,
+      },
+      {
+        src: '/produits/semainier/comment-ca-fonctionne.jpg',
+        alt: 'Comment ça fonctionne : je télécharge, j’imprime, je découpe, je plastifie',
+        width: 1200,
+        height: 1199,
+      },
+    ],
+    motif: 'leaf',
+    accent: 'sage',
+    isNew: true,
+    popularity: 77,
+    createdAt: '2026-10-02',
+    file: 'semainier.pdf',
+    related: ['pack-routines', 'tableau-du-jour'],
+  },
+  {
+    id: 'prd_tableau_missions',
+    slug: 'tableau-des-missions',
+    name: 'Tableau des missions',
+    tagline: 'Un tableau, des étoiles et des cartes missions — pour participer avec plaisir',
+    priceCents: 390,
+    category: 'routines-autonomie',
+    subcategory: 'Autonomie',
+    type: 'Pack PDF',
+    ages: ['3-5 ans', '5-7 ans', '7-10 ans'],
+    pages: 8,
+    format: 'A4 — portrait',
+    description:
+      'Un tableau de la semaine où l’enfant voit ses missions, les réalise et pose une étoile quand c’est fait.\n\nVous choisissez les missions ensemble, en début de semaine : mettre la table, ranger ses jouets, arroser les plantes, préparer son sac. L’enfant les retrouve chaque jour sans qu’on ait besoin de les lui redire, et voit ses étoiles s’accumuler.\n\nEt pour les jours où il faut un peu de jeu, les cartes Missions proposent des défis bienveillants à relever seul ou en famille — mission éclair, mission super-héros, mission goutte d’eau.',
+    contents: [
+      'Le tableau « Mes missions de la semaine », du lundi au dimanche',
+      'La planche « Mes étoiles » à découper, pour marquer chaque mission réalisée',
+      'Trois planches de pictogrammes missions : ranger, mettre la table, arroser les plantes, préparer son sac, plier le linge, nourrir l’animal, faire ses devoirs…',
+      'Les cartes Missions : des défis ludiques à relever seul ou en famille',
+      'Les encadrés « Mes fiertés de la semaine » et « Mon prochain défi »',
+      'La fiche « Le tableau des missions, comment l’utiliser ? » avec un exemple rempli',
+      'La fiche « Les cartes Missions, comment les utiliser ? »',
+    ],
+    contentsNote:
+      'Pas de système de points ni de récompense à gagner : l’étoile marque ce qui a été fait, rien de plus.',
+    sections: [
+      {
+        title: 'Pourquoi ça fonctionne ?',
+        body: 'Redire dix fois la même chose fatigue tout le monde — et l’enfant finit par attendre le rappel plutôt que d’y penser lui-même.\n\nLe tableau déplace la consigne : ce n’est plus le parent qui demande, c’est le tableau qui montre. L’enfant va voir, fait, pose son étoile. Il garde la main, et c’est précisément ce qui donne envie de recommencer.\n\nLe but n’est pas d’obtenir une récompense mais de rendre visible ce qu’il a accompli. Une semaine réussie à moitié reste une semaine où il a fait des choses seul — et c’est cela qu’on regarde ensemble le dimanche soir.',
+      },
+      {
+        title: 'Comment l’utiliser ?',
+        body: 'Choisissez les missions de la semaine avec votre enfant, en restant raisonnable : trois ou quatre suffisent largement au début. Placez les pictogrammes correspondants dans la colonne de gauche.\n\nChaque fois qu’une mission est réalisée, l’enfant colle ou pose une étoile dans la case du jour. Plastifié, le tableau se réutilise chaque semaine.\n\nUne mission non faite n’efface rien : on ne retire pas d’étoile, on en repose une le lendemain. Les cartes Missions viennent en complément, les jours où l’on a envie de jouer plutôt que de cocher.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Faut-il plastifier les fiches ?',
+        answer:
+          'Ce n’est pas une obligation mais c’est préférable afin qu’elles durent plus longtemps dans le temps. Si vous ne le pouvez pas, une simple pochette plastique peut fonctionner.',
+      },
+      {
+        question: 'Faut-il prévoir une récompense au bout de la semaine ?',
+        answer:
+          'Ce n’est pas l’esprit du tableau. L’étoile marque ce qui a été fait, et la fierté vient de là. Si vous souhaitez marquer le coup, privilégiez un moment partagé — un jeu, une sortie, un goûter préparé ensemble — plutôt qu’un objet à gagner.',
+      },
+      {
+        question: 'Et si mon enfant ne fait pas ses missions ?',
+        answer:
+          'On ne retire pas d’étoile et on ne commente pas la case vide. Il est souvent plus utile de réduire le nombre de missions, ou d’en choisir une qu’il a vraiment envie de faire, que d’insister sur celle qui ne prend pas.',
+      },
+      {
+        question: 'Ce tableau est-il déjà dans le pack routines ?',
+        answer:
+          'Oui. Le tableau des missions, les étoiles et les cartes missions font partie du Pack routines, qui contient en plus le semainier, les routines du matin et du soir, le tableau du jour et les check-lists d’autonomie. Si vous hésitez entre les deux, le pack routines est le choix le plus complet.',
+      },
+    ],
+    images: [
+      {
+        src: '/produits/tableau-des-missions/le-pack.jpg',
+        alt: 'Le tableau « Mes missions de la semaine » imprimé, avec la planche d’étoiles à découper et les cartes missions',
+        width: 1200,
+        height: 1200,
+        thumb: true,
+      },
+      {
+        src: '/produits/tableau-des-missions/comment-ca-fonctionne.jpg',
+        alt: 'Comment ça fonctionne : je télécharge, j’imprime, je découpe, je plastifie',
+        width: 1200,
+        height: 1199,
+      },
+    ],
+    motif: 'star',
+    accent: 'gold',
+    isNew: true,
+    popularity: 75,
+    createdAt: '2026-10-02',
+    file: 'tableau-des-missions.pdf',
+    related: ['pack-routines', 'tableau-du-jour'],
+  },
+  {
+    id: 'prd_cartes_discussion',
+    slug: 'cartes-discussion-parents-enfants',
+    name: 'Cartes discussion parents-enfants',
+    tagline: 'Des questions à se poser, dans les deux sens, pour ouvrir le dialogue',
+    priceCents: 290,
+    category: 'connexion-emotions',
+    subcategory: 'Connexion',
+    type: 'Pack PDF',
+    ages: ['3-5 ans', '5-7 ans', '7-10 ans', 'Toute la famille'],
+    pages: 6,
+    format: 'A4 — paysage',
+    description:
+      'Quarante-cinq cartes pour échanger avec son enfant autrement qu’en lui demandant si sa journée s’est bien passée.\n\nQuinze cartes « Parents & enfants » à poser à l’enfant : ce qui l’a rendu heureux, ce qui a été difficile, de quoi il est fier, ce qu’il aimerait qu’on fasse ensemble. Et trente cartes « Question pour papa/maman » que l’enfant pioche pour interroger ses parents : à quoi tu aimais jouer quand tu étais petit, qu’est-ce qui te rend fier de toi, y avait-il quelque chose que tu n’osais pas faire.\n\nC’est ce double sens qui change tout : l’enfant découvre les souvenirs, les peurs et les rêves de ses parents, et se sent beaucoup plus libre de parler des siens.',
+    contents: [
+      '15 cartes « Parents & enfants » : des questions à poser à votre enfant',
+      '30 cartes « Question pour papa/maman » : des questions que l’enfant vous pose',
+      'Des questions sur la journée, les émotions, les souvenirs, les envies et les rêves',
+      'Des questions douces sur les moments difficiles : la tristesse, l’inquiétude, la colère',
+      'La fiche « Les cartes discussion, comment les utiliser ? » pour les parents',
+      'La fiche « Question pour papa/maman, comment utiliser les cartes ? »',
+      'Des idées de moments pour les sortir : au goûter, pendant un trajet, avant de dormir',
+    ],
+    contentsNote:
+      'Une carte par soir suffit — l’intérêt n’est pas d’aller vite, mais de prendre dix minutes vraiment ensemble.',
+    sections: [
+      {
+        title: 'Pourquoi ça fonctionne ?',
+        body: '« Ça s’est bien passé l’école ? » appelle presque toujours la même réponse. Une question précise, posée au bon moment, en appelle une vraie.\n\nLa carte aide aussi parce qu’elle n’est pas une question du parent : c’est le hasard qui l’a choisie. L’enfant ne se sent pas interrogé, il joue — et il répond.\n\nLes cartes « Question pour papa/maman » font le reste du travail. Un parent qui raconte ce dont il avait peur enfant montre, mieux que n’importe quelle phrase, qu’on a le droit d’avoir peur.',
+      },
+      {
+        title: 'Comment l’utiliser ?',
+        body: 'Imprimez les planches, découpez les cartes et rangez-les dans un bocal ou une boîte. Choisissez un moment calme : le goûter, un trajet, le bord du lit avant de dormir.\n\nChacun tire une carte à tour de rôle — l’enfant comme l’adulte. Il n’y a pas de bonne ou de mauvaise réponse, et chacun reste libre de répondre ou non.\n\nÉcoutez sans juger et sans rebondir trop vite : le silence après une réponse est souvent ce qui permet à la suite d’arriver. Une seule carte par soir est largement suffisante.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Faut-il plastifier les cartes ?',
+        answer:
+          'Ce n’est pas une obligation mais c’est préférable afin qu’elles durent plus longtemps dans le temps. Si vous ne le pouvez pas, une simple pochette plastique peut fonctionner.',
+      },
+      {
+        question: 'Mon enfant ne sait pas encore lire, est-ce adapté ?',
+        answer:
+          'Oui. Chaque carte est illustrée et c’est l’adulte qui lit la question. Dès 3 ans, l’enfant reconnaît la carte à son dessin et choisit celle qu’il veut poser.',
+      },
+      {
+        question: 'Et si mon enfant ne veut pas répondre ?',
+        answer:
+          'C’est prévu, et c’est important : chacun reste libre de passer son tour. Une carte reposée sans réponse n’est pas un échec — c’est souvent ce qui donne envie de reprendre le jeu le lendemain.',
+      },
+      {
+        question: 'Ces cartes sont-elles déjà dans le pack émotions ?',
+        answer:
+          'Oui. Les cartes de discussion font partie du Pack émotions, connexion et confiance, qui contient en plus les cartes défis, le thermomètre des émotions, les cartes respiration et les supports sur la confiance en soi. Si vous hésitez entre les deux, le pack est le choix le plus complet.',
+      },
+    ],
+    images: [
+      {
+        src: '/produits/cartes-discussion/les-cartes.jpg',
+        alt: 'La planche « Cartes discussion parents & enfants » et quatre cartes « question pour papa/maman » imprimées et découpées',
+        width: 1200,
+        height: 1200,
+        thumb: true,
+      },
+      {
+        src: '/produits/cartes-discussion/comment-ca-fonctionne.jpg',
+        alt: 'Comment ça fonctionne : je télécharge, j’imprime, je découpe, je plastifie',
+        width: 1200,
+        height: 1199,
+      },
+    ],
+    motif: 'heart',
+    accent: 'sage',
+    isNew: true,
+    popularity: 71,
+    createdAt: '2026-10-02',
+    file: 'cartes-discussion.pdf',
+    related: ['pack-emotions-connexion-confiance', 'cartes-defis-en-famille'],
+  },
+  {
+    id: 'prd_defis_famille',
+    slug: 'cartes-defis-en-famille',
+    name: 'Cartes défis en famille',
+    tagline: '75 petites cartes à piocher pour jouer, bouger et rire ensemble',
+    priceCents: 290,
+    category: 'connexion-emotions',
+    subcategory: 'Jeux en famille',
+    type: 'Pack PDF',
+    ages: ['3-5 ans', '5-7 ans', '7-10 ans', 'Toute la famille'],
+    pages: 6,
+    format: 'A4 — paysage',
+    description:
+      'Soixante-quinze petites cartes à découper, à plier et à mettre dans un bocal. On en pioche une, et on la fait — tous ensemble.\n\nMarcher comme un pingouin, construire une cabane, faire un câlin de vingt secondes, chercher des nuages rigolos, pierre-feuille-ciseaux, trois respirations allongés par terre : il y a des défis pour bouger, pour rire, pour explorer dehors, et d’autres juste pour se retrouver au calme.\n\nVous n’êtes pas obligé de tout mettre dans le bocal : choisissez les cartes qui conviennent au moment, au lieu et à ce que votre enfant aime.',
+    contents: [
+      '75 cartes défis illustrées à imprimer et découper',
+      'Des défis de motricité : marcher en équilibre, sauter à cloche-pied, ramper comme un serpent, parcours sans bruit',
+      'Des défis d’imitation et de rire : mimer un animal, jacques a dit, ni oui ni non, qui rit perd, chef d’orchestre',
+      'Des défis d’extérieur : attraper les bulles, observer les insectes, chercher des trésors de la nature, pique-nique dehors',
+      'Des moments cocooning : soirée pyjama, construction de cabane, dîner petit-déj, repas pique-nique au salon',
+      'Des cartes connexion : câlin de vingt secondes, dire une qualité sur l’autre, photo drôle tous ensemble, trois respirations',
+      'La fiche « Comment utiliser mes cartes défis en famille ? » pour les parents',
+    ],
+    contentsNote:
+      'À trier par thème selon l’envie du moment : intérieur ou extérieur, dynamique ou calme, à deux ou à toute la famille.',
+    sections: [
+      {
+        title: 'Pourquoi ça fonctionne ?',
+        body: 'Décider quoi faire ensemble est souvent ce qui bloque : on y pense le soir, quand tout le monde est fatigué, et on finit devant un écran.\n\nLe bocal supprime cette étape. On pioche, on lit, on fait — et comme c’est le hasard qui décide, personne ne négocie. Les enfants adorent ce passage par le tirage au sort, et les parents y gagnent de ne plus avoir à trouver l’idée.\n\nLes cartes durent entre deux et dix minutes : c’est assez court pour tenir dans un quotidien chargé, et assez marquant pour qu’on en redemande.',
+      },
+      {
+        title: 'Comment l’utiliser ?',
+        body: 'Imprimez les planches, découpez les cartes et pliez-les en deux, puis mettez-les dans un bocal, un panier ou un petit sac. Chacun tire un papier à tour de rôle.\n\nNe mettez dans le bocal que les cartes qui vous conviennent : vous pouvez trier par thème selon les besoins du moment — motricité, extérieur, calme, connexion — et ajouter les autres plus tard.\n\nUn minuteur aide pour certains jeux : il limite la durée quand c’est nécessaire et garde le jeu dynamique.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Faut-il plastifier les cartes ?',
+        answer:
+          'Ce n’est pas une obligation mais c’est préférable afin qu’elles durent plus longtemps dans le temps. Si vous ne le pouvez pas, une simple pochette plastique peut fonctionner.',
+      },
+      {
+        question: 'Mon enfant ne sait pas encore lire, est-ce adapté ?',
+        answer:
+          'Oui. Chaque carte est illustrée : l’enfant devine souvent le défi rien qu’avec le dessin, et l’adulte lit la phrase.',
+      },
+      {
+        question: 'Ces cartes sont-elles déjà dans le pack émotions ?',
+        answer:
+          'Oui. Les cartes défis font partie du Pack émotions, connexion et confiance, qui contient en plus les cartes de discussion, le thermomètre des émotions, les cartes respiration et les supports sur la confiance en soi. Si vous hésitez entre les deux, le pack est le choix le plus complet.',
+      },
+    ],
+    images: [
+      {
+        src: '/produits/defis-en-famille/en-famille.jpg',
+        alt: 'Une famille attablée pioche des cartes défis dans un bocal pendant que le papa saute à cloche-pied dans le salon',
+        width: 1200,
+        height: 1097,
+      },
+      {
+        src: '/produits/defis-en-famille/les-cartes.jpg',
+        alt: 'Neuf cartes défis imprimées : marcher comme un pingouin, cache-cache, 1 2 3 soleil, construction de cabane, câlin de 20 secondes, marcher en équilibre, pierre feuille ciseaux, soirée pyjama, trois respirations',
+        width: 1200,
+        height: 1200,
+        thumb: true,
+      },
+      {
+        src: '/produits/defis-en-famille/comment-ca-fonctionne.jpg',
+        alt: 'Comment ça fonctionne : je télécharge, j’imprime, je découpe, je plastifie',
+        width: 1200,
+        height: 1199,
+      },
+    ],
+    motif: 'star',
+    accent: 'peach',
+    isNew: true,
+    popularity: 73,
+    createdAt: '2026-10-02',
+    file: 'defis-en-famille.pdf',
+    related: ['pack-emotions-connexion-confiance', 'outils-emotions'],
+  },
+  {
+    id: 'prd_routines_perso',
+    slug: 'routines-personnalisables',
+    name: 'Routines personnalisables',
+    tagline: 'Plusieurs modèles de routines à composer soi-même, avec les pictogrammes',
+    priceCents: 490,
+    category: 'routines-autonomie',
+    subcategory: 'Routines',
+    type: 'Pack PDF',
+    ages: ['2-3 ans', '3-5 ans', '5-7 ans', '7-10 ans'],
+    pages: 10,
+    format: 'A4 — portrait',
+    description:
+      'Plutôt qu’une routine toute faite, de quoi construire celle qui correspond vraiment à votre enfant et à votre quotidien.\n\nPlusieurs modèles vierges — horizontaux, verticaux, numérotés, avec ou sans cases à cocher — et plus de deux cents pictogrammes à découper. Vous choisissez les étapes, leur nombre et leur ordre, et vous les changez le jour où la routine évolue.\n\nUne routine du matin en trois étapes à deux ans, en sept étapes à six ans : c’est le même pack, imprimé autrement.',
+    contents: [
+      'Deux modèles « Ma routine » horizontaux, version jour et version soir',
+      'Deux modèles « Ma routine » verticaux, avec étapes numérotées et cases à cocher',
+      'Le modèle « Aujourd’hui » découpé en matin, midi, après-midi et soir',
+      'Cinq planches de pictogrammes du quotidien : se lever, se laver, repas, école, devoirs, dormir, activités, sorties, sport, vacances…',
+      'La fiche « Comment utiliser la routine personnalisable ? », avec un exemple de routine du matin',
+      'La fiche « Les pictogrammes, comment les utiliser ? » : préparer, utiliser et personnaliser les planches',
+      'Des cases vierges pour ajouter vos propres étapes ou vos photos',
+    ],
+    contentsNote:
+      'Imprimé une fois et plastifié, le support se recompose à volonté : on déplace simplement les pictogrammes.',
+    sections: [
+      {
+        title: 'Pourquoi ça fonctionne ?',
+        body: 'Une routine toute faite ne colle jamais tout à fait : vos matins ne ressemblent pas à ceux du voisin, et ceux de votre aîné ne ressemblent pas à ceux du petit.\n\nEn composant la routine avec votre enfant, vous obtenez une suite d’étapes qu’il reconnaît — et qu’il a choisie, au moins en partie. Il sait ce qui vient ensuite sans qu’on le lui rappelle, et chaque étape franchie se voit.\n\nSurtout, la routine peut évoluer : on ajoute une étape, on en retire une, on change l’ordre. C’est exactement ce qui lui permet de durer plus de trois semaines.',
+      },
+      {
+        title: 'Comment l’utiliser ?',
+        body: 'Choisissez le modèle qui convient — horizontal, vertical, avec ou sans numéros — et imprimez les planches de pictogrammes. Découpez les étiquettes et plastifiez l’ensemble pour qu’il dure.\n\nDes pastilles auto-agrippantes ou de la patafix permettent de replacer librement les pictogrammes. Composez la routine avec votre enfant, en commençant par peu d’étapes, puis ajoutez-en au fur et à mesure.\n\nAffichez-la à sa hauteur, dans la pièce concernée, et laissez-le la suivre seul : votre rôle est de la préparer, pas de la réciter.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Faut-il plastifier les fiches ?',
+        answer:
+          'Ce n’est pas une obligation mais c’est préférable afin qu’elles durent plus longtemps dans le temps. Si vous ne le pouvez pas, une simple pochette plastique peut fonctionner.',
+      },
+      {
+        question: 'Mon enfant ne sait pas encore lire, est-ce adapté ?',
+        answer:
+          'Oui. Chaque pictogramme est illustré et le mot reste secondaire : les modèles sont justement conçus pour les enfants qui ne lisent pas encore.',
+      },
+      {
+        question: 'Combien d’étapes faut-il mettre ?',
+        answer:
+          'Commencez par peu — trois ou quatre suffisent souvent, surtout avant 4 ans — et ajoutez-en au fil des semaines. Une routine trop longue dès le départ décourage ; une routine courte qui réussit donne envie de continuer.',
+      },
+      {
+        question: 'Ces routines sont-elles déjà dans le pack routines ?',
+        answer:
+          'Les routines et les planches de pictogrammes font partie du Pack routines, qui contient en plus le semainier, le tableau du jour, le tableau des missions et les check-lists d’autonomie. Si vous hésitez entre les deux, le pack routines est le choix le plus complet.',
+      },
+    ],
+    images: [
+      {
+        src: '/produits/routines-personnalisables/au-mur.jpg',
+        alt: 'Un garçon place un pictogramme sur sa routine affichée au mur, à sa hauteur',
+        width: 1200,
+        height: 1200,
+      },
+      {
+        src: '/produits/routines-personnalisables/les-modeles.jpg',
+        alt: 'Les modèles de routines imprimés — horizontaux et verticaux — à côté d’une planche de pictogrammes du quotidien',
+        width: 1200,
+        height: 1200,
+        thumb: true,
+      },
+      {
+        src: '/produits/routines-personnalisables/comment-ca-fonctionne.jpg',
+        alt: 'Comment ça fonctionne : je télécharge, j’imprime, je découpe, je plastifie',
+        width: 1200,
+        height: 1199,
+      },
+    ],
+    motif: 'house',
+    accent: 'sageLight',
+    isNew: true,
+    popularity: 74,
+    createdAt: '2026-10-02',
+    file: 'routines-personnalisables.pdf',
+    related: ['pack-routines', 'tableau-du-jour'],
+  },
+  {
     id: 'prd_tableau_du_jour',
     slug: 'tableau-du-jour',
     name: 'Tableau du jour',
