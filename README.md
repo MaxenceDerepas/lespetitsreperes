@@ -28,7 +28,7 @@ pas configuré bascule automatiquement en mode démonstration :
 | `STRIPE_SECRET_KEY` | Le paiement est simulé : la commande est enregistrée comme payée, les téléchargements fonctionnent, aucun débit réel. |
 | `EMAIL_API_KEY` | Les emails sont écrits dans la console du serveur au lieu d'être envoyés. |
 | `DATABASE_URL` | Les commandes sont stockées dans `./.data/orders.json`. |
-| `STORAGE_URL` | Les PDF sont lus depuis `./private/files/`. |
+| `STORAGE_URL` | Les PDF sont lus depuis `./private/files/` — c'est le mode normal, voir « Où sont les PDF ». |
 | `ADMIN_PASSWORD` | L'espace `/admin` reste fermé. |
 
 Chaque bascule est signalée dans l'interface, pour qu'aucun mode démonstration
@@ -169,30 +169,43 @@ Et surtout : **c'est le webhook Stripe qui décide qu'une commande est payée**,
 jamais la page de retour du client, qui peut être ouverte, rechargée ou
 fabriquée à la main.
 
-### Où mettre les PDF : local ou serveur ?
+### Où sont les PDF
 
-Les deux sont **aussi sûrs** : dans les deux cas le fichier est hors de
-`public/` et ne sort que par `/api/download/[token]`. Le choix dépend de
-l'hébergement, pas de la sécurité.
+**Dans le dépôt, sous `private/files/`, et c'est voulu.** Vercel n'a pas de
+disque persistant : un fichier absent du dépôt n'existe pas en production. Les
+PDF sont donc versionnés et embarqués dans la fonction de téléchargement par
+`outputFileTracingIncludes` (`next.config.mjs`).
 
-| Hébergement | PDF en local (`private/files/`) | Bucket privé (Supabase) |
+Être dans le dépôt ne les rend pas publics. `private/` n'est pas `public/` :
+Next.js ne sert jamais ce dossier en statique, et la suite de sécurité vérifie
+qu'un appel direct à `/private/files/<nom>.pdf` répond 404. Le dépôt GitHub est
+privé, et le seul chemin vers un fichier reste `/api/download/[token]`, avec sa
+signature, son expiration, sa vérification de commande payée et son compteur.
+
+Ce que cela coûte : ajouter ou corriger un PDF demande un commit et un
+déploiement, et chaque version reste dans l'historique Git. À quelques
+méga-octets par correction, et avec une recommandation GitHub de rester sous
+1 Go, il y a de la marge pour des années. La limite Vercel est de 250 Mo
+décompressés par fonction ; le dossier pèse aujourd'hui une soixantaine de
+méga-octets.
+
+| Hébergement | PDF dans le dépôt | Bucket privé (Supabase, S3…) |
 | --- | --- | --- |
-| VPS, serveur dédié, o2switch, Coolify… | ✅ le plus simple — pensez juste à la sauvegarde | possible, inutile |
-| Vercel, Netlify (serverless) | ⚠️ fonctionne, mais chaque nouveau PDF impose un redéploiement | ✅ recommandé |
+| Vercel, Netlify (serverless) | ✅ en place — aucun service externe, aucun coût | possible, utile seulement si le dépôt devient lourd |
+| VPS, serveur dédié, o2switch, Coolify… | ✅ fonctionne aussi — pensez à la sauvegarde | possible, inutile |
 
-En serverless, le disque est en lecture seule et remis à zéro à chaque
-déploiement. Les PDF livrés avec le code restent lisibles (voir
-`outputFileTracingIncludes` dans `next.config.mjs`), mais ajouter une fiche
-devient un commit + un déploiement. Et surtout, `.data/orders.json` ne survit
-pas : sur ce type d'hébergement il faut de toute façon une vraie base
-(section « Passer sur une base de données »).
+Le jour où le dépôt deviendrait trop lourd, la bascule tient en trois variables :
+`STORAGE_URL`, `STORAGE_BUCKET` et `SUPABASE_SERVICE_ROLE_KEY`.
+`src/lib/storage.ts` les détecte tout seul et retombe sur le disque local si la
+lecture distante échoue. Le bucket devra être **privé** — un bucket public
+annulerait tout le dispositif.
 
-Pour basculer sur un bucket privé, il suffit de renseigner `STORAGE_URL`,
-`STORAGE_BUCKET` et `SUPABASE_SERVICE_ROLE_KEY` : `src/lib/storage.ts` bascule
-tout seul et retombe sur le disque local si la lecture distante échoue. Le
-bucket doit être **privé** — un bucket public annulerait tout le dispositif.
+⚠️ Ce choix suppose un **dépôt privé**. Si le dépôt devait un jour être rendu
+public, il faudrait d'abord sortir les PDF de l'historique.
 
-Dans tous les cas, ne commitez jamais les vrais PDF dans un dépôt Git public.
+Enfin, les PDF ne sont qu'une moitié du problème : `.data/orders.json` ne
+survit pas non plus à un déploiement. Il faut une vraie base avant d'ouvrir la
+vente (section « Passer sur une base de données »).
 
 ### Le secret de signature
 

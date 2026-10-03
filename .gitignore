@@ -13,8 +13,11 @@ build/
 # Données locales de démonstration (commandes, compteurs de téléchargement)
 .data/
 
-# Fichiers PDF privés des produits (à héberger sur un stockage privé en production)
-private/files/*.pdf
+# Les PDF vendus SONT versionnés — ne pas les ignorer à nouveau.
+# `private/` est hors de `public/`, donc aucun serveur ne les sert directement ;
+# `outputFileTracingIncludes` (next.config.mjs) les embarque dans la fonction
+# /api/download/[token], qui reste le seul point d'accès aux fichiers.
+# Les versionner est ce qui les fait partir avec le déploiement.
 
 npm-debug.log*
 yarn-debug.log*
@@ -22,6 +25,3 @@ yarn-error.log*
 .vercel
 *.tsbuildinfo
 next-env.d.ts
-
-# Les PDF vendus : lourds, et deja presents sur le disque.
-private/files/*.pdf
